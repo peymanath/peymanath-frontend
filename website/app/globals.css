@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: Ray;
+	font-weight: normal;
+	font-style: normal;
+	font-display: fallback;
+	src: url(./fonts/Ray-Medium.woff);
+}
+
+@font-face {
+	font-family: Ray;
+	font-weight: bold;
+	font-style: normal;
+	font-display: fallback;
+	src: url(./fonts/Ray-Black.woff);
+}
+
+@font-face {
+	font-family: Ray;
+	font-weight: 300;
+	font-style: normal;
+	font-display: fallback;
+	src: url(./fonts/Ray-Light.woff);
+}
