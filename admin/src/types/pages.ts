@@ -3,3 +3,8 @@ export interface RouteItem {
 	path: string;
 	element: JSX.Element;
 }
+
+export interface LoginFormValues {
+	email: string;
+	password: string;
+}
