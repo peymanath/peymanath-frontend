@@ -4,15 +4,20 @@ import Input from "@/components/common/Input";
 import { useFormik, FormikProps } from "formik";
 import { LoginFormValues } from "@/types/pages";
 import * as Yup from "yup";
+import LoginRequest from "@/services/auth/login";
 
 export default function Login() {
-	const initialValues: LoginFormValues = { email: "", password: "" };
+	const initialValues: LoginFormValues = {
+		username: "kminchelle",
+		password: "0lelplR",
+	};
 
 	const onSubmit = (values: LoginFormValues) => {
-		console.log(values);
+		LoginRequest({ values })
+			.then((res: any) => console.log(res.data.token))
 	};
 	const validationSchema = Yup.object({
-		email: Yup.string().required("آدرس ایمیل ضروری است."),
+		username: Yup.string().required("نام کاربری ضروری است."),
 		password: Yup.string().required("رمزعبور ضروری است."),
 	});
 
@@ -21,7 +26,6 @@ export default function Login() {
 		onSubmit,
 		validationSchema,
 	});
-
 	return (
 		<main className="h-[100vh]">
 			<div
@@ -39,11 +43,7 @@ export default function Login() {
 					onSubmit={formik.handleSubmit}
 					className="flex flex-col items-center gap-y-6 w-full">
 					<div className="flex flex-col gap-y-2 w-full">
-						<Input
-							name="email"
-							label="ایمیل"
-							formik={formik}
-						/>
+						<Input name="username" label="ایمیل" formik={formik} />
 						<Input
 							name="password"
 							type="password"
