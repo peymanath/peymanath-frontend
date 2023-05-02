@@ -4,8 +4,6 @@ import { useHeader } from "@/context/HeaderProvider";
 
 function Sidebar() {
 	const { globalStore } = useGlobalStore();
-	const { header } = useHeader();
-console.log(header);
 	return (
 		<div className="hidden flex-col gap-5 fixed top-3 bottom-3 right-3 rounded-lg bg-gray-800 text-white md:flex md:w-56 p-3">
 			<div className="flex items-center justify-between gap-3 bg-primary py-1 px-3 rounded-lg">

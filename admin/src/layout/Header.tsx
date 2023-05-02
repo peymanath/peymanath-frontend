@@ -1,3 +1,11 @@
+import { useGlobalStore } from "@/context/GlobalStoreProvider";
+
 export default function Header() {
-	return <h2>Header</h2>;
+	const { globalStore } = useGlobalStore();
+
+	return (
+		<div>
+			<h1>{globalStore.titleHeader}</h1>
+		</div>
+	);
 }

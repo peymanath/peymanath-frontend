@@ -1,11 +1,11 @@
-import { SidebarMenuInterface } from "@/types/context";
+
 import { DirectionDownDouble } from "react-huge-icons/outline";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import { SidebarMenuInterface } from "@/context/GlobalStoreProvider";
 
 function SidebarMenu({ title, url, icon, submenu }: SidebarMenuInterface) {
 	const [showItem, setShowItem] = useState(false);
-
 	return (
 		<li
 			className={`hover:bg-gray-700 ${

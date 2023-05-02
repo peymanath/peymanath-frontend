@@ -1,16 +1,16 @@
-import { GlobalStoreInterface } from "@/types/context";
 import {
 	ClipboardAdd,
 	ClipboardList,
 	Dashboard,
 	DonateCoin,
-    EditRectangle,
-    MailBox,
-    Setting,
-    SpringNotesAdd,
-    SpringNotesList,
-    UserRectangle,
+	EditRectangle,
+	MailBox,
+	Setting,
+	SpringNotesAdd,
+	SpringNotesList,
+	UserRectangle,
 } from "react-huge-icons/outline";
+import { GlobalStoreInterface } from "./GlobalStoreProvider";
 const classIcon: string = "w-6 h-6";
 
 export const GlobalStoreData: GlobalStoreInterface = {
@@ -66,7 +66,7 @@ export const GlobalStoreData: GlobalStoreInterface = {
 			title: "تنظیمات سایت",
 			url: "/setting/general",
 			icon: <Setting className={classIcon} />,
-            submenu: [
+			submenu: [
 				{
 					id: 1,
 					title: "عمومی",
@@ -82,4 +82,5 @@ export const GlobalStoreData: GlobalStoreInterface = {
 			],
 		},
 	],
+	titleHeader: "وبسایت پیمان نادری",
 };

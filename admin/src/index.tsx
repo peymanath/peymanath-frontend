@@ -5,17 +5,20 @@ import { BrowserRouter } from "react-router-dom";
 import AllRoute from "./pages/Route";
 import { HeaderProvider } from "./context/HeaderProvider";
 import { LoadingProvider } from "./context/LoadingProvider";
+import { GlobalStoreProvider } from "./context/GlobalStoreProvider";
 
 const root = ReactDOM.createRoot(
 	document.getElementById("root") as HTMLElement,
 );
 root.render(
 	<BrowserRouter>
-		<LoadingProvider>
-			<HeaderProvider>
-				<AllRoute />
-				<App />
-			</HeaderProvider>
-		</LoadingProvider>
+		<GlobalStoreProvider>
+			<LoadingProvider>
+				<HeaderProvider>
+					<AllRoute />
+					<App />
+				</HeaderProvider>
+			</LoadingProvider>
+		</GlobalStoreProvider>
 	</BrowserRouter>,
 );

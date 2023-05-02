@@ -1,12 +1,16 @@
 import { LoadingProps, SetAction } from "@/types/context";
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, ReactNode } from "react";
 
-const Loading = createContext({
-	isLoading: {} as Partial<boolean>,
-	setIsLoading: {} as SetAction<boolean>,
+interface HeaderContextTypes {
+	isLoading: boolean;
+	setIsLoading: SetAction<boolean>;
+}
+const Loading = createContext<HeaderContextTypes>({
+	isLoading: false,
+	setIsLoading: () => {},
 });
 
-function LoadingProvider({ children }: LoadingProps) {
+const LoadingProvider = ({ children }: { children: ReactNode }) => {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 
 	return (
@@ -14,13 +18,13 @@ function LoadingProvider({ children }: LoadingProps) {
 			{children}
 		</Loading.Provider>
 	);
-}
+};
 
 const useLoading = () => {
 	const context = useContext(Loading);
 
 	if (!context) {
-		throw new Error("useLoading must be used within a HeaderProvider");
+		throw new Error("useHeader must be used within a HeaderProvider");
 	}
 	return context;
 };

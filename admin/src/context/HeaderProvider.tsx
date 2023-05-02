@@ -1,26 +1,35 @@
-import { createContext, useState, useContext } from "react";
-import { HeadersInterface, HeadersProps, SetAction } from "@/types/context";
+import { createContext, useState, useContext, ReactNode } from "react";
+import { SetAction } from "@/types/context";
 
-const Headers = createContext({
-	header: {} as Partial<HeadersInterface>,
-	setHeader: {} as SetAction<HeadersInterface>,
+const storageData =
+	(localStorage.headers && JSON.parse(localStorage.headers)) || {};
+
+interface HeaderTypes {
+	token: string;
+}
+
+interface HeaderContextTypes {
+	header: HeaderTypes;
+	setHeader: SetAction<HeaderTypes>;
+}
+const Headers = createContext<HeaderContextTypes>({
+	header: storageData,
+	setHeader: () => {},
 });
 
-function HeaderProvider({
-	children,
-	value = {} as HeadersInterface,
-}: HeadersProps) {
-	const [header, setHeader] = useState(value);
-
-	!(JSON.stringify(header) === "{}") &&
-		localStorage.setItem("headers", JSON.stringify(header));
+const HeaderProvider = ({ children }: { children: ReactNode }) => {
+	const [header, setHeader] = useState<HeaderTypes>(storageData);
+	localStorage.setItem(
+		"headers",
+		JSON.stringify({ ...header, ...storageData }),
+	);
 
 	return (
 		<Headers.Provider value={{ header, setHeader }}>
 			{children}
 		</Headers.Provider>
 	);
-}
+};
 
 const useHeader = () => {
 	const context = useContext(Headers);

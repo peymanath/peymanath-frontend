@@ -1,34 +1,43 @@
-import {
-	GlobalStoreInterface,
-	GlobalStoreProps,
-	SetAction,
-} from "@/types/context";
-import { createContext, useState, useContext } from "react";
+import { SetAction } from "@/types/context";
+import { createContext, useState, useContext, ReactNode } from "react";
 import { GlobalStoreData } from "./GlobalStoreData";
 
-const GlobalStore = createContext({
-	globalStore: { ...GlobalStoreData } as Partial<GlobalStoreInterface>,
-	setGlobalStore: {} as SetAction<GlobalStoreInterface>,
+export interface SidebarMenuInterface {
+	id: number;
+	title: string;
+	url: string;
+	icon: JSX.Element;
+	submenu?: SidebarMenuInterface[];
+}
+export interface GlobalStoreInterface {
+	sidebarMenu: SidebarMenuInterface[];
+	titleHeader: string
+}
+interface HeaderContextTypes {
+	globalStore: GlobalStoreInterface;
+	setGlobalStore: SetAction<GlobalStoreInterface>;
+}
+const GlobalStore = createContext<HeaderContextTypes>({
+	globalStore: GlobalStoreData,
+	setGlobalStore: () => {},
 });
 
-function GlobalStoreProvider({
-	children,
-	value = {} as GlobalStoreInterface,
-}: GlobalStoreProps) {
-	const [globalStore, setGlobalStore] = useState(value);
+const GlobalStoreProvider = ({ children }: { children: ReactNode }) => {
+	const [globalStore, setGlobalStore] =
+		useState<GlobalStoreInterface>(GlobalStoreData);
 
 	return (
 		<GlobalStore.Provider value={{ globalStore, setGlobalStore }}>
 			{children}
 		</GlobalStore.Provider>
 	);
-}
+};
 
 const useGlobalStore = () => {
 	const context = useContext(GlobalStore);
 
 	if (!context) {
-		throw new Error("useGlobalStore must be used within a GlobalStoreProvider");
+		throw new Error("useHeader must be used within a HeaderProvider");
 	}
 	return context;
 };

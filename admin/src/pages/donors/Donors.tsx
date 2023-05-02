@@ -1,4 +1,10 @@
+import { useGlobalStore } from "@/context/GlobalStoreProvider";
+import { useEffect } from "react";
 
 export default function Donors() {
-    return ( <h2>Donors</h2> );
+	const { globalStore, setGlobalStore } = useGlobalStore();
+	useEffect(() => {
+		setGlobalStore({ ...globalStore, titleHeader: "Donors" });
+	}, []);
+	return <h2>Donors</h2>;
 }
