@@ -74,7 +74,7 @@ export const GlobalStoreData: GlobalStoreInterface = {
 					icon: <EditRectangle className={classIcon} />,
 				},
 				{
-					id: 1,
+					id: 2,
 					title: "حساب کاربری",
 					url: "/setting/account",
 					icon: <UserRectangle className={classIcon} />,

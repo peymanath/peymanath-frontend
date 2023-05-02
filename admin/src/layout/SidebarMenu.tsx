@@ -3,12 +3,11 @@ import { DirectionDownDouble } from "react-huge-icons/outline";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
-function SidebarMenu({ id, title, url, icon, submenu }: SidebarMenuInterface) {
+function SidebarMenu({ title, url, icon, submenu }: SidebarMenuInterface) {
 	const [showItem, setShowItem] = useState(false);
 
 	return (
 		<li
-			key={id}
 			className={`hover:bg-gray-700 ${
 				showItem && "bg-gray-700"
 			} rounded-lg p-2 duration-300`}>
