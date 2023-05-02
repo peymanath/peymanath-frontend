@@ -7,7 +7,11 @@ function SidebarMenu({ id, title, url, icon, submenu }: SidebarMenuInterface) {
 	const [showItem, setShowItem] = useState(false);
 
 	return (
-		<li key={id} className="hover:bg-gray-700 rounded-lg p-2 duration-300">
+		<li
+			key={id}
+			className={`hover:bg-gray-700 ${
+				showItem && "bg-gray-700"
+			} rounded-lg p-2 duration-300`}>
 			<div className="flex gap-3 items-center justify-between">
 				<NavLink to={url} className="flex gap-3 items-center">
 					<div className="flex gap-3 items-center">
@@ -19,12 +23,14 @@ function SidebarMenu({ id, title, url, icon, submenu }: SidebarMenuInterface) {
 					<div
 						onClick={() => setShowItem(!showItem)}
 						className="cursor-pointer">
-						<DirectionDownDouble className={`w-5 h-5 duration-300 ${showItem && "rotate-180"}`} />
+						<DirectionDownDouble
+							className={`w-5 h-5 duration-300 ${showItem ? "rotate-180" : ""}`}
+						/>
 					</div>
 				)}
 			</div>
 			{submenu && (
-				<ul className={`flex flex-col gap-3 pt-2 ${!showItem && "hidden"}`}>
+				<ul className={`flex flex-col gap-3 pt-2 ${!showItem ? "hidden" : ""}`}>
 					{submenu.map(sub => (
 						<li
 							key={sub.id}
