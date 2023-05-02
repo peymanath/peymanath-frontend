@@ -7,7 +7,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 		<>
 			<Sidebar />
 
-			<div className="pr-64 p-3">
+			<div className="md:pr-64 p-3">
 				<Header />
 
 				<main>{children}</main>
