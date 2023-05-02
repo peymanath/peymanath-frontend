@@ -1,8 +1,10 @@
-import Image from "@/components/common/Image";
+import { useGlobalStore } from "@/context/GlobalStoreProvider";
+import SidebarMenu from "./SidebarMenu";
 
 function Sidebar() {
+	const { globalStore } = useGlobalStore();
 	return (
-		<div className="fixed top-3 bottom-3 right-3 rounded-lg bg-gray-800 text-white w-56 p-3">
+		<div className="flex flex-col gap-5 fixed top-3 bottom-3 right-3 rounded-lg bg-gray-800 text-white w-56 p-3">
 			<div className="flex items-center justify-between gap-3 bg-primary py-1 px-3 rounded-lg">
 				<span className="text-xl font-bold">داشبورد کاربری</span>
 				<svg
@@ -39,6 +41,13 @@ function Sidebar() {
 					<rect fill="currentColor" width="803.47" height="109.04" rx="54.52" />
 				</svg>
 			</div>
+			{globalStore.sidebarMenu && (
+				<ul className="flex flex-col gap-3">
+					{globalStore.sidebarMenu.map(props => (
+						<SidebarMenu {...props} />
+					))}
+				</ul>
+			)}
 		</div>
 	);
 }

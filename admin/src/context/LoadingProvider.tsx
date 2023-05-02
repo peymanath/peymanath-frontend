@@ -1,22 +1,12 @@
-import {
-	createContext,
-	useState,
-	ReactNode,
-	Dispatch,
-	SetStateAction,
-	useContext,
-} from "react";
-
-type Props = {
-	children: ReactNode;
-};
+import { LoadingProps, SetAction } from "@/types/context";
+import { createContext, useState, useContext } from "react";
 
 const Loading = createContext({
 	isLoading: {} as Partial<boolean>,
-	setIsLoading: {} as Dispatch<SetStateAction<Partial<boolean>>>,
+	setIsLoading: {} as SetAction<boolean>,
 });
 
-function LoadingProvider({ children }: Props) {
+function LoadingProvider({ children }: LoadingProps) {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 
 	return (

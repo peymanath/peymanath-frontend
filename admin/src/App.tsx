@@ -4,8 +4,6 @@ import { useLoading } from "@/context/LoadingProvider";
 
 export default function App() {
 	const { isLoading } = useLoading();
-	console.log(isLoading);
-
 	return (
 		<>
 			{isLoading && <LoadingWrapper />}

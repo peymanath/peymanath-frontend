@@ -1,29 +1,15 @@
-import {
-	createContext,
-	useState,
-	ReactNode,
-	Dispatch,
-	SetStateAction,
-	useContext,
-} from "react";
-
-interface GlobalStateInterface {
-	token: string;
-}
-type Props = {
-	children: ReactNode;
-	value?: Partial<GlobalStateInterface>;
-};
+import { createContext, useState, useContext } from "react";
+import { HeadersInterface, HeadersProps, SetAction } from "@/types/context";
 
 const Headers = createContext({
-	header: {} as Partial<GlobalStateInterface>,
-	setHeader: {} as Dispatch<SetStateAction<Partial<GlobalStateInterface>>>,
+	header: {} as Partial<HeadersInterface>,
+	setHeader: {} as SetAction<HeadersInterface>,
 });
 
 function HeaderProvider({
 	children,
-	value = {} as GlobalStateInterface,
-}: Props) {
+	value = {} as HeadersInterface,
+}: HeadersProps) {
 	const [header, setHeader] = useState(value);
 
 	!(JSON.stringify(header) === "{}") &&
