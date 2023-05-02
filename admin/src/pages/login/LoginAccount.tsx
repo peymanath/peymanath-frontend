@@ -1,4 +1,4 @@
-import LoginStyle from "@/pages/login/login.module.css";
+import LoginStyle from "./login.module.css";
 import { User } from "react-huge-icons/outline";
 import Input from "@/components/common/Input";
 import { useFormik, FormikProps } from "formik";
@@ -8,7 +8,7 @@ import LoginRequest from "@/services/auth/login";
 import { useHeader } from "@/context/HeaderProvider";
 import { useLoading } from "@/context/LoadingProvider";
 
-export default function Login() {
+export default function LoginAccount() {
 	const { header, setHeader } = useHeader();
 	const { setIsLoading } = useLoading();
 	const onSubmit = (values: LoginFormValues) => {
