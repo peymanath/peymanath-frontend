@@ -1,7 +1,7 @@
 import { Http } from "@/types/services";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://dummyjson.com";
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 export const http: Http = {
 	get: axios.get,

@@ -14,9 +14,12 @@ export default function AllRoute() {
 	const { header } = useHeader();
 
 	useEffect(() => {
-		headers && JSON.parse(headers).token
-			? setIsLogin(true)
-			: navigate("/login");
+		if (headers && JSON.parse(headers).token) {
+			setIsLogin(true);
+			navigate("/");
+		} else {
+			navigate("/login");
+		}
 	}, [header]);
 
 	return isLogin ? (

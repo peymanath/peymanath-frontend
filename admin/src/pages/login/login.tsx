@@ -15,7 +15,7 @@ export default function Login() {
 	const { header, setHeader } = useHeader();
 	const onSubmit = (values: LoginFormValues) => {
 		LoginRequest({ values }).then((res: any) =>
-			setHeader({ ...header, token: res.data.token }),
+			setHeader({ ...header, ...res.data }),
 		);
 	};
 	const validationSchema = Yup.object({
