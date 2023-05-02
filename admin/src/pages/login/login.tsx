@@ -5,16 +5,18 @@ import { useFormik, FormikProps } from "formik";
 import { LoginFormValues } from "@/types/pages";
 import * as Yup from "yup";
 import LoginRequest from "@/services/auth/login";
+import { useHeader } from "@/context/HeaderProvider";
 
 export default function Login() {
 	const initialValues: LoginFormValues = {
 		username: "kminchelle",
 		password: "0lelplR",
 	};
-
+	const { header, setHeader } = useHeader();
 	const onSubmit = (values: LoginFormValues) => {
-		LoginRequest({ values })
-			.then((res: any) => console.log(res.data.token))
+		LoginRequest({ values }).then((res: any) =>
+			setHeader({ ...header, token: res.data.token }),
+		);
 	};
 	const validationSchema = Yup.object({
 		username: Yup.string().required("نام کاربری ضروری است."),
@@ -26,6 +28,7 @@ export default function Login() {
 		onSubmit,
 		validationSchema,
 	});
+
 	return (
 		<main className="h-[100vh]">
 			<div

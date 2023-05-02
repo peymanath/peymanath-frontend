@@ -1,25 +1,23 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
-import Dashboard from "./dashboard";
-import Login from "./login/login";
-import Page404 from "./404/404";
 import { RouteItem } from "@/types/pages";
 import Layout from "../layout";
 import { useEffect, useState } from "react";
+import { useHeader } from "@/context/HeaderProvider";
+import { routeList, routeSingle } from "@/pages/RouteList";
 
-const routeList: RouteItem[] = [
-	{ key: 1, path: "/", element: <Dashboard /> },
-	{ key: 2, path: "*", element: <Page404 /> },
-];
-
-const routeSingle: RouteItem[] = [{ key: 1, path: "*", element: <Login /> }];
-function AllRoute() {
+export default function AllRoute() {
 	const navigate = useNavigate();
+	const headers: string = localStorage.headers;
+	const isLoginInit = headers && JSON.parse(headers).token ? true : false;
 
-	const [isLogin, setIsLogin] = useState<boolean>(false);
+	const [isLogin, setIsLogin] = useState<boolean>(isLoginInit);
+	const { header } = useHeader();
 
 	useEffect(() => {
-		// localStorage.getItem("accessToken") ? setIsLogin(true) : navigate("/login");
-	}, []);
+		headers && JSON.parse(headers).token
+			? setIsLogin(true)
+			: navigate("/login");
+	}, [header]);
 
 	return isLogin ? (
 		<Layout>
@@ -37,5 +35,3 @@ function AllRoute() {
 		</Routes>
 	);
 }
-
-export default AllRoute;
