@@ -6,23 +6,26 @@ import { LoginFormValues } from "@/types/pages";
 import * as Yup from "yup";
 import LoginRequest from "@/services/auth/login";
 import { useHeader } from "@/context/HeaderProvider";
+import { useLoading } from "@/context/LoadingProvider";
 
 export default function Login() {
-	const initialValues: LoginFormValues = {
-		username: "kminchelle",
-		password: "0lelplR",
-	};
 	const { header, setHeader } = useHeader();
+	const { setIsLoading } = useLoading();
 	const onSubmit = (values: LoginFormValues) => {
-		LoginRequest({ values }).then((res: any) =>
-			setHeader({ ...header, ...res.data }),
-		);
+		setIsLoading(true);
+		LoginRequest({ values }).then((res: any) => {
+			setHeader({ ...header, ...res.data });
+			setIsLoading(false);
+		});
 	};
 	const validationSchema = Yup.object({
 		username: Yup.string().required("نام کاربری ضروری است."),
 		password: Yup.string().required("رمزعبور ضروری است."),
 	});
-
+	const initialValues: LoginFormValues = {
+		username: "kminchelle",
+		password: "0lelplR",
+	};
 	const formik: FormikProps<LoginFormValues> = useFormik<LoginFormValues>({
 		initialValues,
 		onSubmit,
