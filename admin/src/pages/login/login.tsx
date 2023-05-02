@@ -41,7 +41,7 @@ export default function Login() {
 					<div className="bg-primary p-2 rounded-md text-white">
 						<User className="w-12 h-12" />
 					</div>
-					<div className="text-secondary font-bold text-xl">
+					<div className="text-primary font-bold text-xl">
 						<p>وارد حساب کاربری خود شوید</p>
 					</div>
 				</div>

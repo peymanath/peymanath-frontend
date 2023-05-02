@@ -1,11 +1,17 @@
 import Header from "./Header";
 import React from "react";
+import Sidebar from "./Sidebar";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
 	return (
 		<>
-			<Header />
-			<main>{children}</main>
+			<Sidebar />
+
+			<div className="pr-64 p-3">
+				<Header />
+
+				<main>{children}</main>
+			</div>
 		</>
 	);
 }

@@ -1,8 +1,9 @@
-export interface Image {
+export interface ImageType {
 	width: number;
 	height: number;
 	src: string;
 	alt: string;
+	className?: string;
 	title?: string;
 }
 

@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
 	darkMode: "class",
 	content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
@@ -12,15 +11,17 @@ module.exports = {
 		},
 		extend: {
 			colors: {
-				primary: "#10A19D",
+				primary: "#113CFC",
+				primaryDark: "#193498",
+				secondary: "#69DADB",
 			},
 			boxShadow: {
 				image: "20px 20px 70px rgba(76, 76, 76, 0.5)",
 				icon: "4px 8px 17px rgba(0, 0, 0, 0.2)",
 			},
 			backgroundImage: {
-				"hero-section": 'url("/public/back-square.svg")',
-				checked: 'url("/public/check-input.svg")',
+				"hero-section": 'url("/public/image/back-square.svg")',
+				checked: 'url("/public/image/check-input.svg")',
 			},
 		},
 	},
