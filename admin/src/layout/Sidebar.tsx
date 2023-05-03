@@ -1,6 +1,5 @@
 import { useGlobalStore } from "@/context/GlobalStoreProvider";
 import SidebarMenu from "./SidebarMenu";
-import { useHeader } from "@/context/HeaderProvider";
 
 function Sidebar() {
 	const { globalStore } = useGlobalStore();

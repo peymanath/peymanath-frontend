@@ -83,4 +83,5 @@ export const GlobalStoreData: GlobalStoreInterface = {
 		},
 	],
 	titleHeader: "وبسایت پیمان نادری",
+	showMenu: false
 };

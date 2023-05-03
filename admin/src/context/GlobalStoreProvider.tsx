@@ -11,7 +11,8 @@ export interface SidebarMenuInterface {
 }
 export interface GlobalStoreInterface {
 	sidebarMenu: SidebarMenuInterface[];
-	titleHeader: string
+	titleHeader: string;
+	showMenu: boolean;
 }
 interface HeaderContextTypes {
 	globalStore: GlobalStoreInterface;

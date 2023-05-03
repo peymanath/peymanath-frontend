@@ -4,7 +4,7 @@ import { useEffect } from "react";
 export default function Donors() {
 	const { globalStore, setGlobalStore } = useGlobalStore();
 	useEffect(() => {
-		setGlobalStore({ ...globalStore, titleHeader: "Donors" });
+		setGlobalStore({ ...globalStore, titleHeader: "دونیت ها" });
 	}, []);
-	return <h2>Donors</h2>;
+	return <h2>دونیت ها</h2>;
 }

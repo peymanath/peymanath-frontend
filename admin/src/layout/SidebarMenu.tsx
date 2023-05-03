@@ -8,8 +8,8 @@ function SidebarMenu({ title, url, icon, submenu }: SidebarMenuInterface) {
 	const [showItem, setShowItem] = useState(false);
 	return (
 		<li
-			className={`hover:bg-gray-700 ${
-				showItem && "bg-gray-700"
+			className={`hover:bg-gray-700 hover:text-white ${
+				showItem && "bg-gray-700 text-white"
 			} rounded-lg p-2 duration-300`}>
 			<div className="flex gap-3 items-center justify-between">
 				<NavLink to={url} className="flex gap-3 items-center">
