@@ -1,7 +1,11 @@
-import { LoginFormValues } from "./pages";
+import { LoginFormValues, SkillsAddFormValues } from "./pages";
 
 export interface LoginRequestType {
 	values: LoginFormValues;
+}
+
+export interface SkillsAddType {
+	values: SkillsAddFormValues;
 }
 
 export interface Http {
