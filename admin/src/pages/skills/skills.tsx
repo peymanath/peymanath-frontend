@@ -7,7 +7,11 @@ import { useEffect } from "react";
 export default function Skills() {
 	const { globalStore, setGlobalStore } = useGlobalStore();
 	useEffect(() => {
-		setGlobalStore({ ...globalStore, titleHeader: "مهارت ها" });
+		setGlobalStore({
+			...globalStore,
+			titleHeader: "مهارت ها",
+			showMenu: false,
+		});
 	}, []);
 	return (
 		<div>
