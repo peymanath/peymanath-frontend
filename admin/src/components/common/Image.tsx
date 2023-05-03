@@ -7,5 +7,8 @@ export default function Image({
 	alt,
 	...props
 }: ImageType): JSX.Element {
-	return <img width={width} height={height} src={src} alt={alt} {...props} />;
+	const ImageURL = require(`../../../public/image/${src}`);
+	return (
+		<img width={width} height={height} src={ImageURL} alt={alt} {...props} />
+	);
 }

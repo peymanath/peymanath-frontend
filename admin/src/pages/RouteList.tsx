@@ -3,7 +3,7 @@ import Page404 from "./404/404";
 import { RouteItem } from "@/types/pages";
 import Projects from "./projects/Projects";
 import ProjectsAdd from "./projects/ProjectsAdd";
-import Skills from "./skills";
+import Skills from "./skills/skills";
 import SkillsAdd from "./skills/SkillsAdd";
 import Donors from "./donors/Donors";
 import Recommendations from "./recommendations/Recommendations";
