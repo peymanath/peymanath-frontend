@@ -9,6 +9,7 @@ import {
 	SpringNotesAdd,
 	SpringNotesList,
 	UserRectangle,
+	ShutDown,
 } from "react-huge-icons/outline";
 import { GlobalStoreInterface } from "./GlobalStoreProvider";
 const classIcon: string = "w-6 h-6";
@@ -81,7 +82,14 @@ export const GlobalStoreData: GlobalStoreInterface = {
 				},
 			],
 		},
+		{
+			id: 7,
+			title: "خروج",
+			url: "/logout",
+			icon: <ShutDown className={classIcon} />,
+		},
 	],
 	titleHeader: "وبسایت پیمان نادری",
-	showMenu: false
+	showMenu: false,
+	isLogin: JSON.parse(localStorage.headers).token ? true : false,
 };

@@ -13,6 +13,7 @@ export interface GlobalStoreInterface {
 	sidebarMenu: SidebarMenuInterface[];
 	titleHeader: string;
 	showMenu: boolean;
+	isLogin: boolean;
 }
 interface HeaderContextTypes {
 	globalStore: GlobalStoreInterface;

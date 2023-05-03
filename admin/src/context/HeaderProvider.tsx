@@ -19,9 +19,10 @@ const Headers = createContext<HeaderContextTypes>({
 
 const HeaderProvider = ({ children }: { children: ReactNode }) => {
 	const [header, setHeader] = useState<HeaderTypes>(storageData);
+
 	localStorage.setItem(
 		"headers",
-		JSON.stringify({ ...header, ...storageData }),
+		JSON.stringify({ ...storageData, ...header }),
 	);
 
 	return (
