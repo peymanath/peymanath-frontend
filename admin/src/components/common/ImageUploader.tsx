@@ -1,7 +1,6 @@
 import { ImageUploaderItem } from "@/types/components";
 import Button from "./Button";
 import { useState } from "react";
-import { RemoveThin } from "react-huge-icons/outline";
 import PopUp from "./PopUp";
 
 export default function ImageUploader({ formik }: ImageUploaderItem) {
@@ -29,11 +28,7 @@ export default function ImageUploader({ formik }: ImageUploaderItem) {
 					/>
 				</div>
 			</div>
-			<PopUp action={showAddSection}>
-				<RemoveThin
-					className="w-10 h-10"
-					onClick={() => setShowAddSection(!showAddSection)}
-				/>
+			<PopUp action={showAddSection} setAction={setShowAddSection}>
 				<p>سکشن مربوط به افزودن تصویر</p>
 			</PopUp>
 		</div>
