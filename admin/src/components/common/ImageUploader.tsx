@@ -57,10 +57,15 @@ export default function ImageUploader({ formik }: ImageUploaderItem) {
 					className="w-full text-gray-800 font-bold pr-1">
 					تصویر بندانگشتی
 				</label>
-				<div className="flex items-center justify-start">
+				<div
+					className="flex items-center justify-start"
+					onDragEnter={handleDragEnter}
+					onDragLeave={handleDragLeave}
+					onDragOver={handleDragOver}
+					onDrop={handleDrop}>
 					{!isDragging && image ? (
 						<div className="flex items-center justify-center w-32">
-							<div className="relative rounded-lg border-2 border-primary/30">
+							<div className="relative w-full rounded-lg border-2 border-primary/30">
 								<div
 									className="absolute -top-3 -left-3 flex gap-1 items-center justify-between bg-red-500 text-white rounded-full p-0.5 select-none cursor-pointer"
 									onClick={() => setImage(null)}>
@@ -102,7 +107,9 @@ export default function ImageUploader({ formik }: ImageUploaderItem) {
 				</div>
 				<div className="w-full pt-14 h-full">
 					<div
-						className="w-full flex items-center justify-between border-2 border-dashed h-40 rounded-md border-primary text-primary mb-3 text-2xl font-bold"
+						className={`w-full flex items-center justify-between border-2 border-dashed h-40 rounded-md border-primary text-primary mb-3 text-2xl font-bold ${
+							isDragging && "bg-slate-300"
+						}`}
 						onDragEnter={handleDragEnter}
 						onDragLeave={handleDragLeave}
 						onDragOver={handleDragOver}
@@ -133,8 +140,9 @@ export default function ImageUploader({ formik }: ImageUploaderItem) {
 					</div>
 
 					<p className="text-lg">
-						برای افزودن تصویر جدید، روی کادر بالا کلیک کنید. فرمت های قابل قبول:{" "}
-						<span className="text-primary">{allowedFileType.join(",")}</span>
+						تصویر خود را داخل کادر بکشید یا روی کادر کلیک کنید. فرمت های قابل
+						قبول:{" "}
+						<span className="text-primary">{allowedFileType.join(", ")}</span>
 					</p>
 				</div>
 			</PopUp>
