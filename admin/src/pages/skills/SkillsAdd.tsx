@@ -7,6 +7,7 @@ import * as Yup from "yup";
 import LoginRequest from "@/services/auth/login";
 import { useHeader } from "@/context/HeaderProvider";
 import { useLoading } from "@/context/LoadingProvider";
+import ImageUploader from "@/components/common/ImageUploader";
 
 export default function SkillsAdd() {
 	const { globalStore, setGlobalStore } = useGlobalStore();
@@ -27,14 +28,12 @@ export default function SkillsAdd() {
 		skillsNameFa: Yup.string().trim().matches(/^[\u0600-\u06FF\uFB8A\u067E\u0686\u06AF7\u200C\u200F ]+$/ , 'لطفا در این قسمت فقط فارسی تایپ کنید.').required("نام فارسی مهارت ضروری است."),
 		skillsNameEn: Yup.string().matches(/^[A-Za-z0-9]+$/ , 'لطفا در این قسمت فقط انگلیسی تایپ کنید.').required("نام انگلیسی مهارت ضروری است."),
 		descriptin: Yup.string().required("توضیحات ضروری است."),
-		imageUrl: Yup.string().required("آدرس عکس ضروری است."),
 	});
 	const initialValues: SkillsAddFormValues = {
 		skillsNameFa: "تایپ اسکریپت",
 		skillsNameEn: "Typescript",
 		descriptin:
 			"زبان برنامه نویسی | همان جاوااسکریپت میباشد اما با قابلیت کنترل تایپ ها",
-		imageUrl: "typescript.png",
 	};
 	const formik: FormikProps<SkillsAddFormValues> =
 		useFormik<SkillsAddFormValues>({
@@ -51,7 +50,7 @@ export default function SkillsAdd() {
 					<Input name="skillsNameFa" label="نام مهارت به فارسی" formik={formik} />
 					<Input name="skillsNameEn" label="نام مهارت به انگلیسی" formik={formik} />
 					<Input name="descriptin" label="توضیحات مهارت" formik={formik} />
-					<Input name="imageUrl" label="ادرس عکس" formik={formik} />
+					<ImageUploader formik={formik} />
 				</div>
 
 				<div className="flex w-full">

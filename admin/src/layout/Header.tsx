@@ -13,7 +13,6 @@ export default function Header() {
 	};
 
 	useEffect(() => {
-		console.log(location);
 		setGlobalStore({ ...globalStore, showMenu: false });
 	}, [location]);
 

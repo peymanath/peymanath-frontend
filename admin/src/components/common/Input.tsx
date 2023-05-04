@@ -15,7 +15,7 @@ export default function Input({
 				id={name}
 				name={name}
 				type={type}
-				className="border border-gray-200 rounded-md p-2 text-sm w-full"
+				className="border border-gray-200 rounded-md py-2 px-5 w-full"
 				{...formik.getFieldProps(name)}
 			/>
 			{formik.errors[name] && formik.touched[name] && (
