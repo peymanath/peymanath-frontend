@@ -60,8 +60,8 @@ export default function SkillsAdd() {
 		<div>
 			<form
 				onSubmit={formik.handleSubmit}
-				className="flex flex-col items-center gap-y-6 w-full">
-				<div className="flex flex-col gap-y-2 w-full">
+				className="flex flex-wrap w-full items-start justify-between gap-6">
+				<div className="flex flex-col w-full md:w-[48%] xl:w-[64%] gap-6 bg-white p-3 rounded-lg shadow">
 					<Input
 						name="skillsNameFa"
 						label="نام مهارت به فارسی"
@@ -73,16 +73,20 @@ export default function SkillsAdd() {
 						formik={formik}
 					/>
 					<Input name="descriptin" label="توضیحات مهارت" formik={formik} />
-					<ImageUploader formik={formik} />
 				</div>
 
-				<div className="flex w-full">
-					<button
-						type="submit"
-						className="bg-primary text-white w-full h-full py-2 px-5 border border-primary rounded-md duration-300 hover:bg-white hover:text-primary disabled:opacity-40 disabled:hover:bg-primary disabled:hover:text-white"
-						disabled={!formik.isValid || formik.isSubmitting}>
-						{formik.isSubmitting ? "در حال پردازش" : "افزودن مهارت"}
-					</button>
+				<div className="flex flex-col w-full md:w-[48%] xl:w-[31%] gap-6">
+					<div className="bg-white p-3 rounded-lg shadow">
+						<ImageUploader formik={formik} />
+					</div>
+					<div className="bg-white p-3 rounded-lg shadow">
+						<button
+							type="submit"
+							className="bg-primary text-white w-full h-full py-2 px-5 border border-primary rounded-md duration-300 hover:bg-white hover:text-primary disabled:opacity-40 disabled:hover:bg-primary disabled:hover:text-white"
+							disabled={!formik.isValid || formik.isSubmitting}>
+							{formik.isSubmitting ? "در حال پردازش" : "افزودن مهارت"}
+						</button>
+					</div>
 				</div>
 			</form>
 		</div>

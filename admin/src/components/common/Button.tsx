@@ -18,7 +18,7 @@ export default function Button({ text, color, onClick }: ButtonType) {
 	return (
 		<ButtonStyled
 			color={color}
-			className={`cursor-pointer py-2 px-5 text-center rounded-md border duration-300 ${
+			className={`w-full cursor-pointer py-2 px-5 text-center rounded-md border duration-300 ${
 				!color && classButton
 			}`}
 			onClick={onClick}>

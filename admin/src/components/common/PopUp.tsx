@@ -12,11 +12,11 @@ export default function PopUp({
 	return (
 		<>
 			<div
-				className={`duration-300 flex inset-0 bg-black/50 backdrop-blur-sm ${
+				className={`duration-300 flex inset-0 bg-black/50 backdrop-blur-sm z-[998] ${
 					action ? "fixed" : "hidden"
 				}`}></div>
 			<div
-				className={`duration-500 flex fixed md:-translate-y-1/2 md:right-1/2 md:translate-x-1/2 md:w-2/3 md:h-2/3 bg-white flex-col p-3 md:rounded-lg ${
+				className={`duration-500 flex fixed md:-translate-y-1/2 md:right-1/2 md:translate-x-1/2 md:w-2/3 md:h-2/3 bg-white flex-col p-3 md:rounded-lg z-[999] ${
 					action ? "inset-0 md:top-1/2" : "-top-1/2"
 				}`}>
 				<RemoveThin className="absolute top-3 right-3 w-10 h-10" onClick={() => setAction(!action)} />

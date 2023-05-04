@@ -2,6 +2,7 @@ import { ImageUploaderItem } from "@/types/components";
 import Button from "./Button";
 import { useState, useRef } from "react";
 import PopUp from "./PopUp";
+import { ImageAdd } from "react-huge-icons/outline";
 
 export default function ImageUploader({ formik }: ImageUploaderItem) {
 	const [showAddSection, setShowAddSection] = useState<boolean>(false);
@@ -9,23 +10,25 @@ export default function ImageUploader({ formik }: ImageUploaderItem) {
 	const allowedFileType = ["webp", "png", "jpg"];
 	return (
 		<div>
-			<div className="flex flex-col gap-2 w-full">
+			<div className="flex flex-col gap-5 w-full">
 				<label
 					htmlFor="thumbnail"
 					className="w-full text-gray-800 font-bold pr-1">
 					تصویر بندانگشتی
 				</label>
-				<div className="flex flex-1 gap-3 items-center justify-between">
+				<div className="flex items-center justify-start" onClick={() => setShowAddSection(!showAddSection)}>
+					<ImageAdd className="flex items-center justify-center border-2 border-dashed p-3 rounded-lg w-32 h-32 text-gray-600/50"/>
+				</div>
+				<div className="flex flex-col gap-3 items-center justify-between">
 					<input
-						id="thumbnail"
-						name="thumbnail"
-						type="text"
-						className="flex-1 border border-gray-200 rounded-md py-2 px-5 w-2/3"
-						{...formik.getFieldProps("thumbnail")}
+						type="file"
+						className="hidden"
+						accept={`image/${allowedFileType.join(",image/")}`}
+						ref={uploderInput}
 					/>
 					<Button
 						text="افزودن عکس"
-						className="w-1/3"
+						className="w-full block"
 						onClick={() => setShowAddSection(!showAddSection)}
 					/>
 				</div>
@@ -45,16 +48,9 @@ export default function ImageUploader({ formik }: ImageUploaderItem) {
 						افزودن عکس جدید
 					</div>
 					<p className="text-lg">
-						برای افزودن تصویر جدید، روی کادر بالا کلیک کنید. فرمت های قابل قبول:
-						{" "}
+						برای افزودن تصویر جدید، روی کادر بالا کلیک کنید. فرمت های قابل قبول:{" "}
 						<span className="text-primary">{allowedFileType.join(",")}</span>
 					</p>
-					<input
-						type="file"
-						className="hidden"
-						accept={`image/${allowedFileType.join(",image/")}`}
-						ref={uploderInput}
-					/>
 				</div>
 			</PopUp>
 		</div>
