@@ -26,6 +26,7 @@ export default function SkillsAdd() {
 		{ setSubmitting }: { setSubmitting: Function },
 	) => {
 		// setIsLoading(true);
+		console.log(values);
 		setTimeout(() => {
 			// setIsLoading(false);
 			setSubmitting(false);
@@ -48,6 +49,7 @@ export default function SkillsAdd() {
 		skillsNameFa: "",
 		skillsNameEn: "",
 		descriptin: "",
+		thumbnail: "",
 	};
 	const formik: FormikProps<SkillsAddFormValues> =
 		useFormik<SkillsAddFormValues>({
@@ -60,7 +62,8 @@ export default function SkillsAdd() {
 		<div>
 			<form
 				onSubmit={formik.handleSubmit}
-				className="flex flex-wrap w-full items-start justify-between gap-6">
+				className="flex flex-wrap w-full items-start justify-between gap-6"
+				encType="multipart/form-data">
 				<div className="flex flex-col w-full md:w-[48%] xl:w-[64%] gap-6 bg-white p-3 rounded-lg shadow">
 					<Input
 						name="skillsNameFa"

@@ -13,4 +13,5 @@ export interface SkillsAddFormValues {
 	skillsNameFa: string;
 	skillsNameEn: string;
 	descriptin: string;
+	thumbnail:string
 }
