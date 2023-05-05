@@ -89,7 +89,7 @@ export default function ImageUploader({ formik }: ImageUploaderItem) {
 							className="flex flex-col gap-3 items-center justify-center border-2 border-dashed border-primary p-3 rounded-lg w-full h-full opacity-50 cursor-pointer text-primary"
 							onClick={() => setShowAddSection(!showAddSection)}>
 							<ImageAdd className="w-20 h-20" />
-							<p> ای دوست، عکس زیبایی روی من بنهاد :)</p>
+							<p className="text-center"> ای دوست، عکس زیبایی را روی من بنهاد :)</p>
 						</div>
 					)}
 				</div>
@@ -117,7 +117,7 @@ export default function ImageUploader({ formik }: ImageUploaderItem) {
 				<div className="w-full py-20 h-full">
 					<div
 						className={`w-full flex items-center justify-between border-2 border-dashed h-40 rounded-md border-primary text-primary mb-3 text-2xl font-bold ${
-							isDragging && "bg-slate-300"
+							isDragging && "bg-primary/10"
 						}`}
 						onDragEnter={handleDragEnter}
 						onDragLeave={handleDragLeave}
