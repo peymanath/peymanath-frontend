@@ -4,8 +4,6 @@ import Input from "@/components/common/Input";
 import { useFormik, FormikProps } from "formik";
 import { SkillsAddFormValues } from "@/types/pages";
 import * as Yup from "yup";
-import LoginRequest from "@/services/auth/login";
-import { useHeader } from "@/context/HeaderProvider";
 import { useLoading } from "@/context/LoadingProvider";
 import ImageUploader from "@/components/common/ImageUploader";
 import Button from "@/components/common/Button";
