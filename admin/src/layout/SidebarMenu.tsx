@@ -33,7 +33,7 @@ function SidebarMenu({ title, url, icon, submenu }: SidebarMenuInterface) {
 					{submenu.map(sub => (
 						<li
 							key={sub.id}
-							className="hover:bg-gray-700 rounded-lg duration-300">
+							className="hover:bg-secondary rounded-lg duration-300">
 							<NavLink
 								to={sub.url}
 								className="flex gap-3 items-center justify-between">

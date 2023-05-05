@@ -1,17 +1,15 @@
+import ImageUploader from "@/components/common/ImageUploader";
+import Button from "@/components/common/Button";
+import { LoadingDashed } from "react-huge-icons/outline";
 import { useGlobalStore } from "@/context/GlobalStoreProvider";
 import { useEffect } from "react";
 import Input from "@/components/common/Input";
 import { useFormik, FormikProps } from "formik";
 import { SkillsAddFormValues } from "@/types/pages";
 import * as Yup from "yup";
-import { useLoading } from "@/context/LoadingProvider";
-import ImageUploader from "@/components/common/ImageUploader";
-import Button from "@/components/common/Button";
-import { LoadingDashed } from "react-huge-icons/outline";
 
 export default function SkillsAdd() {
 	const { globalStore, setGlobalStore } = useGlobalStore();
-	const { setIsLoading } = useLoading();
 
 	useEffect(() => {
 		setGlobalStore({
@@ -25,10 +23,9 @@ export default function SkillsAdd() {
 		values: SkillsAddFormValues,
 		{ setSubmitting }: { setSubmitting: Function },
 	) => {
-		// setIsLoading(true);
 		console.log(values);
+
 		setTimeout(() => {
-			// setIsLoading(false);
 			setSubmitting(false);
 		}, 2000);
 	};
@@ -65,9 +62,7 @@ export default function SkillsAdd() {
 				className="flex flex-wrap w-full items-start justify-between"
 				encType="multipart/form-data">
 				<div className="flex flex-col w-full md:w-[48%] xl:w-[65%] gap-6 bg-white p-3 rounded-lg shadow">
-				<h2 className="w-full text-lg font-bold">
-					اطلاعات مهارت جدید
-				</h2>
+					<h2 className="w-full text-lg font-bold">اطلاعات مهارت جدید</h2>
 					<Input
 						name="skillsNameFa"
 						label="نام مهارت به فارسی"
@@ -79,19 +74,22 @@ export default function SkillsAdd() {
 						formik={formik}
 					/>
 					<Input name="descriptin" label="توضیحات مهارت" formik={formik} />
-						<Button
-							type="submit"
-							className="w-36"
-							disabled={!formik.isValid || formik.isSubmitting}>
-							{formik.isSubmitting ? <LoadingDashed className="w-6 h-6 animate-spin"/> : "افزودن مهارت"}
-						</Button>
+					<Button
+						type="submit"
+						className="w-36"
+						disabled={!formik.isValid || formik.isSubmitting}>
+						{formik.isSubmitting ? (
+							<LoadingDashed className="w-6 h-6 animate-spin" />
+						) : (
+							"افزودن مهارت"
+						)}
+					</Button>
 				</div>
 
 				<div className="flex flex-col w-full md:w-[48%] xl:w-[33%] gap-6">
 					<div className="bg-white p-3 rounded-lg shadow">
 						<ImageUploader formik={formik} />
 					</div>
-
 				</div>
 			</form>
 		</div>
