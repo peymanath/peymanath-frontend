@@ -10,7 +10,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 			<div className="md:pr-64 p-3">
 				<Header />
 
-				<main className="pt-7 p-4">{children}</main>
+				<main className="pt-7">{children}</main>
 			</div>
 		</>
 	);

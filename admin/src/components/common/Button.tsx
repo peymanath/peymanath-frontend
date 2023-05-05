@@ -1,28 +1,31 @@
 import { ButtonType } from "@/types/components";
 import style from "styled-components";
 
-const ButtonStyled = style.span`
+const ButtonStyled = style.button`
 background-color: ${({ color }) => color};
 border-color: ${({ color }) => color};
 color: #fff;
-&:hover {
-    background-color: transparent;
-    color: ${({ color }) => color};
-  }
+box-shadow:0 0 14px 0px ${({ color }) => color}73;
 `;
 
-export default function Button({ text, color, onClick }: ButtonType) {
-	const classButton =
-		"border-primary bg-primary hover:bg-transparent hover:text-primary";
+export default function Button({
+	text,
+	color,
+	type = "button",
+	children,
+	onClick,
+}: ButtonType) {
+	const classButton = "border-primary bg-primary shadow-buttonPrimary";
 
 	return (
 		<ButtonStyled
 			color={color}
-			className={`w-full cursor-pointer py-2 px-5 text-center rounded-md border duration-300 ${
+			className={`flex items-center justify-center w-full cursor-pointer py-2 px-5 text-center rounded-md border duration-300 hover:opacity-70 font-bold ${
 				!color && classButton
 			}`}
-			onClick={onClick}>
-			{text}
+			onClick={onClick}
+			type={type}>
+			{text || children}
 		</ButtonStyled>
 	);
 }

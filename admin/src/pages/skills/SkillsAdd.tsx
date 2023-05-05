@@ -8,6 +8,8 @@ import LoginRequest from "@/services/auth/login";
 import { useHeader } from "@/context/HeaderProvider";
 import { useLoading } from "@/context/LoadingProvider";
 import ImageUploader from "@/components/common/ImageUploader";
+import Button from "@/components/common/Button";
+import { LoadingDashed } from "react-huge-icons/outline";
 
 export default function SkillsAdd() {
 	const { globalStore, setGlobalStore } = useGlobalStore();
@@ -62,9 +64,9 @@ export default function SkillsAdd() {
 		<div>
 			<form
 				onSubmit={formik.handleSubmit}
-				className="flex flex-wrap w-full items-start justify-between gap-6"
+				className="flex flex-wrap w-full items-start justify-between"
 				encType="multipart/form-data">
-				<div className="flex flex-col w-full md:w-[48%] xl:w-[64%] gap-6 bg-white p-3 rounded-lg shadow">
+				<div className="flex flex-col w-full md:w-[48%] xl:w-[65%] gap-6 bg-white p-3 rounded-lg shadow">
 					<Input
 						name="skillsNameFa"
 						label="نام مهارت به فارسی"
@@ -78,17 +80,17 @@ export default function SkillsAdd() {
 					<Input name="descriptin" label="توضیحات مهارت" formik={formik} />
 				</div>
 
-				<div className="flex flex-col w-full md:w-[48%] xl:w-[31%] gap-6">
+				<div className="flex flex-col w-full md:w-[48%] xl:w-[33%] gap-6">
 					<div className="bg-white p-3 rounded-lg shadow">
 						<ImageUploader formik={formik} />
 					</div>
 					<div className="bg-white p-3 rounded-lg shadow">
-						<button
+						<Button
 							type="submit"
-							className="bg-primary text-white w-full h-full py-2 px-5 border border-primary rounded-md duration-300 hover:bg-white hover:text-primary disabled:opacity-40 disabled:hover:bg-primary disabled:hover:text-white"
+							className="w-36"
 							disabled={!formik.isValid || formik.isSubmitting}>
-							{formik.isSubmitting ? "در حال پردازش" : "افزودن مهارت"}
-						</button>
+							{formik.isSubmitting ? <LoadingDashed className="w-6 h-6 animate-spin"/> : "افزودن مهارت"}
+						</Button>
 					</div>
 				</div>
 			</form>

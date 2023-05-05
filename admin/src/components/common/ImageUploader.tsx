@@ -4,28 +4,42 @@ import { useState, useRef, DragEvent } from "react";
 import PopUp from "./PopUp";
 import { ImageAdd, RemoveThin } from "react-huge-icons/outline";
 import { replace } from "formik";
+import { Color } from "@/global/global";
 
 export default function ImageUploader({ formik }: ImageUploaderItem) {
 	const [showAddSection, setShowAddSection] = useState<boolean>(false);
 	const [isDragging, setIsDragging] = useState(false);
+	const [imageFile, setImageFile] = useState<File>();
 	const uploderInput = useRef<HTMLInputElement>(null);
-	const allowedFileType = ["webp", "png", "jpg"];
-
 	const [image, setImage] = useState<any>("");
+	const allowedFileType = ["webp", "png", "jpg"];
 
 	const renderImage = (files: File) => {
 		if (!allowedFileType.includes(files.type.replace("image/", ""))) {
 			return;
 		} else {
-			formik.setFieldValue("thumbnail", files);
+			setImageFile(files);
 			const reader = new FileReader();
 			reader.readAsDataURL(files);
 			reader.onload = () => setImage(reader.result);
 		}
 	};
+
+	const addImage = () => {
+		formik.setFieldValue("thumbnail", imageFile);
+		setShowAddSection(!showAddSection);
+	};
+
+	const removeImage = () => {
+		setImage(null);
+		formik.setFieldValue("thumbnail", null);
+		setShowAddSection(!showAddSection);
+	};
+
 	const inputUploader = (e: React.BaseSyntheticEvent) => {
 		const files = e.currentTarget.files[0];
 		files && renderImage(files);
+		e.target.value = null;
 	};
 	const handleDragEnter = (e: DragEvent<HTMLDivElement>) => {
 		e.preventDefault();
@@ -68,7 +82,7 @@ export default function ImageUploader({ formik }: ImageUploaderItem) {
 							<div className="relative w-full rounded-lg border-2 border-primary/30">
 								<div
 									className="absolute -top-3 -left-3 flex gap-1 items-center justify-between bg-red-500 text-white rounded-full p-0.5 select-none cursor-pointer"
-									onClick={() => setImage(null)}>
+									onClick={removeImage}>
 									<RemoveThin className="w-5 h-5" />
 								</div>
 								<img src={image && image} className="w-full h-full" />
@@ -99,13 +113,10 @@ export default function ImageUploader({ formik }: ImageUploaderItem) {
 			</div>
 			<PopUp action={showAddSection} setAction={setShowAddSection}>
 				<div className="absolute top-5 left-3">
-					<Button
-						text="انتخاب از گالری"
-						className="w-36"
-						onClick={() => setShowAddSection(!showAddSection)}
-					/>
+					<Button text="انتخاب از گالری" className="w-36" />
 				</div>
-				<div className="w-full pt-14 h-full">
+
+				<div className="w-full py-14 h-full">
 					<div
 						className={`w-full flex items-center justify-between border-2 border-dashed h-40 rounded-md border-primary text-primary mb-3 text-2xl font-bold ${
 							isDragging && "bg-slate-300"
@@ -130,7 +141,7 @@ export default function ImageUploader({ formik }: ImageUploaderItem) {
 								<div className="relative w-32 rounded-lg border-2 border-primary/30">
 									<div
 										className="absolute -top-3 -left-3 flex gap-1 items-center justify-between bg-red-500 text-white rounded-full p-0.5 select-none cursor-pointer"
-										onClick={() => setImage(null)}>
+										onClick={removeImage}>
 										<RemoveThin className="w-5 h-5" />
 									</div>
 									<img src={image && image} className="w-full h-full" />
@@ -139,11 +150,31 @@ export default function ImageUploader({ formik }: ImageUploaderItem) {
 						)}
 					</div>
 
-					<p className="text-lg">
-						تصویر خود را داخل کادر بکشید یا روی کادر کلیک کنید. فرمت های قابل
-						قبول:{" "}
-						<span className="text-primary">{allowedFileType.join(", ")}</span>
-					</p>
+					<div>
+						<p className="text-lg">
+							تصویر خود را داخل کادر بکشید یا روی کادر کلیک کنید. فرمت های قابل
+							قبول:{" "}
+							<span className="text-primary">{allowedFileType.join(", ")}</span>
+						</p>
+					</div>
+				</div>
+
+				<div className="absolute bottom-5 left-3">
+					<Button
+						text="قرار دادن عکس"
+						className="w-36"
+						color="#29bf12"
+						onClick={addImage}
+					/>
+				</div>
+
+				<div className="absolute bottom-5 right-3">
+					<Button
+						text="لغو افزودن عکس"
+						className="w-36"
+						color="#d00000"
+						onClick={removeImage}
+					/>
 				</div>
 			</PopUp>
 		</div>

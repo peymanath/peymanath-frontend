@@ -1,3 +1,17 @@
+interface ButtonHTMLAttributes<T> {
+	autoFocus?: boolean | undefined;
+	disabled?: boolean | undefined;
+	form?: string | undefined;
+	formAction?: string | undefined;
+	formEncType?: string | undefined;
+	formMethod?: string | undefined;
+	formNoValidate?: boolean | undefined;
+	formTarget?: string | undefined;
+	name?: string | undefined;
+	type?: "submit" | "reset" | "button" | undefined;
+	value?: string | ReadonlyArray<string> | number | undefined;
+}
+
 export interface ImageType {
 	width: number;
 	height: number;
@@ -20,8 +34,20 @@ export interface ImageUploaderItem {
 }
 
 export type ButtonType = {
-	text: string | JSX.Element;
+	text?: string | JSX.Element;
 	color?: string;
+	autoFocus?: boolean | undefined;
+	disabled?: boolean | undefined;
+	form?: string | undefined;
+	formAction?: string | undefined;
+	formEncType?: string | undefined;
+	formMethod?: string | undefined;
+	formNoValidate?: boolean | undefined;
+	formTarget?: string | undefined;
+	name?: string | undefined;
+	type?: "submit" | "reset" | "button" | undefined;
+	value?: string | ReadonlyArray<string> | number | undefined;
 	className?: string;
-	onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+	children?: React.ReactNode;
+	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };

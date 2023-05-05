@@ -9,7 +9,7 @@ function SidebarMenu({ title, url, icon, submenu }: SidebarMenuInterface) {
 	return (
 		<li
 			className={`hover:bg-gray-700 hover:text-white ${
-				showItem && "bg-gray-700 text-white"
+				showItem && "bg-gray-100"
 			} rounded-lg p-2 duration-300`}>
 			<div className="flex gap-3 items-center justify-between">
 				<NavLink to={url} className="flex gap-3 items-center">
@@ -23,7 +23,7 @@ function SidebarMenu({ title, url, icon, submenu }: SidebarMenuInterface) {
 						onClick={() => setShowItem(!showItem)}
 						className="cursor-pointer">
 						<DirectionDownDouble
-							className={`w-5 h-5 duration-300 ${showItem ? "rotate-180" : ""}`}
+							className={`w-5 h-5 ${showItem ? "rotate-180" : ""}`}
 						/>
 					</div>
 				)}

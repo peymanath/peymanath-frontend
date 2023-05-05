@@ -1,5 +1,4 @@
 export const Color = {
-	peimary: "#113CFC",
-	primaryDark: "#193498",
-	secondary: "#69DADB",
+	primary: "#ff6d00",
+	secondary: "#3c096c",
 };
