@@ -65,6 +65,9 @@ export default function SkillsAdd() {
 				className="flex flex-wrap w-full items-start justify-between"
 				encType="multipart/form-data">
 				<div className="flex flex-col w-full md:w-[48%] xl:w-[65%] gap-6 bg-white p-3 rounded-lg shadow">
+				<h2 className="w-full text-lg font-bold">
+					اطلاعات مهارت جدید
+				</h2>
 					<Input
 						name="skillsNameFa"
 						label="نام مهارت به فارسی"
@@ -76,20 +79,19 @@ export default function SkillsAdd() {
 						formik={formik}
 					/>
 					<Input name="descriptin" label="توضیحات مهارت" formik={formik} />
-				</div>
-
-				<div className="flex flex-col w-full md:w-[48%] xl:w-[33%] gap-6">
-					<div className="bg-white p-3 rounded-lg shadow">
-						<ImageUploader formik={formik} />
-					</div>
-					<div className="bg-white p-3 rounded-lg shadow">
 						<Button
 							type="submit"
 							className="w-36"
 							disabled={!formik.isValid || formik.isSubmitting}>
 							{formik.isSubmitting ? <LoadingDashed className="w-6 h-6 animate-spin"/> : "افزودن مهارت"}
 						</Button>
+				</div>
+
+				<div className="flex flex-col w-full md:w-[48%] xl:w-[33%] gap-6">
+					<div className="bg-white p-3 rounded-lg shadow">
+						<ImageUploader formik={formik} />
 					</div>
+
 				</div>
 			</form>
 		</div>

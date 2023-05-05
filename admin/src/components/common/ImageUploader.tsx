@@ -64,9 +64,9 @@ export default function ImageUploader({ formik }: ImageUploaderItem) {
 	return (
 		<div>
 			<div className="flex flex-col gap-5 w-full">
-				<label htmlFor="thumbnail" className="w-full pr-1">
+				<h2 className="w-full text-lg font-bold">
 					تصویر بندانگشتی
-				</label>
+				</h2>
 				<div
 					className="flex items-center justify-start"
 					onDragEnter={handleDragEnter}
