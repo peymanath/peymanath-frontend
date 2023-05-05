@@ -11,6 +11,7 @@ box-shadow:0 0 14px 0px ${({ color }) => color}73;
 export default function Button({
 	text,
 	color,
+	width = "w-full",
 	type = "button",
 	children,
 	onClick,
@@ -20,7 +21,7 @@ export default function Button({
 	return (
 		<ButtonStyled
 			color={color}
-			className={`flex items-center justify-center w-full cursor-pointer py-2 px-5 text-center rounded-md border duration-300 hover:opacity-70 font-bold ${
+			className={`flex items-center justify-center ${width} cursor-pointer py-2 px-5 text-center rounded-md border duration-300 hover:opacity-70 hover:shadow-none ${
 				!color && classButton
 			}`}
 			onClick={onClick}

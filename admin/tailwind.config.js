@@ -3,11 +3,11 @@ module.exports = {
 	content: ["./src/**/*.{js,ts,jsx,tsx,mdx}","./public/index.html"],
 	theme: {
 		fontFamily: {
-			serif: ["Ray"],
-			sans: ["Ray"],
-			display: ["Ray"],
-			body: ["Ray"],
-			mono: ["Ray"],
+			serif: ["IRANSansXFaNum"],
+			sans: ["IRANSansXFaNum"],
+			display: ["IRANSansXFaNum"],
+			body: ["IRANSansXFaNum"],
+			mono: ["IRANSansXFaNum"],
 		},
 		extend: {
 			colors: {

@@ -70,7 +70,7 @@ export const SkillsList: SkillsListItem[] = [
 		id: 6,
 		titleFa: "نکست جی اس",
 		titleEn: "Next.js",
-		descriptin: "کتابخانه بر گرفته شده از ری اکت برای رفع ایرادات ری اکت",
+		descriptin: "کتابخانه ای برای رفع ایرادات ری اکت",
 		imageUrl: "next-js.png",
 		metaData: {
 			recommmendations: 167,

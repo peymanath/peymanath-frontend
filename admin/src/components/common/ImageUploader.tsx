@@ -3,8 +3,6 @@ import Button from "./Button";
 import { useState, useRef, DragEvent } from "react";
 import PopUp from "./PopUp";
 import { ImageAdd, RemoveThin } from "react-huge-icons/outline";
-import { replace } from "formik";
-import { Color } from "@/global/global";
 
 export default function ImageUploader({ formik }: ImageUploaderItem) {
 	const [showAddSection, setShowAddSection] = useState<boolean>(false);
@@ -33,7 +31,7 @@ export default function ImageUploader({ formik }: ImageUploaderItem) {
 	const removeImage = () => {
 		setImage(null);
 		formik.setFieldValue("thumbnail", null);
-		setShowAddSection(!showAddSection);
+		setShowAddSection(false);
 	};
 
 	const inputUploader = (e: React.BaseSyntheticEvent) => {
@@ -66,9 +64,7 @@ export default function ImageUploader({ formik }: ImageUploaderItem) {
 	return (
 		<div>
 			<div className="flex flex-col gap-5 w-full">
-				<label
-					htmlFor="thumbnail"
-					className="w-full text-gray-800 font-bold pr-1">
+				<label htmlFor="thumbnail" className="w-full pr-1">
 					تصویر بندانگشتی
 				</label>
 				<div
@@ -89,10 +85,12 @@ export default function ImageUploader({ formik }: ImageUploaderItem) {
 							</div>
 						</div>
 					) : (
-						<ImageAdd
-							className="flex items-center justify-center border-2 border-dashed p-3 rounded-lg w-32 h-32 text-gray-600/50"
-							onClick={() => setShowAddSection(!showAddSection)}
-						/>
+						<div
+							className="flex flex-col gap-3 items-center justify-center border-2 border-dashed border-primary p-3 rounded-lg w-full h-full opacity-50 cursor-pointer text-primary"
+							onClick={() => setShowAddSection(!showAddSection)}>
+							<ImageAdd className="w-20 h-20" />
+							<p> ای دوست، عکس زیبایی روی من بنهاد :)</p>
+						</div>
 					)}
 				</div>
 				<div className="flex flex-col gap-3 items-center justify-between">
@@ -116,7 +114,7 @@ export default function ImageUploader({ formik }: ImageUploaderItem) {
 					<Button text="انتخاب از گالری" className="w-36" />
 				</div>
 
-				<div className="w-full py-14 h-full">
+				<div className="w-full py-20 h-full">
 					<div
 						className={`w-full flex items-center justify-between border-2 border-dashed h-40 rounded-md border-primary text-primary mb-3 text-2xl font-bold ${
 							isDragging && "bg-slate-300"
@@ -151,7 +149,7 @@ export default function ImageUploader({ formik }: ImageUploaderItem) {
 					</div>
 
 					<div>
-						<p className="text-lg">
+						<p className="text-base font-bold">
 							تصویر خود را داخل کادر بکشید یا روی کادر کلیک کنید. فرمت های قابل
 							قبول:{" "}
 							<span className="text-primary">{allowedFileType.join(", ")}</span>
@@ -159,21 +157,18 @@ export default function ImageUploader({ formik }: ImageUploaderItem) {
 					</div>
 				</div>
 
-				<div className="absolute bottom-5 left-3">
-					<Button
-						text="قرار دادن عکس"
-						className="w-36"
-						color="#29bf12"
-						onClick={addImage}
-					/>
-				</div>
-
-				<div className="absolute bottom-5 right-3">
+				<div className="flex flex-wrap items-center justify-between">
 					<Button
 						text="لغو افزودن عکس"
-						className="w-36"
+						width="w-auto"
 						color="#d00000"
 						onClick={removeImage}
+					/>
+					<Button
+						text="قرار دادن عکس"
+						width="w-auto"
+						color="#29bf12"
+						onClick={addImage}
 					/>
 				</div>
 			</PopUp>

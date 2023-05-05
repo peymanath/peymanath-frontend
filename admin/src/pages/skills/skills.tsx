@@ -30,16 +30,16 @@ export default function Skills() {
 
 									<Image width={50} height={50} src={imageUrl} alt="" />
 								</div>
-								<div className="">{descriptin}</div>
+								<div className="leading-7">{descriptin}</div>
 								<div className="flex gap-1 items-start justify-between ">
 									<div className="flex gap-2 items-center">
 										<MailBox className="w-6 h-6 text-primary" />
-										<span className="text-xl leading-none pt-1">
+										<span className=" leading-none pt-1">
 											{metaData.recommmendations}
 										</span>
 									</div>
 									<div className="flex gap-2 items-center">
-										<span className="text-xl leading-none pt-1">
+										<span className=" leading-none pt-1">
 											{metaData.project}
 										</span>
 										<ClipboardList className="w-6 h-6 text-rose-500" />

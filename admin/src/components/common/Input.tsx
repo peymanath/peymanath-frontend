@@ -8,7 +8,7 @@ export default function Input({
 }: InputItem) {
 	return (
 		<div className="flex flex-col gap-y-2 w-full">
-			<label htmlFor={name} className="font-bold pr-1">
+			<label htmlFor={name} className="pr-1">
 				{label}
 			</label>
 			<input

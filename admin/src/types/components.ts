@@ -36,6 +36,7 @@ export interface ImageUploaderItem {
 export type ButtonType = {
 	text?: string | JSX.Element;
 	color?: string;
+	width?: string;
 	autoFocus?: boolean | undefined;
 	disabled?: boolean | undefined;
 	form?: string | undefined;
