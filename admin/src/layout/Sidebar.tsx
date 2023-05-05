@@ -4,7 +4,7 @@ import SidebarMenu from "./SidebarMenu";
 function Sidebar() {
 	const { globalStore } = useGlobalStore();
 	return (
-		<div className="hidden flex-col gap-5 fixed top-3 bottom-3 right-3 rounded-lg bg-white md:flex md:w-56 p-3 shadow">
+		<div className="hidden flex-col gap-5 fixed top-3 bottom-3 right-3 rounded-lg bg-white md:flex md:w-64 p-3 shadow">
 			<div className="flex items-center justify-between gap-3 bg-primary text-white py-1 px-3 rounded-lg">
 				<span className="text-xl font-bold">داشبورد کاربری</span>
 				<svg
