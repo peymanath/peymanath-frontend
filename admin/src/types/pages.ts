@@ -7,6 +7,8 @@ export interface RouteItem {
 export interface LoginFormValues {
 	username: string;
 	password: string;
+	joinedAt: Date,
+	active: boolean
 }
 
 export interface SkillsAddFormValues {

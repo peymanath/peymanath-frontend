@@ -11,11 +11,13 @@ import { useLoading } from "@/context/LoadingProvider";
 export default function LoginAccount() {
 	const { header, setHeader } = useHeader();
 	const { setIsLoading } = useLoading();
+	const now = new Date();
 	const onSubmit = (values: LoginFormValues) => {
 		setIsLoading(true);
 		LoginRequest({ values }).then((res: any) => {
 			setHeader({ ...header, ...res.data });
 			setIsLoading(false);
+			// console.log(res.data);
 		});
 	};
 	const validationSchema = Yup.object({
@@ -25,6 +27,8 @@ export default function LoginAccount() {
 	const initialValues: LoginFormValues = {
 		username: "kminchelle",
 		password: "0lelplR",
+		joinedAt: now,
+		active: false
 	};
 	const formik: FormikProps<LoginFormValues> = useFormik<LoginFormValues>({
 		initialValues,
@@ -56,6 +60,8 @@ export default function LoginAccount() {
 							label="رمزعبور"
 							formik={formik}
 						/>
+						<input type="hidden" name="joinedAt" />
+						<input type="hidden" name="active" />
 					</div>
 
 					<div className="flex w-full">

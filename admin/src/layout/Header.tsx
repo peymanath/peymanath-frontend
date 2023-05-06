@@ -17,14 +17,14 @@ export default function Header() {
 	}, [location]);
 
 	return (
-		<div className="flex gap-3 items-center justify-between w-full p-3 bg-white rounded-lg sticky top-3 min-h-[50px] shadow">
+		<div className="flex gap-3 items-center justify-between w-full p-3 bg-white rounded-lg sticky top-3 min-h-[50px] shadow z-[998]">
 			<h1 className="text-lg">{globalStore.titleHeader}</h1>
 			<div className="relative flex md:hidden cursor-pointer">
 				<MenuLineHorizontal className="w-10 h-10" onClick={toggleMenu} />
 
 				<div
 					id="mobile-menu"
-					className="fixed top-5 left-5 bg-white rounded-lg shadow">
+					className="fixed top-5 left-5 bg-white rounded-lg shadow z-[999]">
 					<div
 						className={`relative w-full h-full p-2 pl-12 ${
 							globalStore.showMenu ? "flex" : "hidden"

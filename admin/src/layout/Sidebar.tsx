@@ -41,13 +41,15 @@ function Sidebar() {
 					<rect fill="currentColor" width="803.47" height="109.04" rx="54.52" />
 				</svg>
 			</div>
-			{globalStore.sidebarMenu && (
-				<ul className="flex flex-col gap-3">
-					{globalStore.sidebarMenu.map(props => (
-						<SidebarMenu key={props.id} {...props} />
-					))}
-				</ul>
-			)}
+			<div className="overflow-auto">
+				{globalStore.sidebarMenu && (
+					<ul className="flex flex-col gap-3">
+						{globalStore.sidebarMenu.map(props => (
+							<SidebarMenu key={props.id} {...props} />
+						))}
+					</ul>
+				)}
+			</div>
 		</div>
 	);
 }

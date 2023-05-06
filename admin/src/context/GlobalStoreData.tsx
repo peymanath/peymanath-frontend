@@ -91,5 +91,5 @@ export const GlobalStoreData: GlobalStoreInterface = {
 	],
 	titleHeader: "وبسایت پیمان نادری",
 	showMenu: false,
-	isLogin: JSON.parse(localStorage.headers).token ? true : false,
+	isLogin: localStorage.headers && JSON.parse(localStorage.headers).token ? true : false,
 };
