@@ -4,7 +4,6 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import AllRoute from "./pages/Route";
 import { HeaderProvider } from "./context/HeaderProvider";
-import { LoadingProvider } from "./context/LoadingProvider";
 import { GlobalStoreProvider } from "./context/GlobalStoreProvider";
 
 const root = ReactDOM.createRoot(
@@ -13,12 +12,10 @@ const root = ReactDOM.createRoot(
 root.render(
 	<BrowserRouter>
 		<GlobalStoreProvider>
-			<LoadingProvider>
-				<HeaderProvider>
-					<AllRoute />
-					<App />
-				</HeaderProvider>
-			</LoadingProvider>
+			<HeaderProvider>
+				<AllRoute />
+				<App />
+			</HeaderProvider>
 		</GlobalStoreProvider>
 	</BrowserRouter>,
 );
