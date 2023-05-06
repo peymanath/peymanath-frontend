@@ -10,14 +10,10 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Skills() {
-	const { globalStore, setGlobalStore } = useGlobalStore();
 	const navigate = useNavigate();
+	const { setGlobalStore } = useGlobalStore();
 	useEffect(() => {
-		setGlobalStore({
-			...globalStore,
-			titleHeader: "مهارت ها",
-			showMenu: false,
-		});
+		setGlobalStore({ type: "titleHeader", value: "مهارت ها" });
 	}, []);
 	return (
 		<div>
@@ -26,7 +22,9 @@ export default function Skills() {
 					className="flex flex-col gap-3 items-center justify-center border-2 border-dashed border-primary p-3 rounded-lg w-full h-full cursor-pointer text-primary animate-pulse"
 					onClick={() => navigate("/skill/add")}>
 					<SpringNotesAdd className="w-20 h-20" />
-					<p className="text-center">اگر مهارت جدید داری از اینجا اضافه کن :)</p>
+					<p className="text-center">
+						اگر مهارت جدید داری از اینجا اضافه کن :)
+					</p>
 				</div>
 				{SkillsList &&
 					SkillsList.map(
@@ -52,9 +50,7 @@ export default function Skills() {
 									</div>
 									<div className="flex gap-1 items-center">
 										<ClipboardList className="w-5 h-5 text-primary" />
-										<span className="font-light pt-1">
-											{metaData.project}
-										</span>
+										<span className="font-light pt-1">{metaData.project}</span>
 									</div>
 								</div>
 							</div>

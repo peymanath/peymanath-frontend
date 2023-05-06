@@ -1,32 +1,29 @@
-import { SetAction } from "@/types/context";
-import { createContext, useState, useContext, ReactNode } from "react";
+import { GlobalStoreInterface, HeaderContextTypes } from "@/types/context";
+import { createContext, useContext, ReactNode, useReducer } from "react";
 import { GlobalStoreData } from "./GlobalStoreData";
+import { stat } from "fs";
 
-export interface SidebarMenuInterface {
-	id: number;
-	title: string;
-	url: string;
-	icon: JSX.Element;
-	submenu?: SidebarMenuInterface[];
+const reducer = (state: any, action: CountAction) => {
+	return action.type
+		? { ...state, [action.type]: action.value }
+		: state;
+};
+// An interface for our actions
+interface CountAction {
+	type: string;
+	value: string;
 }
-export interface GlobalStoreInterface {
-	sidebarMenu: SidebarMenuInterface[];
-	titleHeader: string;
-	showMenu: boolean;
-	isLogin: boolean;
-}
-interface HeaderContextTypes {
+
+const GlobalStore = createContext<{
 	globalStore: GlobalStoreInterface;
-	setGlobalStore: SetAction<GlobalStoreInterface>;
-}
-const GlobalStore = createContext<HeaderContextTypes>({
+	setGlobalStore: React.Dispatch<any>;
+}>({
 	globalStore: GlobalStoreData,
-	setGlobalStore: () => {},
+	setGlobalStore: () => null,
 });
 
 const GlobalStoreProvider = ({ children }: { children: ReactNode }) => {
-	const [globalStore, setGlobalStore] =
-		useState<GlobalStoreInterface>(GlobalStoreData);
+	const [globalStore, setGlobalStore] = useReducer(reducer, GlobalStoreData);
 
 	return (
 		<GlobalStore.Provider value={{ globalStore, setGlobalStore }}>
@@ -38,9 +35,8 @@ const GlobalStoreProvider = ({ children }: { children: ReactNode }) => {
 const useGlobalStore = () => {
 	const context = useContext(GlobalStore);
 
-	if (!context) {
-		throw new Error("useHeader must be used within a HeaderProvider");
-	}
+	if (!context)
+		throw new Error("useGlobalStore must be used within a HeaderProvider");
 	return context;
 };
 

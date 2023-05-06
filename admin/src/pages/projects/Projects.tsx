@@ -2,9 +2,9 @@ import { useGlobalStore } from "@/context/GlobalStoreProvider";
 import { useEffect } from "react";
 
 export default function Projects() {
-    const { globalStore, setGlobalStore } = useGlobalStore();
+	const { setGlobalStore } = useGlobalStore();
 	useEffect(() => {
-		setGlobalStore({ ...globalStore, titleHeader: "پروژه ها", showMenu: false   });
+		setGlobalStore({ type: "titleHeader", value: "پروژه ها" });
 	}, []);
-    return ( <h2>Projects</h2> );
+	return <h2>Projects</h2>;
 }

@@ -2,13 +2,9 @@ import { useGlobalStore } from "@/context/GlobalStoreProvider";
 import { useEffect } from "react";
 
 export default function Dashboard() {
-	const { globalStore, setGlobalStore } = useGlobalStore();
+	const { setGlobalStore } = useGlobalStore();
 	useEffect(() => {
-		setGlobalStore({
-			...globalStore,
-			titleHeader: "داشبورد کاربری",
-			showMenu: false,
-		});
+		setGlobalStore({ type: "titleHeader", value: "داشبورد کاربری" });
 	}, []);
 	return (
 		<>
@@ -16,7 +12,6 @@ export default function Dashboard() {
 			<h2>Dashboard</h2>
 			<h2>Dashboard</h2>
 			<h2>Dashboard</h2>
-
 		</>
 	);
 }

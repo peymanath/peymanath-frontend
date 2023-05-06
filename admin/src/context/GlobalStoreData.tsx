@@ -1,3 +1,4 @@
+import { GlobalStoreInterface } from "@/types/context";
 import {
 	ClipboardAdd,
 	ClipboardList,
@@ -11,7 +12,6 @@ import {
 	UserRectangle,
 	ShutDown,
 } from "react-huge-icons/outline";
-import { GlobalStoreInterface } from "./GlobalStoreProvider";
 const classIcon: string = "w-6 h-6";
 
 export const GlobalStoreData: GlobalStoreInterface = {
@@ -91,5 +91,9 @@ export const GlobalStoreData: GlobalStoreInterface = {
 	],
 	titleHeader: "وبسایت پیمان نادری",
 	showMenu: false,
-	isLogin: localStorage.headers && JSON.parse(localStorage.headers).token ? true : false,
+	isLoading: false,
+	isLogin:
+		localStorage.headers && JSON.parse(localStorage.headers).token
+			? true
+			: false,
 };

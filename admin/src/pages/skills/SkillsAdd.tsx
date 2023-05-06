@@ -9,14 +9,9 @@ import { SkillsAddFormValues } from "@/types/pages";
 import * as Yup from "yup";
 
 export default function SkillsAdd() {
-	const { globalStore, setGlobalStore } = useGlobalStore();
-
+	const { setGlobalStore } = useGlobalStore();
 	useEffect(() => {
-		setGlobalStore({
-			...globalStore,
-			titleHeader: "افزودن مهارت",
-			showMenu: false,
-		});
+		setGlobalStore({ type: "titleHeader", value: "افزودن مهارت" });
 	}, []);
 
 	const onSubmit = (

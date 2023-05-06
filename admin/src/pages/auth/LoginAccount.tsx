@@ -6,17 +6,19 @@ import { LoginFormValues } from "@/types/pages";
 import * as Yup from "yup";
 import LoginRequest from "@/services/auth/login";
 import { useHeader } from "@/context/HeaderProvider";
-import { useLoading } from "@/context/LoadingProvider";
+import { useGlobalStore } from "@/context/GlobalStoreProvider";
 
 export default function LoginAccount() {
 	const { header, setHeader } = useHeader();
-	const { setIsLoading } = useLoading();
+	const { setGlobalStore } = useGlobalStore();
+	
 	const now = new Date();
 	const onSubmit = (values: LoginFormValues) => {
-		setIsLoading(true);
+		setGlobalStore({ type: "isLoading", value: true });
+
 		LoginRequest({ values }).then((res: any) => {
 			setHeader({ ...header, ...res.data });
-			setIsLoading(false);
+			setGlobalStore({ type: "isLoading", value: false })
 			// console.log(res.data);
 		});
 	};
@@ -28,7 +30,7 @@ export default function LoginAccount() {
 		username: "kminchelle",
 		password: "0lelplR",
 		joinedAt: now,
-		active: false
+		active: false,
 	};
 	const formik: FormikProps<LoginFormValues> = useFormik<LoginFormValues>({
 		initialValues,

@@ -1,12 +1,13 @@
 import { Outlet } from "react-router-dom";
 import { LoadingWrapper } from "./components/Loading";
-import { useLoading } from "@/context/LoadingProvider";
+import { useGlobalStore } from "./context/GlobalStoreProvider";
 
 export default function App() {
-	const { isLoading } = useLoading();
+
+	const { globalStore } = useGlobalStore();
 	return (
 		<>
-			{isLoading && <LoadingWrapper />}
+			{globalStore.isLoading && <LoadingWrapper />}
 			<Outlet />
 		</>
 	);

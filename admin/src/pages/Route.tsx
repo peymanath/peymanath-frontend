@@ -14,12 +14,16 @@ export default function AllRoute() {
 	const location = useLocation();
 
 	useEffect(() => {
+		setGlobalStore({ type: "showMenu", value: false });
+	}, [location]);
+
+	useEffect(() => {
 		if (
 			headers &&
 			JSON.parse(headers).token &&
 			JSON.parse(headers).token !== ""
 		) {
-			setGlobalStore({ ...globalStore, isLogin: true });
+			setGlobalStore({ type: "isLogin", value: true });
 			if (location.pathname === "/login") navigate("/");
 		} else {
 			navigate("/login");

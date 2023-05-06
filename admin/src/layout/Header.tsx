@@ -9,11 +9,11 @@ export default function Header() {
 	const location = useLocation();
 
 	const toggleMenu = () => {
-		setGlobalStore({ ...globalStore, showMenu: !globalStore.showMenu });
+		setGlobalStore({ type: "showMenu", value: !globalStore.showMenu });
 	};
 
 	useEffect(() => {
-		setGlobalStore({ ...globalStore, showMenu: false });
+		setGlobalStore({ type: "showMenu", value: false });
 	}, [location]);
 
 	return (
