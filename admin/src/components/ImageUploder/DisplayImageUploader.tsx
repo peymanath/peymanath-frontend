@@ -12,14 +12,14 @@ function DisplayImageUploader({
 	return (
 		<div className="flex items-center justify-start">
 			{!isDragging && image ? (
-				<div className="flex items-center justify-center w-32">
-					<div className="relative w-full rounded-lg border-2 border-primary/30">
+				<div className="flex items-center justify-center w-32 min-h-[8rem]">
+					<div className="relative flex items-center justify-between p-1 w-full min-h-[8rem] rounded-lg border-2 border-primary/30">
 						<div
 							className="absolute -top-3 -left-3 flex gap-1 items-center justify-between bg-red-500 text-white rounded-full p-0.5 select-none cursor-pointer"
 							onClick={removeImage}>
 							<RemoveThin className="w-5 h-5" />
 						</div>
-						<img src={image && image} className="w-full h-full" />
+						<img src={image && image} className="w-full h-full rounded-lg" />
 					</div>
 				</div>
 			) : (

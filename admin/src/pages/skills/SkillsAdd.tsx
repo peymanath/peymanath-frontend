@@ -2,28 +2,31 @@ import ImageUploader from "@/components/ImageUploder/ImageUploader";
 import Button from "@/components/common/Button";
 import { LoadingDashed } from "react-huge-icons/outline";
 import { useGlobalStore } from "@/context/GlobalStoreProvider";
-import { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import Input from "@/components/common/Input";
 import { useFormik, FormikProps } from "formik";
 import { SkillsAddFormValues } from "@/types/pages";
 import * as Yup from "yup";
 
-export default function SkillsAdd() {
+function SkillsAdd() {
 	const { setGlobalStore } = useGlobalStore();
 	useEffect(() => {
-		setGlobalStore({ titleHeader:  "افزودن مهارت" });
+		setGlobalStore({ titleHeader: "افزودن مهارت" });
 	}, []);
 
-	const onSubmit = (
-		values: SkillsAddFormValues,
-		{ setSubmitting }: { setSubmitting: Function },
-	) => {
-		console.log(values);
+	const onSubmit = useCallback(
+		(
+			values: SkillsAddFormValues,
+			{ setSubmitting }: { setSubmitting: Function },
+		) => {
+			console.log(values);
 
-		setTimeout(() => {
-			setSubmitting(false);
-		}, 2000);
-	};
+			setTimeout(() => {
+				setSubmitting(false);
+			}, 2000);
+		},
+		[],
+	);
 	const validationSchema = Yup.object({
 		skillsNameFa: Yup.string()
 			.trim()
@@ -37,12 +40,14 @@ export default function SkillsAdd() {
 			.required("نام انگلیسی مهارت ضروری است."),
 		descriptin: Yup.string().required("توضیحات ضروری است."),
 	});
+
 	const initialValues: SkillsAddFormValues = {
 		skillsNameFa: "",
 		skillsNameEn: "",
 		descriptin: "",
 		thumbnail: "",
 	};
+
 	const formik: FormikProps<SkillsAddFormValues> =
 		useFormik<SkillsAddFormValues>({
 			initialValues,
@@ -90,3 +95,4 @@ export default function SkillsAdd() {
 		</div>
 	);
 }
+export default React.memo(SkillsAdd);

@@ -29,7 +29,7 @@ function ImageUploader({ formik }: ImageUploaderItem) {
 
 	const addImage = useCallback(() => {
 		formik.setFieldValue("thumbnail", imageFile);
-		setShowAddSection(!showAddSection);
+		setShowAddSection(false);
 	}, [showAddSection]);
 
 	const removeImage = useCallback(() => {
