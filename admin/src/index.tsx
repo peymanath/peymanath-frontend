@@ -12,10 +12,8 @@ const root = ReactDOM.createRoot(
 root.render(
 	<BrowserRouter>
 		<GlobalStoreProvider>
-			<HeaderProvider>
-				<AllRoute />
-				<App />
-			</HeaderProvider>
+			<AllRoute />
+			<App />
 		</GlobalStoreProvider>
 	</BrowserRouter>,
 );

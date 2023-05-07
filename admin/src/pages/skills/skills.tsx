@@ -13,7 +13,7 @@ export default function Skills() {
 	const navigate = useNavigate();
 	const { setGlobalStore } = useGlobalStore();
 	useEffect(() => {
-		setGlobalStore({ type: "titleHeader", value: "مهارت ها" });
+		setGlobalStore({ titleHeader:  "مهارت ها" });
 	}, []);
 	return (
 		<div>

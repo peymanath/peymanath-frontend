@@ -1,20 +1,15 @@
 import { useGlobalStore } from "@/context/GlobalStoreProvider";
-import { useHeader } from "@/context/HeaderProvider";
 import { useNavigate } from "react-router-dom";
 
 export default function LogoutAccount() {
 	const navigate = useNavigate();
-	const { header, setHeader } = useHeader();
-	const {setGlobalStore } = useGlobalStore();
+	const { setGlobalStore } = useGlobalStore();
 
-	setGlobalStore({ type: "isLogin", value: false });
 	const logoutHandler = () => {
-		setGlobalStore({ type: "isLoading", value: true });
+		setGlobalStore({ isLoading: true });
 
 		setTimeout(() => {
-			setGlobalStore({ type: "isLoading", value: false });
-			setHeader({ ...header, token: "" });
-			setGlobalStore({ type: "isLogin", value: false });
+			setGlobalStore({ isLoading: false, token: "", isLogin: false });
 		}, 2000);
 	};
 	return (

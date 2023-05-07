@@ -5,21 +5,22 @@ import { useFormik, FormikProps } from "formik";
 import { LoginFormValues } from "@/types/pages";
 import * as Yup from "yup";
 import LoginRequest from "@/services/auth/login";
-import { useHeader } from "@/context/HeaderProvider";
 import { useGlobalStore } from "@/context/GlobalStoreProvider";
 
 export default function LoginAccount() {
-	const { header, setHeader } = useHeader();
-	const { setGlobalStore } = useGlobalStore();
-	
+	const { globalStore, setGlobalStore } = useGlobalStore();
+
 	const now = new Date();
+	console.log(globalStore);
 	const onSubmit = (values: LoginFormValues) => {
-		setGlobalStore({ type: "isLoading", value: true });
+		setGlobalStore({ isLoading: true });
 
 		LoginRequest({ values }).then((res: any) => {
-			setHeader({ ...header, ...res.data });
-			setGlobalStore({ type: "isLoading", value: false })
-			// console.log(res.data);
+			setGlobalStore({
+				isLoading: false,
+				token: res.data.token,
+				isLogin: true,
+			});
 		});
 	};
 	const validationSchema = Yup.object({

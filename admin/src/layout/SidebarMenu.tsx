@@ -1,11 +1,15 @@
-
 import { DirectionDownDouble } from "react-huge-icons/outline";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
-import { SidebarMenuInterface } from "@/types/context";
+import React, { useState, useCallback } from "react";
+import { SidebarMenuItem } from "@/types/pages";
 
-function SidebarMenu({ title, url, icon, submenu }: SidebarMenuInterface) {
+function SidebarMenu({ title, url, icon, submenu }: SidebarMenuItem) {
 	const [showItem, setShowItem] = useState(false);
+
+	const toggleMenu = useCallback(() => {
+		setShowItem(!showItem);
+	}, [showItem]);
+
 	return (
 		<li
 			className={`hover:bg-secondary hover:text-white ${
@@ -19,9 +23,7 @@ function SidebarMenu({ title, url, icon, submenu }: SidebarMenuInterface) {
 					</div>
 				</NavLink>
 				{submenu && (
-					<div
-						onClick={() => setShowItem(!showItem)}
-						className="cursor-pointer">
+					<div onClick={toggleMenu} className="cursor-pointer">
 						<DirectionDownDouble
 							className={`w-5 h-5 ${showItem ? "rotate-180" : ""}`}
 						/>
@@ -50,4 +52,4 @@ function SidebarMenu({ title, url, icon, submenu }: SidebarMenuInterface) {
 	);
 }
 
-export default SidebarMenu;
+export default React.memo(SidebarMenu);

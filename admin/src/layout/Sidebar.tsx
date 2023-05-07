@@ -1,8 +1,9 @@
-import { useGlobalStore } from "@/context/GlobalStoreProvider";
+import { SidebarMenuItem } from "@/types/pages";
+import { sidebarMenu } from "./MenuList";
 import SidebarMenu from "./SidebarMenu";
+import React from "react";
 
 function Sidebar() {
-	const { globalStore } = useGlobalStore();
 	return (
 		<div className="hidden flex-col gap-5 fixed top-3 bottom-3 right-3 rounded-lg bg-white md:flex md:w-64 p-3 shadow">
 			<div className="flex items-center justify-between gap-3 bg-primary text-white py-1 px-3 rounded-lg">
@@ -42,9 +43,9 @@ function Sidebar() {
 				</svg>
 			</div>
 			<div className="overflow-auto">
-				{globalStore.sidebarMenu && (
+				{sidebarMenu && (
 					<ul className="flex flex-col gap-3">
-						{globalStore.sidebarMenu.map(props => (
+						{sidebarMenu.map((props: SidebarMenuItem) => (
 							<SidebarMenu key={props.id} {...props} />
 						))}
 					</ul>
@@ -54,4 +55,4 @@ function Sidebar() {
 	);
 }
 
-export default Sidebar;
+export default React.memo(Sidebar);

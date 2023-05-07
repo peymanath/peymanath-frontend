@@ -1,19 +1,21 @@
 import { useGlobalStore } from "@/context/GlobalStoreProvider";
 import { MenuLineHorizontal, RemoveThin } from "react-huge-icons/outline";
 import SidebarMenu from "./SidebarMenu";
-import { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useLocation } from "react-router-dom";
+import { sidebarMenu } from "./MenuList";
+import { SidebarMenuItem } from "@/types/pages";
 
-export default function Header() {
+function Header() {
 	const { globalStore, setGlobalStore } = useGlobalStore();
 	const location = useLocation();
 
-	const toggleMenu = () => {
-		setGlobalStore({ type: "showMenu", value: !globalStore.showMenu });
-	};
+	const toggleMenu = useCallback(() => {
+		setGlobalStore({ showMenu: !globalStore.showMenu });
+	}, [globalStore.showMenu]);
 
 	useEffect(() => {
-		setGlobalStore({ type: "showMenu", value: false });
+		setGlobalStore({ showMenu: false });
 	}, [location]);
 
 	return (
@@ -34,9 +36,9 @@ export default function Header() {
 							onClick={toggleMenu}
 						/>
 
-						{globalStore.sidebarMenu && (
+						{sidebarMenu && (
 							<ul className="flex flex-col gap-3">
-								{globalStore.sidebarMenu.map(props => (
+								{sidebarMenu.map((props: SidebarMenuItem) => (
 									<SidebarMenu key={props.id} {...props} />
 								))}
 							</ul>
@@ -47,3 +49,5 @@ export default function Header() {
 		</div>
 	);
 }
+
+export default React.memo(Header);

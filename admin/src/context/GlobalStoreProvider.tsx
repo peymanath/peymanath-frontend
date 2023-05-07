@@ -1,29 +1,23 @@
-import { GlobalStoreInterface, HeaderContextTypes } from "@/types/context";
-import { createContext, useContext, ReactNode, useReducer } from "react";
+import {
+	GlobalStoreContextTypes,
+	ContextChildren,
+	GlobalStoreInterface,
+} from "@/types/context";
+import { createContext, useContext, useState } from "react";
 import { GlobalStoreData } from "./GlobalStoreData";
-import { stat } from "fs";
 
-const reducer = (state: any, action: CountAction) => {
-	return action.type
-		? { ...state, [action.type]: action.value }
-		: state;
-};
-// An interface for our actions
-interface CountAction {
-	type: string;
-	value: string;
-}
-
-const GlobalStore = createContext<{
-	globalStore: GlobalStoreInterface;
-	setGlobalStore: React.Dispatch<any>;
-}>({
+const GlobalStore = createContext<GlobalStoreContextTypes>({
 	globalStore: GlobalStoreData,
-	setGlobalStore: () => null,
+	setGlobalStore: () => {},
 });
 
-const GlobalStoreProvider = ({ children }: { children: ReactNode }) => {
-	const [globalStore, setGlobalStore] = useReducer(reducer, GlobalStoreData);
+const GlobalStoreProvider = ({ children }: ContextChildren) => {
+	const [globalStore, setGlobalStores] =
+		useState<GlobalStoreInterface>(GlobalStoreData);
+
+	const setGlobalStore = (props: GlobalStoreInterface) => {
+		setGlobalStores({ ...globalStore, ...props });
+	};
 
 	return (
 		<GlobalStore.Provider value={{ globalStore, setGlobalStore }}>

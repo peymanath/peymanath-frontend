@@ -11,7 +11,7 @@ import * as Yup from "yup";
 export default function SkillsAdd() {
 	const { setGlobalStore } = useGlobalStore();
 	useEffect(() => {
-		setGlobalStore({ type: "titleHeader", value: "افزودن مهارت" });
+		setGlobalStore({ titleHeader:  "افزودن مهارت" });
 	}, []);
 
 	const onSubmit = (

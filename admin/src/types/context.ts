@@ -1,4 +1,8 @@
-import React, { ReactNode, Dispatch, SetStateAction } from "react";
+import React, { ReactNode } from "react";
+
+export interface ContextChildren {
+	children: ReactNode;
+}
 
 export type LoadingProps = {
 	children: ReactNode;
@@ -6,21 +10,19 @@ export type LoadingProps = {
 
 export type SetAction<T> = React.Dispatch<React.SetStateAction<T>>;
 
-export interface SidebarMenuInterface {
-	id: number;
-	title: string;
-	url: string;
-	icon: JSX.Element;
-	submenu?: SidebarMenuInterface[];
-}
 export interface GlobalStoreInterface {
-	sidebarMenu: SidebarMenuInterface[];
-	titleHeader: string;
-	showMenu: boolean;
-	isLogin: boolean;
-	isLoading: boolean;
+	titleHeader?: string;
+	showMenu?: boolean;
+	isLogin?: boolean;
+	isLoading?: boolean;
+	token?: string;
 }
-export interface HeaderContextTypes {
+export interface GlobalStoreAction {
+	type: string;
+	value: string;
+}
+
+export interface GlobalStoreContextTypes {
 	globalStore: GlobalStoreInterface;
-	setGlobalStore: SetAction<GlobalStoreInterface>;
+	setGlobalStore: (e: GlobalStoreInterface) => void;
 }

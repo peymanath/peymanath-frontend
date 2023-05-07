@@ -1,8 +1,8 @@
 import Header from "./Header";
-import React from "react";
+import React, { useMemo } from "react";
 import Sidebar from "./Sidebar";
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+function Layout({ children }: { children: React.ReactNode }) {
 	return (
 		<>
 			<Sidebar />
@@ -15,3 +15,4 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 		</>
 	);
 }
+export default React.memo(Layout);

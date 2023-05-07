@@ -17,3 +17,11 @@ export interface SkillsAddFormValues {
 	descriptin: string;
 	thumbnail:string
 }
+
+export interface SidebarMenuItem {
+	id: number;
+	title: string;
+	url: string;
+	icon: JSX.Element;
+	submenu?: SidebarMenuItem[];
+}

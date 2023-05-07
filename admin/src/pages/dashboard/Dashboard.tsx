@@ -4,7 +4,7 @@ import { useEffect } from "react";
 export default function Dashboard() {
 	const { setGlobalStore } = useGlobalStore();
 	useEffect(() => {
-		setGlobalStore({ type: "titleHeader", value: "داشبورد کاربری" });
+		setGlobalStore({ titleHeader: "داشبورد کاربری" });
 	}, []);
 	return (
 		<>

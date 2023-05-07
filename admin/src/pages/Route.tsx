@@ -1,34 +1,33 @@
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { RouteItem } from "@/types/pages";
 import Layout from "../layout";
-import { useEffect, useState } from "react";
-import { useHeader } from "@/context/HeaderProvider";
+import React, { useEffect } from "react";
 import { routeList, routeSingle } from "@/pages/RouteList";
 import { useGlobalStore } from "@/context/GlobalStoreProvider";
+import { click } from "@testing-library/user-event/dist/click";
 
-export default function AllRoute() {
-	const navigate = useNavigate();
-	const headers: string = localStorage.headers;
-	const { header } = useHeader();
+function AllRoute() {
 	const { globalStore, setGlobalStore } = useGlobalStore();
+	const navigate = useNavigate();
 	const location = useLocation();
 
 	useEffect(() => {
-		setGlobalStore({ type: "showMenu", value: false });
+		setGlobalStore({ showMenu: false });
 	}, [location]);
 
 	useEffect(() => {
-		if (
-			headers &&
-			JSON.parse(headers).token &&
-			JSON.parse(headers).token !== ""
-		) {
-			setGlobalStore({ type: "isLogin", value: true });
-			if (location.pathname === "/login") navigate("/");
-		} else {
-			navigate("/login");
+		if (!globalStore.isLogin) navigate("/login");
+		else {
+			if (location.pathname == "/login") navigate("/");
 		}
-	}, [header]);
+	}, [globalStore.isLogin]);
+
+	useEffect(() => {
+		localStorage.setItem(
+			"headers",
+			JSON.stringify({ token: globalStore.token }),
+		);
+	}, [globalStore.token]);
 
 	return globalStore.isLogin ? (
 		<Layout>
@@ -46,3 +45,5 @@ export default function AllRoute() {
 		</Routes>
 	);
 }
+
+export default React.memo(AllRoute);
