@@ -15,9 +15,12 @@ const GlobalStoreProvider = ({ children }: ContextChildren) => {
 	const [globalStore, setGlobalStores] =
 		useState<GlobalStoreInterface>(GlobalStoreData);
 
-	const setGlobalStore = useCallback((props: GlobalStoreInterface) => {
-		setGlobalStores({ ...globalStore, ...props });
-	}, []);
+	const setGlobalStore = useCallback(
+		(props: GlobalStoreInterface) => {
+			setGlobalStores({ ...globalStore, ...props });
+		},
+		[globalStore],
+	);
 
 	return (
 		<GlobalStore.Provider value={{ globalStore, setGlobalStore }}>

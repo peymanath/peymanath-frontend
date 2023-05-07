@@ -8,6 +8,11 @@ export interface SkillsAddType {
 	values: SkillsAddFormValues;
 }
 
+export interface onSubmitFormik {
+	setSubmitting: Function;
+	resetForm: Function;
+}
+
 export interface Http {
 	get: Function;
 	put: Function;

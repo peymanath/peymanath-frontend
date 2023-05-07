@@ -15,8 +15,6 @@ function PopUpImageUploader({
     addImage,
 	...props
 }: PopUpImageUploaderInterface) {
-
-    console.log("touch PopUp");
 	return (
 		<PopUp action={showAddSection} setAction={setShowAddSection}>
 			<div className="absolute top-5 left-3">

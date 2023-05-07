@@ -8,7 +8,6 @@ function DisplayImageUploader({
 	image,
 	setShowAddSection,
 }: DisplayImageUploaderInterface) {
-	console.log("touch Display");
 	return (
 		<div className="flex items-center justify-start">
 			{!isDragging && image ? (

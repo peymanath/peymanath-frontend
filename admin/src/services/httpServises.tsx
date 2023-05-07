@@ -1,8 +1,13 @@
 import { Http } from "@/types/services";
 import axios from "axios";
 
-axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+axios.defaults.baseURL = process.env.REACT_APP_API_LOGIN;
 // axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+
+export const mockapi = axios.create({
+	baseURL: process.env.REACT_APP_API_MOCkAPI,
+	headers: { "Content-Type": "application/json" },
+});
 
 export const http: Http = {
 	get: axios.get,

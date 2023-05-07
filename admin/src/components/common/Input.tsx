@@ -8,19 +8,23 @@ export default function Input({
 }: InputItem) {
 	return (
 		<div className="flex flex-col gap-y-2 w-full">
-			<label htmlFor={name} className="pr-1">
-				{label}
+			<label htmlFor={name} className="flex flex-wrap gap-3 pr-1">
+				<span>{label}</span>
+				{formik.errors[name] && formik.touched[name] && (
+					<span className="mr-2 text-red-500">
+						{"(" + formik.errors[name] + ")"}
+					</span>
+				)}
 			</label>
 			<input
 				id={name}
 				name={name}
 				type={type}
-				className="border border-gray-200 rounded-md py-2 px-5 w-full"
+				className={`border ${
+					formik.errors[name] && formik.touched[name] ? "border-red-500" : "border-gray-200"
+				} rounded-md py-2 px-5 w-full`}
 				{...formik.getFieldProps(name)}
 			/>
-			{formik.errors[name] && formik.touched[name] && (
-				<p className="text-red-500">{formik.errors[name]}</p>
-			)}
 		</div>
 	);
 }

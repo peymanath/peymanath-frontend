@@ -3,19 +3,37 @@ export interface RouteItem {
 	path: string;
 	element: JSX.Element;
 }
+export interface SkillsListItem {
+	id?: number;
+	titleFa?: string;
+	titleEn?: string;
+	descriptin?: string;
+	thumbnail?: string;
+	recommmendations?: number;
+	projects?: number;
+	publishedAt: Date;
+}
+
+export interface SkilssResonseData {
+	data: SkillsListItem[] | undefined;
+	status: number;
+}
 
 export interface LoginFormValues {
 	username: string;
 	password: string;
-	joinedAt: Date,
-	active: boolean
+	joinedAt: Date;
+	active: boolean;
 }
 
 export interface SkillsAddFormValues {
-	skillsNameFa: string;
-	skillsNameEn: string;
+	titleFa: string;
+	titleEn: string;
 	descriptin: string;
-	thumbnail:string
+	thumbnail?: string;
+	recommmendations?: number;
+	projects?: number;
+	publishedAt: Date;
 }
 
 export interface SidebarMenuItem {
