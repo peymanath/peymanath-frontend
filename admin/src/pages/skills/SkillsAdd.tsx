@@ -9,15 +9,16 @@ import { SkillsAddFormValues } from "@/types/pages";
 import * as Yup from "yup";
 import SkillsAddRequest from "@/services/Skills/SkillsAdd";
 import { onSubmitFormik } from "@/types/services";
+import { useNavigate } from "react-router-dom";
 
 function SkillsAdd() {
+	const navigate = useNavigate();
 	const { setGlobalStore } = useGlobalStore();
 	useEffect(() => {
 		setGlobalStore({ titleHeader: "افزودن مهارت" });
 	}, []);
 
 	const now = new Date();
-
 	const onSubmit = useCallback(
 		(
 			values: SkillsAddFormValues,
@@ -27,6 +28,11 @@ function SkillsAdd() {
 				.then(() => {
 					setSubmitting(false);
 					resetForm();
+					setGlobalStore({ isLoading: true });
+					setTimeout(() => {
+						setGlobalStore({ isLoading: false });
+						navigate("/skills");
+					}, 1000);
 				})
 				.catch(err => console.error(err));
 		},
@@ -44,8 +50,18 @@ function SkillsAdd() {
 			.matches(/^[A-Za-z0-9]+$/, "لطفا در این قسمت فقط انگلیسی تایپ کنید.")
 			.required("نام انگلیسی مهارت ضروری است."),
 		descriptin: Yup.string().required("توضیحات ضروری است."),
-		recommmendations: Yup.number().typeError('فقط عدد میتوانید وارد کنید').positive().min(0, 'کمترین مقدار ممکن 0 است.').required("تعداد توصیه ها ضروری است.").nonNullable(),
-		projects: Yup.number().typeError('فقط عدد میتوانید وارد کنید').positive().min(0, 'کمترین مقدار ممکن 0 است.').required("تعداد پروژه ها ضروری است.").nonNullable(),
+		recommmendations: Yup.number()
+			.typeError("فقط عدد میتوانید وارد کنید")
+			.positive()
+			.min(0, "کمترین مقدار ممکن 0 است.")
+			.required("تعداد توصیه ها ضروری است.")
+			.nonNullable(),
+		projects: Yup.number()
+			.typeError("فقط عدد میتوانید وارد کنید")
+			.positive()
+			.min(0, "کمترین مقدار ممکن 0 است.")
+			.required("تعداد پروژه ها ضروری است.")
+			.nonNullable(),
 	});
 
 	const initialValues: SkillsAddFormValues = {
@@ -64,7 +80,7 @@ function SkillsAdd() {
 			onSubmit,
 			validationSchema,
 		});
-
+console.log(formik.values.thumbnail);
 	return (
 		<div>
 			<form
@@ -76,8 +92,16 @@ function SkillsAdd() {
 					<Input name="titleFa" label="نام مهارت به فارسی" formik={formik} />
 					<Input name="titleEn" label="نام مهارت به انگلیسی" formik={formik} />
 					<Input name="descriptin" label="توضیحات مهارت" formik={formik} />
-					<Input name="recommmendations" label="تعداد توصیه ها" formik={formik} />
-					<Input name="projects" label="تعداد پروژه های این مهارت" formik={formik} />
+					<Input
+						name="recommmendations"
+						label="تعداد توصیه ها"
+						formik={formik}
+					/>
+					<Input
+						name="projects"
+						label="تعداد پروژه های این مهارت"
+						formik={formik}
+					/>
 					<Button
 						type="submit"
 						className="w-36"

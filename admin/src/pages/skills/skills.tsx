@@ -37,10 +37,12 @@ function Skills() {
 					onClick={() => navigate("/skill/add")}>
 					<SpringNotesAdd className="w-20 h-20" />
 					<p className="text-center">
-						اگر مهارت جدید داری از اینجا اضافه کن :)
+						{skillsData && skillsData?.length >= 1 ? "اگر مهارت جدید داری از اینجا اضافه کن :)" : "اولین مهارتتو از اینجا وارد کن"}
+						
 					</p>
 				</div>
 				{skillsData &&
+					skillsData?.length >= 1 &&
 					skillsData.map(
 						({
 							id,
@@ -54,7 +56,7 @@ function Skills() {
 							<div
 								key={id}
 								className="flex flex-col justify-between gap-10 bg-white shadow p-3 rounded-lg h-56">
-								<div className="w-full flex gap-3 items-start justify-between">
+								<div className="w-full flex gap-3 items-center justify-between">
 									<div className="flex flex-col gap-3 justify-between">
 										<div>{titleFa}</div>
 										<div>{titleEn}</div>

@@ -21,20 +21,22 @@ function ImageUploader({ formik }: ImageUploaderItem) {
 				setImageFile(files);
 				const reader = new FileReader();
 				reader.readAsDataURL(files);
-				reader.onload = () => setImage(reader.result);
+				reader.onload = () => {
+					formik.setFieldValue("thumbnail", reader.result);
+					setImage(reader.result);
+				};
 			}
 		},
 		[allowedFileType, image, imageFile],
 	);
 
 	const addImage = useCallback(() => {
-		formik.setFieldValue("thumbnail", image);
 		setShowAddSection(false);
-	}, [showAddSection]);
+	}, [showAddSection, image]);
 
 	const removeImage = useCallback(() => {
 		setImage(null);
-		formik.setFieldValue("thumbnail", null);
+		formik.setFieldValue("thumbnail", "favicon.svg");
 		setShowAddSection(false);
 	}, [showAddSection]);
 
