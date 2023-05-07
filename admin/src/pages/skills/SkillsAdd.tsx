@@ -1,4 +1,4 @@
-import ImageUploader from "@/components/common/ImageUploader";
+import ImageUploader from "@/components/ImageUploder/ImageUploader";
 import Button from "@/components/common/Button";
 import { LoadingDashed } from "react-huge-icons/outline";
 import { useGlobalStore } from "@/context/GlobalStoreProvider";

@@ -1,3 +1,5 @@
+import { DragEvent, MouseEventHandler } from "react";
+
 interface ButtonHTMLAttributes<T> {
 	autoFocus?: boolean | undefined;
 	disabled?: boolean | undefined;
@@ -52,3 +54,29 @@ export type ButtonType = {
 	children?: React.ReactNode;
 	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
+
+export interface DisplayImageUploaderInterface {
+	onDragEnter: (e: DragEvent<HTMLDivElement>) => void;
+	onDragLeave: (e: DragEvent<HTMLDivElement>) => void;
+	onDragOver: (e: DragEvent<HTMLDivElement>) => void;
+	onDrop: (e: DragEvent<HTMLDivElement>) => void;
+	isDragging: boolean;
+	removeImage: MouseEventHandler<HTMLDivElement>;
+	image: any;
+	setShowAddSection: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface PopUpImageUploaderInterface {
+	onDragEnter: (e: DragEvent<HTMLDivElement>) => void;
+	onDragLeave: (e: DragEvent<HTMLDivElement>) => void;
+	onDragOver: (e: DragEvent<HTMLDivElement>) => void;
+	onDrop: (e: DragEvent<HTMLDivElement>) => void;
+	showAddSection: boolean;
+	isDragging: boolean;
+	uploderInput: React.MutableRefObject<HTMLInputElement | null>;
+	allowedFileType: String[];
+	removeImage: MouseEventHandler<HTMLButtonElement | HTMLDivElement>;
+	addImage: MouseEventHandler<HTMLButtonElement | HTMLDivElement>;
+	image: any;
+	setShowAddSection: React.Dispatch<React.SetStateAction<boolean>>;
+}
