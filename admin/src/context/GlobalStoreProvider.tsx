@@ -3,7 +3,7 @@ import {
 	ContextChildren,
 	GlobalStoreInterface,
 } from "@/types/context";
-import { createContext, useContext, useState } from "react";
+import { useCallback, createContext, useContext, useState } from "react";
 import { GlobalStoreData } from "./GlobalStoreData";
 
 const GlobalStore = createContext<GlobalStoreContextTypes>({
@@ -15,9 +15,9 @@ const GlobalStoreProvider = ({ children }: ContextChildren) => {
 	const [globalStore, setGlobalStores] =
 		useState<GlobalStoreInterface>(GlobalStoreData);
 
-	const setGlobalStore = (props: GlobalStoreInterface) => {
+	const setGlobalStore = useCallback((props: GlobalStoreInterface) => {
 		setGlobalStores({ ...globalStore, ...props });
-	};
+	}, []);
 
 	return (
 		<GlobalStore.Provider value={{ globalStore, setGlobalStore }}>

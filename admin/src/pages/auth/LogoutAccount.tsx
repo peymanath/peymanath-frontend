@@ -1,9 +1,14 @@
 import { useGlobalStore } from "@/context/GlobalStoreProvider";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function LogoutAccount() {
 	const navigate = useNavigate();
 	const { setGlobalStore } = useGlobalStore();
+
+	useEffect(() => {
+		setGlobalStore({ titleHeader: "خروج از حساب کاربری" });
+	}, []);
 
 	const logoutHandler = () => {
 		setGlobalStore({ isLoading: true });

@@ -4,7 +4,6 @@ import Layout from "../layout";
 import React, { useEffect } from "react";
 import { routeList, routeSingle } from "@/pages/RouteList";
 import { useGlobalStore } from "@/context/GlobalStoreProvider";
-import { click } from "@testing-library/user-event/dist/click";
 
 function AllRoute() {
 	const { globalStore, setGlobalStore } = useGlobalStore();
@@ -13,7 +12,7 @@ function AllRoute() {
 
 	useEffect(() => {
 		setGlobalStore({ showMenu: false });
-	}, [location]);
+	}, []);
 
 	useEffect(() => {
 		if (!globalStore.isLogin) navigate("/login");
