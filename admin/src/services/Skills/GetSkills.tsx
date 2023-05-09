@@ -1,9 +1,9 @@
 import { mockapi } from "../httpServises";
-import { SkillsListItem, SkilssResonseData } from "@/types/pages";
+import { SkillsListItem, SkillsResponseData } from "@/types/pages";
 
 export default async function GetSkillsRequest() {
 	return await mockapi
-		.get<SkillsListItem[], SkilssResonseData>("/skills", {
+		.get<SkillsListItem[], SkillsResponseData>("/skills", {
 			headers: {
 				"Content-Type": "application/json",
 			},

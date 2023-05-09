@@ -8,7 +8,7 @@ import Input from "@/components/common/Input";
 import { useFormik, FormikProps } from "formik";
 import { SkillsAddFormValues } from "@/types/pages";
 import * as Yup from "yup";
-import SkillsAddRequest from "@/services/Skills/SkillsAdd";
+import SkillsAddRequest from "@/services/Skills/SkillAdd";
 import { onSubmitFormik } from "@/types/services";
 import { useNavigate } from "react-router-dom";
 

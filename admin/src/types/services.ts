@@ -4,8 +4,12 @@ export interface LoginRequestType {
 	values: LoginFormValues;
 }
 
-export interface SkillsAddType {
+export interface SkillAddType {
 	values: SkillsAddFormValues;
+}
+
+export interface SkillDeleteType {
+	id: number | undefined;
 }
 
 export interface onSubmitFormik {

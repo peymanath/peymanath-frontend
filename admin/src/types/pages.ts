@@ -14,7 +14,7 @@ export interface SkillsListItem {
 	publishedAt: Date;
 }
 
-export interface SkilssResonseData {
+export interface SkillsResponseData {
 	data: SkillsListItem[] | undefined;
 	status: number;
 }
