@@ -11,6 +11,7 @@ import Setting from "./setting/Setting";
 import SettingAccount from "./setting/SettingAccount";
 import LoginAccount from "@/pages/auth/LoginAccount";
 import LogoutAccount from "./auth/LogoutAccount";
+import SkillsEdit from "./skills/SkillsEdit";
 
 export const routeList: RouteItem[] = [
 	{ key: 1, path: "/", element: <Dashboard /> },
@@ -18,6 +19,7 @@ export const routeList: RouteItem[] = [
 	{ key: 3, path: "/project/add", element: <ProjectsAdd /> },
 	{ key: 4, path: "/skills", element: <Skills /> },
 	{ key: 5, path: "/skill/add", element: <SkillsAdd /> },
+	{ key: 5, path: "/skill/edit/:id", element: <SkillsEdit /> },
 	{ key: 6, path: "/donors", element: <Donors /> },
 	{ key: 7, path: "/recommendations", element: <Recommendations /> },
 	{ key: 8, path: "/setting/general", element: <Setting /> },

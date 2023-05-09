@@ -1,11 +1,11 @@
 import { ImageUploaderItem } from "@/types/components";
 import Button from "../common/Button";
-import { useState, useRef, useCallback, DragEvent } from "react";
+import { useState, useRef, useCallback, DragEvent, useEffect } from "react";
 import DisplayImageUploader from "./DisplayImageUploader";
 import PopUpImageUploader from "./PopUpImageUploader";
 import React from "react";
 
-function ImageUploader({ formik }: ImageUploaderItem) {
+function ImageUploader({ formik, isEditPage = false }: ImageUploaderItem) {
 	const [showAddSection, setShowAddSection] = useState<boolean>(false);
 	const [isDragging, setIsDragging] = useState<boolean>(false);
 	const [imageFile, setImageFile] = useState<File>();
@@ -36,7 +36,9 @@ function ImageUploader({ formik }: ImageUploaderItem) {
 
 	const removeImage = useCallback(() => {
 		setImage(null);
-		formik.setFieldValue("thumbnail", "favicon.svg");
+
+		formik.setFieldValue("thumbnail", null);
+
 		setShowAddSection(false);
 	}, [showAddSection]);
 
@@ -80,6 +82,13 @@ function ImageUploader({ formik }: ImageUploaderItem) {
 		},
 		[isDragging],
 	);
+
+	useEffect(() => {
+		if (isEditPage) {
+			formik.setFieldValue("thumbnail", formik.values.thumbnail);
+			setImage(formik.values.thumbnail);
+		}
+	}, [formik.values.thumbnail]);
 
 	return (
 		<div>

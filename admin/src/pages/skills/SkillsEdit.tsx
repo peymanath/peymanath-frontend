@@ -1,24 +1,51 @@
+import { NavLink, useParams } from "react-router-dom";
 import ImageUploader from "@/components/ImageUploder/ImageUploader";
 import Button from "@/components/common/Button";
 import { LoadingDashed } from "react-huge-icons/outline";
 import { newTitle } from "@/redux/HeaderTitle/HeaderTitleSlice";
 import { useAppDispatch } from "@/redux/hook";
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import Input from "@/components/common/Input";
 import { useFormik, FormikProps } from "formik";
-import { SkillsAddFormValues } from "@/types/pages";
+import { SkillsAddFormValues, SkillsListItem } from "@/types/pages";
 import * as Yup from "yup";
-import SkillsAddRequest from "@/services/Skills/SkillAdd";
 import { onSubmitFormik } from "@/types/services";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import {
+	allowedLoading,
+	disAllowedLoading,
+} from "@/redux/Loading/LoadingSlice";
+import GetSkillSingleRequest from "@/services/Skills/GetSingleSkill";
+import SkillsAddRequest from "@/services/Skills/SkillAdd";
 import { Color } from "@/global/global";
 
-function SkillsAdd() {
+function SkillsEdit(props: any) {
+	const [skillsData, setSkillsData] = useState<SkillsAddFormValues>();
+	const { id } = useParams();
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
 
+	const getData = () => {
+		dispatch(allowedLoading());
+		GetSkillSingleRequest({ id })
+			.then(data => {
+				setSkillsData(data);
+				dispatch(disAllowedLoading());
+			})
+			.catch(err => {
+				console.error(err);
+				dispatch(disAllowedLoading());
+			});
+	};
+
 	useEffect(() => {
-		dispatch(newTitle("افزودن مهارت"));
+		dispatch(
+			newTitle(`ویرایش مهارت ${skillsData?.titleEn ? skillsData.titleEn : ""}`),
+		);
+	}, [skillsData?.titleEn]);
+
+	useEffect(() => {
+		getData();
 	}, []);
 
 	const onSubmit = useCallback(
@@ -26,20 +53,21 @@ function SkillsAdd() {
 			values: SkillsAddFormValues,
 			{ setSubmitting, resetForm }: onSubmitFormik,
 		) => {
-			SkillsAddRequest({ values })
-				.then(() => {
-					setSubmitting(false);
-					resetForm();
-					// setGlobalStore({ isLoading: true });
-					setTimeout(() => {
-						// setGlobalStore({ isLoading: false });
-						navigate("/skills");
-					}, 1000);
-				})
-				.catch(err => console.error(err));
+			// SkillsAddRequest({ values })
+			// 	.then(() => {
+			// 		setSubmitting(false);
+			// 		resetForm();
+			// 		// setGlobalStore({ isLoading: true });
+			// 		setTimeout(() => {
+			// 			// setGlobalStore({ isLoading: false });
+			// 			navigate("/skills");
+			// 		}, 1000);
+			// 	})
+			// 	.catch(err => console.error(err));
 		},
 		[],
 	);
+
 	const validationSchema = Yup.object({
 		titleFa: Yup.string()
 			.trim()
@@ -67,10 +95,11 @@ function SkillsAdd() {
 	});
 
 	const initialValues: SkillsAddFormValues = {
+		id: 0,
 		titleFa: "",
 		titleEn: "",
 		descriptin: "",
-		thumbnail: "favicon.svg",
+		thumbnail: "",
 		recommmendations: 0,
 		projects: 0,
 		publishedAt: new Date(),
@@ -78,17 +107,19 @@ function SkillsAdd() {
 
 	const formik: FormikProps<SkillsAddFormValues> =
 		useFormik<SkillsAddFormValues>({
-			initialValues,
+			initialValues: skillsData || initialValues,
 			onSubmit,
 			validationSchema,
+			enableReinitialize: true,
 		});
+
 	return (
 		<>
 			<div className="flex items-center justify-between w-full gap-6 bg-white p-3 rounded-lg shadow mb-7">
-				<p>میخواهید تمامی مهارت ها را مشاهده کنید؟</p>
-				<NavLink to="/skills">
+				<p>میخواهید مهارت جدید اضافه کنید؟</p>
+				<NavLink to="/skill/add">
 					<Button
-						text="مشاهده مهارت ها"
+						text="افزودن مهارت جدید"
 						width="w-auto"
 						color={Color.primary}
 					/>
@@ -100,7 +131,7 @@ function SkillsAdd() {
 					className="flex flex-wrap w-full items-start justify-between"
 					encType="multipart/form-data">
 					<div className="flex flex-col w-full md:w-[48%] xl:w-[65%] gap-6 bg-white p-3 rounded-lg shadow">
-						<h2 className="w-full text-lg font-bold">اطلاعات مهارت جدید</h2>
+						<h2 className="w-full text-lg font-bold">اطلاعات جدید مهارت</h2>
 						<Input name="titleFa" label="نام مهارت به فارسی" formik={formik} />
 						<Input
 							name="titleEn"
@@ -125,14 +156,14 @@ function SkillsAdd() {
 							{formik.isSubmitting ? (
 								<LoadingDashed className="w-6 h-6 animate-spin" />
 							) : (
-								"افزودن مهارت"
+								"ثبت تغییرات"
 							)}
 						</Button>
 					</div>
 
 					<div className="flex flex-col w-full md:w-[48%] xl:w-[33%] gap-6">
 						<div className="bg-white p-3 rounded-lg shadow">
-							<ImageUploader formik={formik} />
+							<ImageUploader formik={formik} isEditPage={true} />
 						</div>
 					</div>
 				</form>
@@ -140,4 +171,4 @@ function SkillsAdd() {
 		</>
 	);
 }
-export default React.memo(SkillsAdd);
+export default SkillsEdit;

@@ -32,6 +32,7 @@ export interface InputItem {
 }
 
 export interface ImageUploaderItem {
+	isEditPage?: boolean;
 	formik: any;
 }
 

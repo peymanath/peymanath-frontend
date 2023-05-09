@@ -12,6 +12,10 @@ export interface SkillDeleteType {
 	id: number | undefined;
 }
 
+export interface SkillSingleType {
+	id: string | undefined;
+}
+
 export interface onSubmitFormik {
 	setSubmitting: Function;
 	resetForm: Function;

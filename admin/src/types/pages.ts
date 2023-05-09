@@ -19,6 +19,11 @@ export interface SkillsResponseData {
 	status: number;
 }
 
+export interface SkillSingleResponseData {
+	data: SkillsAddFormValues | undefined;
+	status: number;
+}
+
 export interface LoginFormValues {
 	username: string;
 	password: string;
@@ -27,6 +32,7 @@ export interface LoginFormValues {
 }
 
 export interface SkillsAddFormValues {
+	id?: number | string | undefined;
 	titleFa: string;
 	titleEn: string;
 	descriptin: string;
