@@ -1,10 +1,11 @@
-import { useGlobalStore } from "@/context/GlobalStoreProvider";
+import { newTitle } from "@/redux/HeaderTitle/HeaderTitleSlice";
+import { useAppDispatch } from "@/redux/hook";
 import { useEffect } from "react";
 
 export default function Dashboard() {
-	const { setGlobalStore } = useGlobalStore();
+	const dispatch = useAppDispatch();
 	useEffect(() => {
-		setGlobalStore({ titleHeader: "داشبورد کاربری" });
+		dispatch(newTitle("داشبورد کاربری"));
 	}, []);
 	return (
 		<>

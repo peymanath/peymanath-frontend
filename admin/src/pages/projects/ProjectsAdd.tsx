@@ -1,10 +1,11 @@
-import { useGlobalStore } from "@/context/GlobalStoreProvider";
+import { newTitle } from "@/redux/HeaderTitle/HeaderTitleSlice";
+import { useAppDispatch } from "@/redux/hook";
 import { useEffect } from "react";
 
 export default function ProjectsAdd() {
-	const { setGlobalStore } = useGlobalStore();
+	const dispatch = useAppDispatch();
 	useEffect(() => {
-		setGlobalStore({ titleHeader:  "افزودن پروژه" });
+		dispatch(newTitle("افزودن پروژه"));
 	}, []);
 	return <h2>ProjectsAdd</h2>;
 }

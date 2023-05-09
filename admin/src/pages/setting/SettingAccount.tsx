@@ -1,10 +1,11 @@
-import { useGlobalStore } from "@/context/GlobalStoreProvider";
+import { newTitle } from "@/redux/HeaderTitle/HeaderTitleSlice";
+import { useAppDispatch } from "@/redux/hook";
 import { useEffect } from "react";
 
 export default function SettingAccount() {
-	const { setGlobalStore } = useGlobalStore();
+	const dispatch = useAppDispatch();
 	useEffect(() => {
-		setGlobalStore({ titleHeader:  "تنظیمات حساب کاربری" });
+		dispatch(newTitle("تنظیمات حساب کاربری"));
 	}, []);
 	return <h2>SettingAccount</h2>;
 }

@@ -3,28 +3,32 @@ import {
 	MailBox,
 	SpringNotesAdd,
 } from "react-huge-icons/outline";
-import { useGlobalStore } from "@/context/GlobalStoreProvider";
+import { newTitle } from "@/redux/HeaderTitle/HeaderTitleSlice";
+import { useAppDispatch } from "@/redux/hook";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SkillsListItem } from "@/types/pages";
 import GetSkillsRequest from "@/services/Skills/GetSkills";
+import {
+	allowedLoading,
+	disAllowedLoading,
+} from "@/redux/Loading/LoadingSlice";
 
 function Skills() {
-	const navigate = useNavigate();
-
-	const { setGlobalStore } = useGlobalStore();
 	const [skillsData, setSkillsData] = useState<SkillsListItem[]>();
+	const navigate = useNavigate();
+	const dispatch = useAppDispatch();
 
 	useEffect(() => {
-		setGlobalStore({ titleHeader: "مهارت ها" });
+		dispatch(newTitle("مهارت ها"));
 	}, []);
 
 	useEffect(() => {
-		setGlobalStore({ isLoading: true });
+		dispatch(allowedLoading());
 		GetSkillsRequest()
 			.then(data => {
-				setGlobalStore({ isLoading: false, showMenu: false });
 				setSkillsData(data);
+				dispatch(disAllowedLoading());
 			})
 			.catch(err => console.error(err));
 	}, []);

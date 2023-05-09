@@ -1,13 +1,12 @@
 import { Outlet } from "react-router-dom";
 import { LoadingWrapper } from "./components/Loading";
-import { useGlobalStore } from "./context/GlobalStoreProvider";
-
+import { RootState } from "./redux/Store";
+import { useAppSelector } from "./redux/hook";
 export default function App() {
-
-	const { globalStore } = useGlobalStore();
+	const Loading = useAppSelector((state: RootState) => state.loading.isLoading);
 	return (
 		<>
-			{globalStore.isLoading && <LoadingWrapper />}
+			{Loading && <LoadingWrapper />}
 			<Outlet />
 		</>
 	);

@@ -1,20 +1,29 @@
-import { useGlobalStore } from "@/context/GlobalStoreProvider";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { useAppDispatch } from "@/redux/hook";
+import {
+	allowedLoading,
+	disAllowedLoading,
+} from "@/redux/Loading/LoadingSlice";
+import { unSetLoggedIn } from "@/redux/UserLoggedIn/UserLoggedInSlice";
+import { addToken } from "@/redux/AccessToken/AccessTokenSlice";
+import { newTitle } from "@/redux/HeaderTitle/HeaderTitleSlice";
 
 export default function LogoutAccount() {
 	const navigate = useNavigate();
-	const { setGlobalStore } = useGlobalStore();
 
+	const dispatch = useAppDispatch();
 	useEffect(() => {
-		setGlobalStore({ titleHeader: "خروج از حساب کاربری" });
+		dispatch(newTitle("خروج از حساب کاربری"));
 	}, []);
 
 	const logoutHandler = () => {
-		setGlobalStore({ isLoading: true });
+		dispatch(allowedLoading());
 
 		setTimeout(() => {
-			setGlobalStore({ isLoading: false, token: "", isLogin: false });
+			dispatch(addToken(""));
+			dispatch(unSetLoggedIn());
+			dispatch(disAllowedLoading());
 		}, 2000);
 	};
 	return (

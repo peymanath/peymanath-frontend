@@ -3,28 +3,30 @@ import { RouteItem } from "@/types/pages";
 import Layout from "../layout";
 import React, { useEffect } from "react";
 import { routeList, routeSingle } from "@/pages/RouteList";
-import { useGlobalStore } from "@/context/GlobalStoreProvider";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
 
 function AllRoute() {
-	const { globalStore, setGlobalStore } = useGlobalStore();
 	const navigate = useNavigate();
 	const location = useLocation();
 
+	const { userLoggedIn, accessToken } = useAppSelector(state => state);
+	const dispatch = useAppDispatch();
+
 	useEffect(() => {
-		if (!globalStore.isLogin) navigate("/login");
+		if (!userLoggedIn.isLoggedIn) navigate("/login");
 		else {
 			if (location.pathname == "/login") navigate("/");
 		}
-	}, [globalStore.isLogin]);
+	}, [userLoggedIn.isLoggedIn]);
 
 	useEffect(() => {
 		localStorage.setItem(
-			"headers",
-			JSON.stringify({ token: globalStore.token }),
+			"accessToken",
+			JSON.stringify(accessToken.accessToken),
 		);
-	}, [globalStore.token]);
+	}, [accessToken.accessToken]);
 
-	return globalStore.isLogin ? (
+	return userLoggedIn.isLoggedIn ? (
 		<Layout>
 			<Routes>
 				{routeList.map((route: RouteItem) => (

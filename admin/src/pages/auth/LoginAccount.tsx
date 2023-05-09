@@ -5,24 +5,27 @@ import { useFormik, FormikProps } from "formik";
 import { LoginFormValues } from "@/types/pages";
 import * as Yup from "yup";
 import LoginRequest from "@/services/auth/login";
-import { useGlobalStore } from "@/context/GlobalStoreProvider";
+import {
+	allowedLoading,
+	disAllowedLoading,
+} from "@/redux/Loading/LoadingSlice";
+import { useAppDispatch } from "@/redux/hook";
+import { addToken } from "@/redux/AccessToken/AccessTokenSlice";
+import { setLoggedIn } from "@/redux/UserLoggedIn/UserLoggedInSlice";
 
 export default function LoginAccount() {
-	const { globalStore, setGlobalStore } = useGlobalStore();
-
+	const dispatch = useAppDispatch();
 	const now = new Date();
-	console.log(globalStore);
 	const onSubmit = (values: LoginFormValues) => {
-		setGlobalStore({ isLoading: true });
+		dispatch(allowedLoading());
 
 		LoginRequest({ values }).then((res: any) => {
-			setGlobalStore({
-				isLoading: false,
-				token: res.data.token,
-				isLogin: true,
-			});
+			dispatch(addToken(res.data.token));
+			dispatch(setLoggedIn());
+			dispatch(disAllowedLoading());
 		});
 	};
+
 	const validationSchema = Yup.object({
 		username: Yup.string().required("نام کاربری ضروری است."),
 		password: Yup.string().required("رمزعبور ضروری است."),

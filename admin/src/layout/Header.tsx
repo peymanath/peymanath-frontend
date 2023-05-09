@@ -1,15 +1,16 @@
-import { useGlobalStore } from "@/context/GlobalStoreProvider";
 import { MenuLineHorizontal, RemoveThin } from "react-huge-icons/outline";
 import SidebarMenu from "./SidebarMenu";
 import React, { useEffect, useCallback, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { sidebarMenu } from "./MenuList";
 import { SidebarMenuItem } from "@/types/pages";
+import { useAppSelector } from "@/redux/hook";
 
 function Header() {
-	const [showMenu, setShowMenu] = useState<boolean>(false);
-	const { globalStore } = useGlobalStore();
+	const [showMenu, setShowMenu] = useState<boolean>(false); 
 	const location = useLocation();
+
+	const { headerTitle } = useAppSelector(state => state.headerTitle);
 
 	const toggleMenu = useCallback(() => {
 		setShowMenu(!showMenu);
@@ -21,7 +22,7 @@ function Header() {
 
 	return (
 		<div className="flex gap-3 items-center justify-between w-full p-3 bg-white rounded-lg sticky top-3 min-h-[50px] shadow z-[998]">
-			<h1 className="text-lg">{globalStore.titleHeader}</h1>
+			<h1 className="text-lg">{headerTitle}</h1>
 			<div className="relative flex md:hidden cursor-pointer">
 				<MenuLineHorizontal className="w-10 h-10" onClick={toggleMenu} />
 

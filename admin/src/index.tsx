@@ -3,16 +3,17 @@ import "./styles/index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import AllRoute from "./pages/Route";
-import { GlobalStoreProvider } from "./context/GlobalStoreProvider";
+import { Provider } from "react-redux";
+import { store } from "./redux/Store";
 
 const root = ReactDOM.createRoot(
 	document.getElementById("root") as HTMLElement,
 );
 root.render(
 	<BrowserRouter>
-		<GlobalStoreProvider>
+		<Provider store={store}>
 			<AllRoute />
 			<App />
-		</GlobalStoreProvider>
+		</Provider>
 	</BrowserRouter>,
 );

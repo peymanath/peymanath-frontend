@@ -1,7 +1,8 @@
 import ImageUploader from "@/components/ImageUploder/ImageUploader";
 import Button from "@/components/common/Button";
 import { LoadingDashed } from "react-huge-icons/outline";
-import { useGlobalStore } from "@/context/GlobalStoreProvider";
+import { newTitle } from "@/redux/HeaderTitle/HeaderTitleSlice";
+import { useAppDispatch } from "@/redux/hook";
 import React, { useEffect, useCallback } from "react";
 import Input from "@/components/common/Input";
 import { useFormik, FormikProps } from "formik";
@@ -13,9 +14,10 @@ import { useNavigate } from "react-router-dom";
 
 function SkillsAdd() {
 	const navigate = useNavigate();
-	const { setGlobalStore } = useGlobalStore();
+	const dispatch = useAppDispatch();
+
 	useEffect(() => {
-		setGlobalStore({ titleHeader: "افزودن مهارت" });
+		dispatch(newTitle("افزودن مهارت"));
 	}, []);
 
 	const now = new Date();
@@ -28,9 +30,9 @@ function SkillsAdd() {
 				.then(() => {
 					setSubmitting(false);
 					resetForm();
-					setGlobalStore({ isLoading: true });
+					// setGlobalStore({ isLoading: true });
 					setTimeout(() => {
-						setGlobalStore({ isLoading: false });
+						// setGlobalStore({ isLoading: false });
 						navigate("/skills");
 					}, 1000);
 				})
@@ -80,7 +82,6 @@ function SkillsAdd() {
 			onSubmit,
 			validationSchema,
 		});
-console.log(formik.values.thumbnail);
 	return (
 		<div>
 			<form
