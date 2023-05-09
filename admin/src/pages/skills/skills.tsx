@@ -23,7 +23,7 @@ function Skills() {
 		setGlobalStore({ isLoading: true });
 		GetSkillsRequest()
 			.then(data => {
-				setGlobalStore({ isLoading: false });
+				setGlobalStore({ isLoading: false, showMenu: false });
 				setSkillsData(data);
 			})
 			.catch(err => console.error(err));
@@ -37,8 +37,9 @@ function Skills() {
 					onClick={() => navigate("/skill/add")}>
 					<SpringNotesAdd className="w-20 h-20" />
 					<p className="text-center">
-						{skillsData && skillsData?.length >= 1 ? "اگر مهارت جدید داری از اینجا اضافه کن :)" : "اولین مهارتتو از اینجا وارد کن"}
-						
+						{skillsData && skillsData?.length >= 1
+							? "اگر مهارت جدید داری از اینجا اضافه کن :)"
+							: "اولین مهارتتو از اینجا وارد کن"}
 					</p>
 				</div>
 				{skillsData &&

@@ -11,10 +11,6 @@ function AllRoute() {
 	const location = useLocation();
 
 	useEffect(() => {
-		setGlobalStore({ showMenu: false });
-	}, []);
-
-	useEffect(() => {
 		if (!globalStore.isLogin) navigate("/login");
 		else {
 			if (location.pathname == "/login") navigate("/");
