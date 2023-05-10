@@ -13,6 +13,19 @@ export interface SkillsListItem {
 	projects?: number;
 	publishedAt: Date;
 }
+export interface ProjectsListItem {
+	id?: number;
+	title?: string;
+	descriptin?: string;
+	thumbnail?: string;
+	publishedAt: Date;
+	skills: [] | null;
+}
+
+export interface ProjectsResponseData {
+	data: ProjectsListItem[] | undefined;
+	status: number;
+}
 
 export interface SkillsResponseData {
 	data: SkillsListItem[] | undefined;
@@ -20,7 +33,12 @@ export interface SkillsResponseData {
 }
 
 export interface SkillSingleResponseData {
-	data: SkillsAddFormValues | undefined;
+	data: SkillsAddFormValues;
+	status: number;
+}
+
+export interface ProjectSingleResponseData {
+	data: ProjectAddFormValues;
 	status: number;
 }
 
@@ -29,6 +47,15 @@ export interface LoginFormValues {
 	password: string;
 	joinedAt: Date;
 	active: boolean;
+}
+
+export interface ProjectAddFormValues {
+	id?: number | string | undefined;
+	title: string;
+	descriptin: string;
+	thumbnail?: string;
+	publishedAt: Date;
+	skills: [] | null;
 }
 
 export interface SkillsAddFormValues {

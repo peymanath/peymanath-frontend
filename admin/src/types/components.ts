@@ -1,4 +1,5 @@
 import { DragEvent, MouseEventHandler } from "react";
+import * as React from "react";
 
 interface ButtonHTMLAttributes<T> {
 	autoFocus?: boolean | undefined;
@@ -80,4 +81,16 @@ export interface PopUpImageUploaderInterface {
 	addImage: MouseEventHandler<HTMLButtonElement | HTMLDivElement>;
 	image: any;
 	setShowAddSection: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface CheckBoxInputItemInterface {
+	value: string | number | undefined;
+	lable: string | undefined;
+}
+
+export interface CheckBoxInputInterface {
+	lableFiled: string;
+	name: string;
+	formik: any;
+	checkboxData: CheckBoxInputItemInterface[] | undefined;
 }

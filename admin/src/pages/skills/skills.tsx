@@ -4,7 +4,7 @@ import {
 	SpringNotesAdd,
 } from "react-huge-icons/outline";
 import { newTitle } from "@/redux/HeaderTitle/HeaderTitleSlice";
-import { useAppDispatch } from "@/redux/hook";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { SkillsListItem } from "@/types/pages";
@@ -18,6 +18,7 @@ import { SkillDeleteType } from "@/types/services";
 import PopUp from "@/components/common/PopUp";
 import Button from "@/components/common/Button";
 import { Color } from "@/global/global";
+import { getAsyncSkills } from "@/redux/Skills/SkillsSlice";
 
 function Skills() {
 	const [skillsData, setSkillsData] = useState<SkillsListItem[]>();
@@ -25,6 +26,7 @@ function Skills() {
 
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
+	const { skillsItem, loading } = useAppSelector(state => state.skills);
 
 	const removeSkill = ({ id }: SkillDeleteType) => {
 		SkillDeleteRequest({ id }).then(res => {
@@ -36,20 +38,19 @@ function Skills() {
 	};
 
 	const getData = () => {
-		dispatch(allowedLoading());
-		GetSkillsRequest()
-			.then(data => {
-				setSkillsData(data);
-				dispatch(disAllowedLoading());
-			})
-			.catch(err => console.error(err));
+		dispatch(getAsyncSkills());
 	};
 
 	useEffect(() => {
-		dispatch(newTitle("مهارت ها"));
-	}, []);
+		setSkillsData(skillsItem || []);
+	}, [skillsItem]);
 
 	useEffect(() => {
+		dispatch(loading ? allowedLoading() : disAllowedLoading());
+	}, [loading]);
+
+	useEffect(() => {
+		dispatch(newTitle("مهارت ها"));
 		getData();
 	}, []);
 

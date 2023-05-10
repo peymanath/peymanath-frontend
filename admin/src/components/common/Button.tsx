@@ -15,17 +15,19 @@ export default function Button({
 	type = "button",
 	children,
 	onClick,
+	disabled
 }: ButtonType) {
 	const classButton = "border-primary bg-primary shadow-buttonPrimary";
 
 	return (
 		<ButtonStyled
 			color={color}
-			className={`flex items-center justify-center ${width} cursor-pointer py-2 px-5 text-center rounded-md border duration-300 hover:opacity-70 hover:shadow-none ${
+			className={`flex items-center justify-center ${width} cursor-pointer py-2 px-5 text-center rounded-md border duration-300 hover:opacity-70 hover:shadow-none disabled:opacity-50 disabled:cursor-not-allowed ${
 				!color && classButton
 			}`}
 			onClick={onClick}
-			type={type}>
+			type={type}
+			disabled={disabled}>
 			{text || children}
 		</ButtonStyled>
 	);

@@ -11,7 +11,7 @@ export default function Input({
 			<label htmlFor={name} className="flex flex-wrap gap-3 pr-1">
 				<span>{label}</span>
 				{formik.errors[name] && formik.touched[name] && (
-					<span className="mr-2 text-red-500">
+					<span className="text-red-500">
 						{"(" + formik.errors[name] + ")"}
 					</span>
 				)}

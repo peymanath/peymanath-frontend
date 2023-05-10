@@ -12,6 +12,10 @@ import SkillsAddRequest from "@/services/Skills/SkillAdd";
 import { onSubmitFormik } from "@/types/services";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Color } from "@/global/global";
+import {
+	allowedLoading,
+	disAllowedLoading,
+} from "@/redux/Loading/LoadingSlice";
 
 function SkillsAdd() {
 	const navigate = useNavigate();
@@ -30,13 +34,16 @@ function SkillsAdd() {
 				.then(() => {
 					setSubmitting(false);
 					resetForm();
-					// setGlobalStore({ isLoading: true });
+					dispatch(allowedLoading());
 					setTimeout(() => {
-						// setGlobalStore({ isLoading: false });
+						dispatch(disAllowedLoading());
 						navigate("/skills");
 					}, 1000);
 				})
-				.catch(err => console.error(err));
+				.catch(err => {
+					console.error(err);
+					dispatch(disAllowedLoading());
+				});
 		},
 		[],
 	);
@@ -87,11 +94,7 @@ function SkillsAdd() {
 			<div className="flex items-center justify-between w-full gap-6 bg-white p-3 rounded-lg shadow mb-7">
 				<p>میخواهید تمامی مهارت ها را مشاهده کنید؟</p>
 				<NavLink to="/skills">
-					<Button
-						text="مشاهده مهارت ها"
-						width="w-auto"
-						color={Color.primary}
-					/>
+					<Button text="مشاهده مهارت ها" width="w-auto" color={Color.primary} />
 				</NavLink>
 			</div>
 			<div>

@@ -1,3 +1,4 @@
+import { NavLink, useParams } from "react-router-dom";
 import ImageUploader from "@/components/ImageUploder/ImageUploader";
 import Button from "@/components/common/Button";
 import { LoadingDashed } from "react-huge-icons/outline";
@@ -6,47 +7,69 @@ import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import React, { useEffect, useCallback, useState } from "react";
 import Input from "@/components/common/Input";
 import { useFormik, FormikProps } from "formik";
-import { ProjectAddFormValues, SkillsListItem } from "@/types/pages";
+import { ProjectAddFormValues } from "@/types/pages";
 import * as Yup from "yup";
 import { onSubmitFormik } from "@/types/services";
-import { NavLink, useNavigate } from "react-router-dom";
-import { Color } from "@/global/global";
-import { getAsyncSkills } from "@/redux/Skills/SkillsSlice";
+import { useNavigate } from "react-router-dom";
 import {
 	allowedLoading,
 	disAllowedLoading,
 } from "@/redux/Loading/LoadingSlice";
+import { Color } from "@/global/global";
+import GetProjectSingleRequest from "@/services/Projects/GetSingleProject";
 import CheckBoxInput from "@/components/common/CheckBoxInpot";
 import { CheckBoxInputItemInterface } from "@/types/components";
-import ProjectAddRequest from "@/services/Projects/ProjectAdd";
+import { getAsyncSkills } from "@/redux/Skills/SkillsSlice";
 
-function ProjectAdd() {
+function ProjectEdit(props: any) {
+	const [projectData, setProjectData] = useState<ProjectAddFormValues>();
+	const [skillsData, setSkillsData] = useState<CheckBoxInputItemInterface[]>();
+
+	const { id } = useParams();
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
-
-	const [skillsData, setSkillsData] = useState<CheckBoxInputItemInterface[]>();
 	const { skillsItem, loading } = useAppSelector(state => state.skills);
+
+	const getData = () => {
+		dispatch(allowedLoading());
+		dispatch(getAsyncSkills());
+		GetProjectSingleRequest({ id })
+			.then(data => {
+				setProjectData(data);
+				dispatch(disAllowedLoading());
+			})
+			.catch(err => {
+				console.error(err);
+				dispatch(disAllowedLoading());
+			});
+	};
+
+	useEffect(() => {
+		dispatch(
+			newTitle(`ویرایش پروژه ${projectData?.title ? projectData.title : ""}`),
+		);
+	}, [projectData?.title]);
+
+	useEffect(() => {
+		getData();
+	}, []);
 
 	const onSubmit = useCallback(
 		(
 			values: ProjectAddFormValues,
 			{ setSubmitting, resetForm }: onSubmitFormik,
 		) => {
-			ProjectAddRequest({ values })
-				.then(() => {
-					setSubmitting(false);
-					resetForm();
-					dispatch(allowedLoading());
-					setTimeout(() => {
-						dispatch(disAllowedLoading());
-						navigate("/projects");
-					}, 1000);
-				})
-				.catch(err => {
-					console.error(err);
-					setSubmitting(false);
-					dispatch(disAllowedLoading());
-				});
+			// SkillsAddRequest({ values })
+			// 	.then(() => {
+			// 		setSubmitting(false);
+			// 		resetForm();
+			// 		// setGlobalStore({ isLoading: true });
+			// 		setTimeout(() => {
+			// 			// setGlobalStore({ isLoading: false });
+			// 			navigate("/skills");
+			// 		}, 1000);
+			// 	})
+			// 	.catch(err => console.error(err));
 		},
 		[],
 	);
@@ -69,14 +92,11 @@ function ProjectAdd() {
 
 	const formik: FormikProps<ProjectAddFormValues> =
 		useFormik<ProjectAddFormValues>({
-			initialValues,
+			initialValues: projectData || initialValues,
 			onSubmit,
 			validationSchema,
+			enableReinitialize: true,
 		});
-
-	const getData = () => {
-		dispatch(getAsyncSkills());
-	};
 
 	useEffect(() => {
 		const allSkill =
@@ -88,6 +108,7 @@ function ProjectAdd() {
 				};
 				return newItem;
 			});
+			console.log(allSkill);
 		setSkillsData(allSkill || []);
 	}, [skillsItem]);
 
@@ -95,17 +116,16 @@ function ProjectAdd() {
 		dispatch(loading ? allowedLoading() : disAllowedLoading());
 	}, [loading]);
 
-	useEffect(() => {
-		dispatch(newTitle("افزودن پروژه"));
-		getData();
-	}, []);
-
 	return (
 		<>
 			<div className="flex items-center justify-between w-full gap-6 bg-white p-3 rounded-lg shadow mb-7">
-				<p>میخواهید تمامی پروژه ها را مشاهده کنید؟</p>
-				<NavLink to="/projects">
-					<Button text="مشاهده پروژه ها" width="w-auto" color={Color.primary} />
+				<p>میخواهید پروژه جدید اضافه کنید؟</p>
+				<NavLink to="/project/add">
+					<Button
+						text="افزودن مهارت جدید"
+						width="w-auto"
+						color={Color.primary}
+					/>
 				</NavLink>
 			</div>
 			<div>
@@ -114,33 +134,17 @@ function ProjectAdd() {
 					className="flex flex-wrap w-full items-start justify-between"
 					encType="multipart/form-data">
 					<div className="flex flex-col w-full md:w-[48%] xl:w-[65%] gap-6 bg-white p-3 rounded-lg shadow">
-						<h2 className="w-full text-lg font-bold">اطلاعات پروژه جدید</h2>
+						<h2 className="w-full text-lg font-bold">اطلاعات جدید مهارت</h2>
 						<Input name="title" label="نام پروژه" formik={formik} />
 						<Input name="descriptin" label="توضیحات پروژه" formik={formik} />
-
-						{!!skillsData?.length ? (
+						{!!skillsData?.length && (
 							<CheckBoxInput
 								name="skills"
 								lableFiled="مهارت ها"
 								formik={formik}
 								checkboxData={skillsData}
 							/>
-						) : (
-							<div className="flex flex-col items-center border border-red-500 rounded-lg p-3 gap-5">
-								<div className="flex flex-wrap items-center gap-3 text-red-500 font-bold">
-									برای ادامه فرایند باید حداقل یک مهارت اضافه کرده باشید
-								</div>
-								<div className="flex flex-wrap items-center gap-3">
-									<p>میخوای اولین مهارت خودت رو اضافه کنی؟</p>
-									<NavLink
-										to="/skill/add"
-										className="text-primary hover:opacity-80 font-bold">
-										افزودن مهارت جدید
-									</NavLink>
-								</div>
-							</div>
 						)}
-
 						<Button
 							type="submit"
 							className="w-36"
@@ -148,14 +152,14 @@ function ProjectAdd() {
 							{formik.isSubmitting ? (
 								<LoadingDashed className="w-6 h-6 animate-spin" />
 							) : (
-								"افزودن پروژه"
+								"ثبت تغییرات"
 							)}
 						</Button>
 					</div>
 
 					<div className="flex flex-col w-full md:w-[48%] xl:w-[33%] gap-6">
 						<div className="bg-white p-3 rounded-lg shadow">
-							<ImageUploader formik={formik} />
+							<ImageUploader formik={formik} isEditPage={true} />
 						</div>
 					</div>
 				</form>
@@ -163,4 +167,4 @@ function ProjectAdd() {
 		</>
 	);
 }
-export default React.memo(ProjectAdd);
+export default ProjectEdit;
