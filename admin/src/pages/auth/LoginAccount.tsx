@@ -19,11 +19,16 @@ export default function LoginAccount() {
 	const onSubmit = (values: LoginFormValues) => {
 		dispatch(allowedLoading());
 
-		LoginRequest({ values }).then((res: any) => {
-			dispatch(addToken(res.data.token));
-			dispatch(setLoggedIn());
-			dispatch(disAllowedLoading());
-		});
+		LoginRequest({ values })
+			.then((res: any) => {
+				dispatch(addToken(res.data.token));
+				dispatch(setLoggedIn());
+				dispatch(disAllowedLoading());
+			})
+			.catch(err => {
+				console.log(err);
+				dispatch(disAllowedLoading());
+			});
 	};
 
 	const validationSchema = Yup.object({
