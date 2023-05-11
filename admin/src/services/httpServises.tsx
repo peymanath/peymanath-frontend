@@ -11,7 +11,7 @@ export const mockapi = axios.create({
 
 export const strapi = axios.create({
 	baseURL: process.env.REACT_APP_API_BACKEND,
-	timeout: 60000,
+	timeout: 20000,
 	headers: {
 		"Content-Type": "application/json",
 		Authorization: `Bearer ${process.env.REACT_APP_API_BACKEND_TOKEN}`,

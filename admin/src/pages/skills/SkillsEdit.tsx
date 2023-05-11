@@ -6,6 +6,7 @@ import { useFormik, FormikProps } from "formik";
 import {
 	SkillFormComponenItemtInterface,
 	SkillsAddFormValues,
+	SkillsResponseDataItem,
 } from "@/Types/Pages";
 import { onSubmitFormik } from "@/Types/Services";
 import { useNavigate } from "react-router-dom";
@@ -27,8 +28,15 @@ function SkillsEdit() {
 	const getData = () => {
 		dispatch(allowedLoading());
 		GetSkillSingleRequest({ id })
-			.then(data => {
-				setSkillsData(data);
+			.then(({ attributes }: any) => {
+				setSkillsData({
+					titleFa: attributes.titleFa,
+					titleEn: attributes.titleEn,
+					descriptin: attributes.descriptin,
+					thumbnail: attributes?.thumbnail?.data?.id || 8,
+					skill_projects: [], //attributes.skill_projects
+					recommends: [], //attributes.recommends
+				});
 				dispatch(disAllowedLoading());
 			})
 			.catch(err => {
@@ -39,29 +47,34 @@ function SkillsEdit() {
 
 	useEffect(() => {
 		dispatch(
-			newTitle(`ویرایش مهارت ${skillsData?.titleEn ? skillsData.titleEn : ""}`),
+			newTitle(
+				`ویرایش مهارت ${
+					skillsData?.titleFa ? skillsData?.titleFa : skillsData?.titleEn
+				}`,
+			),
 		);
-	}, [skillsData?.titleEn]);
+	}, [skillsData]);
 
 	useEffect(() => {
 		getData();
 	}, []);
 
-	const onSubmit = useCallback(
-		(values: SkillsAddFormValues, { setSubmitting }: onSubmitFormik) => {
-			SkillEditRequest({ id, values })
-				.then(data => {
-					setSubmitting(false);
-					dispatch(allowedLoading());
-					navigate("/skills");
-				})
-				.catch(err => {
-					console.error(err);
-					dispatch(disAllowedLoading());
-				});
-		},
-		[],
-	);
+	const onSubmit = (
+		values: SkillsAddFormValues,
+		{ setSubmitting }: onSubmitFormik,
+	) => {
+		SkillEditRequest({ id, values })
+			.then(data => {
+				setSubmitting(false);
+				dispatch(allowedLoading());
+				navigate("/skills");
+			})
+			.catch(err => {
+				console.error(err);
+				setSubmitting(false);
+				dispatch(disAllowedLoading());
+			});
+	};
 
 	const formik: FormikProps<SkillsAddFormValues> =
 		useFormik<SkillsAddFormValues>({

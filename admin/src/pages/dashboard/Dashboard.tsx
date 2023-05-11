@@ -8,11 +8,18 @@ export default function Dashboard() {
 	const dispatch = useAppDispatch();
 	useEffect(() => {
 		dispatch(newTitle("داشبورد کاربری"));
-		// @yF5Axi@7uTDjZk
-		// peymanath
 		const fetchApi = async () => {
 			try {
-				const data = await strapi.get("/skills?populate=*");
+				const data = await strapi.put("/skills/2", {
+					data: {
+						titleFa: "string",
+						titleEn: "string",
+						descriptin: "string",
+						thumbnail: 2,
+						skill_projects: [],
+						recommends: [],
+					},
+				});
 				console.log(data);
 			} catch (error) {
 				console.log(error);

@@ -8,7 +8,6 @@ import React from "react";
 function ImageUploader({ formik, isEditPage = false }: ImageUploaderItem) {
 	const [showAddSection, setShowAddSection] = useState<boolean>(false);
 	const [isDragging, setIsDragging] = useState<boolean>(false);
-	const [imageFile, setImageFile] = useState<File>();
 	const [image, setImage] = useState<any>();
 	const uploderInput = useRef<HTMLInputElement | null>(null);
 	const allowedFileType = ["webp", "png", "jpeg", "svg"];
@@ -18,16 +17,15 @@ function ImageUploader({ formik, isEditPage = false }: ImageUploaderItem) {
 			if (!allowedFileType.includes(files.type.replace("image/", ""))) {
 				return;
 			} else {
-				setImageFile(files);
 				const reader = new FileReader();
 				reader.readAsDataURL(files);
 				reader.onload = () => {
-					formik.setFieldValue("thumbnail", reader.result);
+					formik.setFieldValue("thumbnail", files);
 					setImage(reader.result);
 				};
 			}
 		},
-		[allowedFileType, image, imageFile],
+		[allowedFileType, image],
 	);
 
 	const addImage = useCallback(() => {

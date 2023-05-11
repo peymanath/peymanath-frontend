@@ -77,19 +77,14 @@ export interface SkillsResponseData {
 	status: number;
 }
 
-export interface SkillSingleResponseData {
-	data: SkillsAddFormValues;
-	status: number;
-}
 export interface SkillsAddFormValues {
 	id?: number | string | undefined;
-	titleFa: string;
+	titleFa?: string;
 	titleEn: string;
-	descriptin: string;
-	thumbnail?: string;
-	recommmendations?: number;
-	projects?: number;
-	publishedAt: Date;
+	descriptin?: string;
+	thumbnail?: string | number;
+	skill_projects: String[] | Number[];
+	recommends: String[] | Number[];
 }
 export interface SkillFormComponenItemtInterface {
 	headerDesciption: string;

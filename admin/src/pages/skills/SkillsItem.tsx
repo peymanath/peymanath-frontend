@@ -6,18 +6,31 @@ import { SkillDeleteType } from "@/Types/Services";
 import Button from "@/components/common/Button";
 import SkillDeleteRequest from "@/services/Skills/SkillDelete";
 import { NavLink } from "react-router-dom";
+import { useAppDispatch } from "@/redux/Hook";
+import {
+	allowedLoading,
+	disAllowedLoading,
+} from "@/redux/Loading/LoadingSlice";
 
 function SkillsItem({ id, dataSkille, getData }: any) {
 	const [showAddSection, setShowAddSection] = useState<boolean>(false);
 	const image = dataSkille?.thumbnail.data?.attributes;
 
+	const dispatch = useAppDispatch();
+
 	const removeSkill = ({ id }: SkillDeleteType) => {
-		SkillDeleteRequest({ id }).then(res => {
-			if (res.status === 200) {
-				setShowAddSection(false);
-				getData();
-			}
-		});
+		dispatch(allowedLoading());
+		SkillDeleteRequest({ id })
+			.then(res => {
+				if (res.status === 200) {
+					setShowAddSection(false);
+					getData();
+				}
+			})
+			.catch(err => {
+				console.log(err);
+				dispatch(disAllowedLoading());
+			});
 	};
 
 	return (

@@ -30,7 +30,7 @@ function SkillsAdd() {
 			{ setSubmitting, resetForm }: onSubmitFormik,
 		) => {
 			SkillsAddRequest({ values })
-				.then(() => {
+				.then(res => {
 					setSubmitting(false);
 					resetForm();
 					dispatch(allowedLoading());
@@ -41,6 +41,7 @@ function SkillsAdd() {
 				})
 				.catch(err => {
 					console.error(err);
+					setSubmitting(false);
 					dispatch(disAllowedLoading());
 				});
 		},

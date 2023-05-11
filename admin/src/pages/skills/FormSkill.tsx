@@ -33,16 +33,6 @@ function FormSkill({ formik, dataPage }: SkillFormComponentInterface) {
 							formik={formik}
 						/>
 						<Input name="descriptin" label="توضیحات مهارت" formik={formik} />
-						<Input
-							name="recommmendations"
-							label="تعداد توصیه ها"
-							formik={formik}
-						/>
-						<Input
-							name="projects"
-							label="تعداد پروژه های این مهارت"
-							formik={formik}
-						/>
 						<Button
 							type="submit"
 							className="w-36"
