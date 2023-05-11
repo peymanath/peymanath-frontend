@@ -3,40 +3,42 @@ import ImageUploader from "@/components/ImageUploder/ImageUploader";
 import Button from "@/components/common/Button";
 import { LoadingDashed } from "react-huge-icons/outline";
 import { newTitle } from "@/redux/HeaderTitle/HeaderTitleSlice";
-import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import { useAppDispatch, useAppSelector } from "@/redux/Hook";
 import React, { useEffect, useCallback, useState } from "react";
 import Input from "@/components/common/Input";
 import { useFormik, FormikProps } from "formik";
-import { ProjectAddFormValues } from "@/types/pages";
+import { ProjectAddFormValues } from "@/Types/Pages";
 import * as Yup from "yup";
-import { onSubmitFormik } from "@/types/services";
+import { onSubmitFormik } from "@/Types/Services";
 import { useNavigate } from "react-router-dom";
 import {
 	allowedLoading,
 	disAllowedLoading,
 } from "@/redux/Loading/LoadingSlice";
-import { Color } from "@/global/global";
+import { Color } from "@/Global/Global";
 import GetProjectSingleRequest from "@/services/Projects/GetSingleProject";
 import CheckBoxInput from "@/components/common/CheckBoxInpot";
-import { CheckBoxInputItemInterface } from "@/types/components";
+import { CheckBoxInputItemInterface } from "@/Types/Components";
 import { getAsyncSkills } from "@/redux/Skills/SkillsSlice";
+import ProjectEditRequest from "@/services/Projects/ProjectEdit";
 
 function ProjectEdit(props: any) {
 	const [projectData, setProjectData] = useState<ProjectAddFormValues>();
 	const [skillsData, setSkillsData] = useState<CheckBoxInputItemInterface[]>();
-
 	const { id } = useParams();
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
-	const { skillsItem, loading } = useAppSelector(state => state.skills);
+	const { skillsItem } = useAppSelector(state => state.skills);
 
 	const getData = () => {
 		dispatch(allowedLoading());
+
 		dispatch(getAsyncSkills());
+
 		GetProjectSingleRequest({ id })
 			.then(data => {
-				setProjectData(data);
 				dispatch(disAllowedLoading());
+				setProjectData(data);
 			})
 			.catch(err => {
 				console.error(err);
@@ -44,32 +46,18 @@ function ProjectEdit(props: any) {
 			});
 	};
 
-	useEffect(() => {
-		dispatch(
-			newTitle(`ویرایش پروژه ${projectData?.title ? projectData.title : ""}`),
-		);
-	}, [projectData?.title]);
-
-	useEffect(() => {
-		getData();
-	}, []);
-
 	const onSubmit = useCallback(
-		(
-			values: ProjectAddFormValues,
-			{ setSubmitting, resetForm }: onSubmitFormik,
-		) => {
-			// SkillsAddRequest({ values })
-			// 	.then(() => {
-			// 		setSubmitting(false);
-			// 		resetForm();
-			// 		// setGlobalStore({ isLoading: true });
-			// 		setTimeout(() => {
-			// 			// setGlobalStore({ isLoading: false });
-			// 			navigate("/skills");
-			// 		}, 1000);
-			// 	})
-			// 	.catch(err => console.error(err));
+		(values: ProjectAddFormValues, { setSubmitting }: onSubmitFormik) => {
+			ProjectEditRequest({ id, values })
+				.then(data => {
+					setSubmitting(false);
+					dispatch(allowedLoading());
+					navigate("/projects");
+				})
+				.catch(err => {
+					console.error(err);
+					dispatch(disAllowedLoading());
+				});
 		},
 		[],
 	);
@@ -99,22 +87,27 @@ function ProjectEdit(props: any) {
 		});
 
 	useEffect(() => {
-		const allSkill =
-			!!skillsItem &&
-			skillsItem.map(skillItem => {
-				const newItem: CheckBoxInputItemInterface = {
-					lable: skillItem.titleEn,
-					value: skillItem.titleEn,
-				};
-				return newItem;
-			});
-			console.log(allSkill);
-		setSkillsData(allSkill || []);
-	}, [skillsItem]);
+		dispatch(
+			newTitle(`ویرایش پروژه ${projectData?.title ? projectData.title : ""}`),
+		);
+	}, [projectData?.title]);
 
 	useEffect(() => {
-		dispatch(loading ? allowedLoading() : disAllowedLoading());
-	}, [loading]);
+		getData();
+	}, []);
+
+	useEffect(() => {
+		// const allSkill =
+		// 	!!skillsItem &&
+		// 	skillsItem.map(skillItem => {
+		// 		const newItem: CheckBoxInputItemInterface = {
+		// 			lable: skillItem.titleEn,
+		// 			value: skillItem.titleEn,
+		// 		};
+		// 		return newItem;
+		// 	});
+		// setSkillsData(allSkill || []);
+	}, [skillsItem]);
 
 	return (
 		<>
@@ -167,4 +160,4 @@ function ProjectEdit(props: any) {
 		</>
 	);
 }
-export default ProjectEdit;
+export default React.memo(ProjectEdit);

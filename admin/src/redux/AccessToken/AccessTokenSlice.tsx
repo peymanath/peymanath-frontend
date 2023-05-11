@@ -1,4 +1,4 @@
-import { AccessTokenState } from "@/types/redux";
+import { AccessTokenState } from "@/Types/Redux";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: AccessTokenState = {

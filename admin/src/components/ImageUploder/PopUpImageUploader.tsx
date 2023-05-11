@@ -1,7 +1,7 @@
 import PopUp from "../common/PopUp";
 import { RemoveThin } from "react-huge-icons/outline";
 import Button from "../common/Button";
-import { PopUpImageUploaderInterface } from "@/types/components";
+import { PopUpImageUploaderInterface } from "@/Types/Components";
 import React from 'react';
 
 function PopUpImageUploader({

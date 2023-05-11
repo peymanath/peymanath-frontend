@@ -1,4 +1,4 @@
-import { ButtonType } from "@/types/components";
+import { ButtonType } from "@/Types/Components";
 import style from "styled-components";
 
 const ButtonStyled = style.button`
@@ -22,7 +22,7 @@ export default function Button({
 	return (
 		<ButtonStyled
 			color={color}
-			className={`flex items-center justify-center ${width} cursor-pointer py-2 px-5 text-center rounded-md border duration-300 hover:opacity-70 hover:shadow-none disabled:opacity-50 disabled:cursor-not-allowed ${
+			className={`flex items-center justify-center ${width} cursor-pointer py-1.5 px-3 text-center text-base rounded-md border duration-300 hover:opacity-70 hover:shadow-none disabled:opacity-50 disabled:cursor-not-allowed ${
 				!color && classButton
 			}`}
 			onClick={onClick}

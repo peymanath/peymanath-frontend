@@ -1,4 +1,4 @@
-import { LoggedInState } from "@/types/redux";
+import { LoggedInState } from "@/Types/Redux";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: LoggedInState = {

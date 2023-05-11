@@ -1,4 +1,4 @@
-import { SkillsListItem } from "./pages";
+import { SkillsListItem, SkillsResponseDataItem } from "./Pages";
 
 export interface LoadingState {
 	isLoading: boolean;
@@ -17,7 +17,7 @@ export interface AccessTokenState {
 }
 
 export interface SkillsListItemState {
-	skillsItem: SkillsListItem[] | null | undefined;
+	skillsItem: SkillsResponseDataItem[] | any;
 	erorr: string | null | undefined;
 	loading: boolean;
 }

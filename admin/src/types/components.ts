@@ -1,42 +1,8 @@
 import { DragEvent, MouseEventHandler } from "react";
 import * as React from "react";
 
-interface ButtonHTMLAttributes<T> {
-	autoFocus?: boolean | undefined;
-	disabled?: boolean | undefined;
-	form?: string | undefined;
-	formAction?: string | undefined;
-	formEncType?: string | undefined;
-	formMethod?: string | undefined;
-	formNoValidate?: boolean | undefined;
-	formTarget?: string | undefined;
-	name?: string | undefined;
-	type?: "submit" | "reset" | "button" | undefined;
-	value?: string | ReadonlyArray<string> | number | undefined;
-}
-
-export interface ImageType {
-	width: number;
-	height: number;
-	src: string;
-	alt: string;
-	className?: string;
-	title?: string;
-}
-
-export interface InputItem {
-	label: string;
-	name: string;
-	formik: any;
-	type?: string;
-	placeholder?: string;
-}
-
-export interface ImageUploaderItem {
-	isEditPage?: boolean;
-	formik: any;
-}
-
+/* ==================== Common Component ==================== */
+// Button
 export type ButtonType = {
 	text?: string | JSX.Element;
 	color?: string;
@@ -57,17 +23,37 @@ export type ButtonType = {
 	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-export interface DisplayImageUploaderInterface {
-	onDragEnter: (e: DragEvent<HTMLDivElement>) => void;
-	onDragLeave: (e: DragEvent<HTMLDivElement>) => void;
-	onDragOver: (e: DragEvent<HTMLDivElement>) => void;
-	onDrop: (e: DragEvent<HTMLDivElement>) => void;
-	isDragging: boolean;
-	removeImage: MouseEventHandler<HTMLDivElement>;
-	image: any;
-	setShowAddSection: React.Dispatch<React.SetStateAction<boolean>>;
+// CheckBox Input
+export interface CheckBoxInputItemInterface {
+	value: string | number | undefined;
+	lable: string | undefined;
+}
+export interface CheckBoxInputInterface {
+	lableFiled: string;
+	name: string;
+	formik: any;
+	checkboxData: CheckBoxInputItemInterface[] | undefined;
+}
+// Imsge
+export interface ImageType {
+	width: number | undefined;
+	height: number | undefined;
+	src: string | undefined;
+	alt: string | undefined;
+	className?: string;
+	title?: string;
 }
 
+// Input
+export interface InputItem {
+	label: string;
+	name: string;
+	formik: any;
+	type?: string;
+	placeholder?: string;
+}
+
+// PopUp
 export interface PopUpImageUploaderInterface {
 	onDragEnter: (e: DragEvent<HTMLDivElement>) => void;
 	onDragLeave: (e: DragEvent<HTMLDivElement>) => void;
@@ -83,14 +69,19 @@ export interface PopUpImageUploaderInterface {
 	setShowAddSection: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export interface CheckBoxInputItemInterface {
-	value: string | number | undefined;
-	lable: string | undefined;
-}
-
-export interface CheckBoxInputInterface {
-	lableFiled: string;
-	name: string;
+/* ==================== Base Component ==================== */
+// Image Uploader
+export interface ImageUploaderItem {
+	isEditPage?: boolean;
 	formik: any;
-	checkboxData: CheckBoxInputItemInterface[] | undefined;
+}
+export interface DisplayImageUploaderInterface {
+	onDragEnter: (e: DragEvent<HTMLDivElement>) => void;
+	onDragLeave: (e: DragEvent<HTMLDivElement>) => void;
+	onDragOver: (e: DragEvent<HTMLDivElement>) => void;
+	onDrop: (e: DragEvent<HTMLDivElement>) => void;
+	isDragging: boolean;
+	removeImage: MouseEventHandler<HTMLDivElement>;
+	image: any;
+	setShowAddSection: React.Dispatch<React.SetStateAction<boolean>>;
 }

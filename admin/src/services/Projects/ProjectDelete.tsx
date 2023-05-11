@@ -1,6 +1,6 @@
-import { ProjectDeleteType } from "@/types/services";
-import { mockapi } from "../httpServises";
-import { ProjectsListItem, ProjectsResponseData } from "@/types/pages";
+import { ProjectDeleteType } from "@/Types/Services";
+import { mockapi } from "../HttpServises";
+import { ProjectsListItem, ProjectsResponseData } from "@/Types/Pages";
 
 export default async function ProjectDeleteRequest({ id }: ProjectDeleteType) {
 	return await mockapi.delete<ProjectsListItem[], ProjectsResponseData>(

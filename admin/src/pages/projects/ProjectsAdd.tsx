@@ -2,22 +2,22 @@ import ImageUploader from "@/components/ImageUploder/ImageUploader";
 import Button from "@/components/common/Button";
 import { LoadingDashed } from "react-huge-icons/outline";
 import { newTitle } from "@/redux/HeaderTitle/HeaderTitleSlice";
-import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import { useAppDispatch, useAppSelector } from "@/redux/Hook";
 import React, { useEffect, useCallback, useState } from "react";
 import Input from "@/components/common/Input";
 import { useFormik, FormikProps } from "formik";
-import { ProjectAddFormValues, SkillsListItem } from "@/types/pages";
+import { ProjectAddFormValues, SkillsListItem } from "@/Types/Pages";
 import * as Yup from "yup";
-import { onSubmitFormik } from "@/types/services";
+import { onSubmitFormik } from "@/Types/Services";
 import { NavLink, useNavigate } from "react-router-dom";
-import { Color } from "@/global/global";
+import { Color } from "@/Global/Global";
 import { getAsyncSkills } from "@/redux/Skills/SkillsSlice";
 import {
 	allowedLoading,
 	disAllowedLoading,
 } from "@/redux/Loading/LoadingSlice";
 import CheckBoxInput from "@/components/common/CheckBoxInpot";
-import { CheckBoxInputItemInterface } from "@/types/components";
+import { CheckBoxInputItemInterface } from "@/Types/Components";
 import ProjectAddRequest from "@/services/Projects/ProjectAdd";
 
 function ProjectAdd() {
@@ -79,16 +79,16 @@ function ProjectAdd() {
 	};
 
 	useEffect(() => {
-		const allSkill =
-			!!skillsItem &&
-			skillsItem.map(skillItem => {
-				const newItem: CheckBoxInputItemInterface = {
-					lable: skillItem.titleEn,
-					value: skillItem.titleEn,
-				};
-				return newItem;
-			});
-		setSkillsData(allSkill || []);
+		// const allSkill =
+		// 	!!skillsItem &&
+		// 	skillsItem.map(skillItem => {
+		// 		const newItem: CheckBoxInputItemInterface = {
+		// 			lable: skillItem.titleEn,
+		// 			value: skillItem.titleEn,
+		// 		};
+		// 		return newItem;
+		// 	});
+		// setSkillsData(allSkill || []);
 	}, [skillsItem]);
 
 	useEffect(() => {

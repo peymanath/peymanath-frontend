@@ -1,4 +1,4 @@
-import { HeaderTitleState } from "@/types/redux";
+import { HeaderTitleState } from "@/Types/Redux";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: HeaderTitleState = {

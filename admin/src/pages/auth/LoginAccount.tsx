@@ -2,29 +2,32 @@ import LoginStyle from "./login.module.css";
 import { User } from "react-huge-icons/outline";
 import Input from "@/components/common/Input";
 import { useFormik, FormikProps } from "formik";
-import { LoginFormValues } from "@/types/pages";
+import { LoginFormValues } from "@/Types/Pages";
 import * as Yup from "yup";
-import LoginRequest from "@/services/auth/login";
+import LoginRequest from "@/services/Auth/Login";
 import {
 	allowedLoading,
 	disAllowedLoading,
 } from "@/redux/Loading/LoadingSlice";
-import { useAppDispatch } from "@/redux/hook";
+import { useAppDispatch } from "@/redux/Hook";
 import { addToken } from "@/redux/AccessToken/AccessTokenSlice";
 import { setLoggedIn } from "@/redux/UserLoggedIn/UserLoggedInSlice";
 
 export default function LoginAccount() {
 	const dispatch = useAppDispatch();
-	const now = new Date();
 	const onSubmit = (values: LoginFormValues) => {
+		// start loading
 		dispatch(allowedLoading());
 
+		// start request
 		LoginRequest({ values })
-			.then((res: any) => {
-				dispatch(addToken(res.data.token));
+			// end request success
+			.then(res => {
+				dispatch(addToken(res.data.jwt));
 				dispatch(setLoggedIn());
 				dispatch(disAllowedLoading());
 			})
+			// end request has error
 			.catch(err => {
 				console.log(err);
 				dispatch(disAllowedLoading());
@@ -32,14 +35,12 @@ export default function LoginAccount() {
 	};
 
 	const validationSchema = Yup.object({
-		username: Yup.string().required("نام کاربری ضروری است."),
+		identifier: Yup.string().required("نام کاربری ضروری است."),
 		password: Yup.string().required("رمزعبور ضروری است."),
 	});
 	const initialValues: LoginFormValues = {
-		username: "kminchelle",
-		password: "0lelplR",
-		joinedAt: now,
-		active: false,
+		identifier: "",
+		password: "",
 	};
 	const formik: FormikProps<LoginFormValues> = useFormik<LoginFormValues>({
 		initialValues,
@@ -64,7 +65,7 @@ export default function LoginAccount() {
 					onSubmit={formik.handleSubmit}
 					className="flex flex-col items-center gap-y-6 w-full">
 					<div className="flex flex-col gap-y-2 w-full">
-						<Input name="username" label="ایمیل" formik={formik} />
+						<Input name="identifier" label="نام کاربری" formik={formik} />
 						<Input
 							name="password"
 							type="password"

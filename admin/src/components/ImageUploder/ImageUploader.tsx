@@ -1,4 +1,4 @@
-import { ImageUploaderItem } from "@/types/components";
+import { ImageUploaderItem } from "@/Types/Components";
 import Button from "../common/Button";
 import { useState, useRef, useCallback, DragEvent, useEffect } from "react";
 import DisplayImageUploader from "./DisplayImageUploader";
@@ -11,7 +11,7 @@ function ImageUploader({ formik, isEditPage = false }: ImageUploaderItem) {
 	const [imageFile, setImageFile] = useState<File>();
 	const [image, setImage] = useState<any>();
 	const uploderInput = useRef<HTMLInputElement | null>(null);
-	const allowedFileType = ["webp", "png", "jpg"];
+	const allowedFileType = ["webp", "png", "jpeg", "svg"];
 
 	const renderImage = useCallback(
 		(files: File) => {
@@ -109,7 +109,7 @@ function ImageUploader({ formik, isEditPage = false }: ImageUploaderItem) {
 						type="file"
 						name="thumbnail"
 						className="hidden"
-						accept={`image/${allowedFileType.join(",image/")}`}
+						accept={`/${allowedFileType.join(",image/")}`}
 						onChange={inputUploader}
 						ref={uploderInput}
 					/>

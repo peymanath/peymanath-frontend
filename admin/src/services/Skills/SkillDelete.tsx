@@ -1,6 +1,6 @@
-import { SkillDeleteType } from "@/types/services";
-import { mockapi } from "../httpServises";
-import { SkillsListItem, SkillsResponseData } from "@/types/pages";
+import { SkillDeleteType } from "@/Types/Services";
+import { mockapi } from "../HttpServises";
+import { SkillsListItem, SkillsResponseData } from "@/Types/Pages";
 
 export default async function SkillDeleteRequest({ id }: SkillDeleteType) {
 	return await mockapi.delete<SkillsListItem[], SkillsResponseData>(

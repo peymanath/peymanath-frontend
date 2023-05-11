@@ -1,4 +1,4 @@
-import { InputItem } from "@/types/components";
+import { InputItem } from "@/Types/Components";
 
 export default function Input({
 	label,

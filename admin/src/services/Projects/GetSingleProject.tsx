@@ -1,6 +1,6 @@
-import { ProjectSingleType } from "@/types/services";
-import { mockapi } from "../httpServises";
-import { ProjectSingleResponseData, ProjectsListItem } from "@/types/pages";
+import { ProjectSingleType } from "@/Types/Services";
+import { mockapi } from "../HttpServises";
+import { ProjectSingleResponseData, ProjectsListItem } from "@/Types/Pages";
 
 export default async function GetProjectSingleRequest({
 	id,

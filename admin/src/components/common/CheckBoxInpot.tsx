@@ -1,7 +1,7 @@
 import {
 	CheckBoxInputInterface,
 	CheckBoxInputItemInterface,
-} from "@/types/components";
+} from "@/Types/Components";
 function CheckBoxInput({
 	lableFiled,
 	name,

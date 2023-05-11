@@ -1,5 +1,5 @@
-import { mockapi } from "../httpServises";
-import { ProjectsListItem, ProjectsResponseData } from "@/types/pages";
+import { mockapi } from "../HttpServises";
+import { ProjectsListItem, ProjectsResponseData } from "@/Types/Pages";
 
 export default async function GetProjectsRequest() {
 	return await mockapi

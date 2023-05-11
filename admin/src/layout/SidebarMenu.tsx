@@ -1,7 +1,7 @@
 import { DirectionDownDouble } from "react-huge-icons/outline";
 import { NavLink } from "react-router-dom";
 import React, { useState, useCallback } from "react";
-import { SidebarMenuItem } from "@/types/pages";
+import { SidebarMenuItem } from "@/Types/Pages";
 
 function SidebarMenu({ title, url, icon, submenu }: SidebarMenuItem) {
 	const [showItem, setShowItem] = useState(false);

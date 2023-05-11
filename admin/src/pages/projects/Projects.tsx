@@ -1,26 +1,23 @@
-import { SpringNotesAdd } from "react-huge-icons/outline";
+import { SpringNotesList } from "react-huge-icons/outline";
 import { newTitle } from "@/redux/HeaderTitle/HeaderTitleSlice";
-import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import { useAppDispatch } from "@/redux/Hook";
 import React, { useEffect, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import { ProjectsListItem, SkillsListItem } from "@/types/pages";
+import { NavLink } from "react-router-dom";
+import { ProjectsListItem } from "@/Types/Pages";
 import {
 	allowedLoading,
 	disAllowedLoading,
 } from "@/redux/Loading/LoadingSlice";
-import { ProjectDeleteType } from "@/types/services";
+import { ProjectDeleteType } from "@/Types/Services";
 import PopUp from "@/components/common/PopUp";
 import Button from "@/components/common/Button";
-import { Color } from "@/global/global";
+import { Color } from "@/Global/Global";
 import GetProjectsRequest from "@/services/Projects/GetProjects";
 import ProjectDeleteRequest from "@/services/Projects/ProjectDelete";
 
 function Projects() {
 	const [projectsData, setProjectsData] = useState<ProjectsListItem[]>();
-	const [skillsData, setSkillsData] = useState<SkillsListItem[]>();
 	const [showAddSection, setShowAddSection] = useState<boolean>(false);
-
-	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
 
 	const removeProject = ({ id }: ProjectDeleteType) => {
@@ -68,16 +65,6 @@ function Projects() {
 
 			<div>
 				<div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-3">
-					<div
-						className="flex flex-col gap-3 items-center justify-center border-2 border-dashed border-primary p-3 rounded-lg w-full h-54 cursor-pointer text-primary animate-pulse"
-						onClick={() => navigate("/project/add")}>
-						<SpringNotesAdd className="w-20 h-20" />
-						<p className="text-center">
-							{projectsData && projectsData?.length >= 1
-								? "اگر پروژه جدید داری از اینجا اضافه کن :)"
-								: "اولین پروژتو از اینجا وارد کن"}
-						</p>
-					</div>
 					{projectsData &&
 						projectsData?.length >= 1 &&
 						projectsData.map(
@@ -90,43 +77,45 @@ function Projects() {
 							}: ProjectsListItem) => (
 								<div
 									key={id}
-									className="flex group/remove flex-col justify-between gap-10 bg-white shadow p-3 rounded-lg h-54">
+									className="flex flex-col justify-between gap-5 bg-white shadow p-3 rounded-lg">
+									<div>
+										<img
+											width={800}
+											height={450}
+											src={thumbnail}
+											alt=""
+											className="w-full rounded-lg"
+										/>
+									</div>
+
 									<div className="w-full flex gap-3 items-center justify-between">
 										<div className="flex flex-col gap-3 justify-between">
 											<div>{title}</div>
 										</div>
-
-										<img
-											width={50}
-											height={50}
-											src={thumbnail}
-											alt=""
-											className="rounded"
-										/>
 									</div>
-									<div className="leading-7">{descriptin}</div>
 
-									{skills && (
-										<div className="leading-7">
-											<p>تعداد مهارت ها: {skills.length}</p>
+									<div className="flex flex-wrap gap-3 items-center justify-between h-10">
+										<div className="flex flex-wrap gap-3 items-start">
+											<div className="flex gap-1 items-center">
+												<SpringNotesList className="w-5 h-5 text-primary" />
+												<span className="font-light pt-1">
+													{!!skills && skills.length}
+												</span>
+											</div>
 										</div>
-									)}
 
-									<div className="flex gap-3 items-center justify-between h-10">
-										<Button
-											text="حذف"
-											width="w-auto hidden group-hover/remove:flex"
-											color="#d00000"
-											onClick={() => setShowAddSection(true)}
-										/>
-
-										<NavLink to={`/project/edit/${id}`}>
+										<div className="flex flex-wrap gap-3 items-center justify-between">
 											<Button
-												text="ویرایش"
-												width="w-auto hidden group-hover/remove:flex"
-												color="#29bf12"
+												text="حذف"
+												width="w-auto"
+												color="#d00000"
+												onClick={() => setShowAddSection(true)}
 											/>
-										</NavLink>
+
+											<NavLink to={`/project/edit/${id}`}>
+												<Button text="ویرایش" width="w-auto" color="#29bf12" />
+											</NavLink>
+										</div>
 
 										<PopUp
 											action={showAddSection}

@@ -1,12 +1,6 @@
-import { LoginRequestType } from "@/types/services";
-import { http } from "../httpServises";
+import { LoginRequestType } from "@/Types/Services";
+import { strapi } from "../HttpServises";
 
 export default async function LoginRequest({ values }: LoginRequestType) {
-	const headers = {
-		"Content-Type": "application/json",
-	};
-
-	return http.post("/auth/login", values, {
-		headers,
-	});
+	return await strapi.post("/auth/local", values);
 }

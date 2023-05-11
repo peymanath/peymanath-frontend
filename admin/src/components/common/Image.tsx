@@ -1,14 +1,20 @@
-import { ImageType } from "@/types/components";
+import { ImageType } from "@/Types/Components";
 
-export default function Image({
+export default function ImageSite({
 	width,
 	height,
 	src,
 	alt,
-	...props
-}: ImageType): JSX.Element {
-	const ImageURL = require(`../../../public/image/${src}`);
+	className,
+}: ImageType) {
+	const ImageURL = `http://localhost:2958${src}`;
 	return (
-		<img width={width} height={height} src={ImageURL} alt={alt} {...props} />
+		<img
+			width={width}
+			height={height}
+			src={ImageURL}
+			alt={alt}
+			className={className}
+		/>
 	);
 }

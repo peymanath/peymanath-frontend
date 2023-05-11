@@ -1,9 +1,9 @@
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
-import { RouteItem } from "@/types/pages";
-import Layout from "../layout";
+import { RouteItem } from "@/Types/Pages";
+import Layout from "../Layout";
 import React, { useEffect } from "react";
 import { routeList, routeSingle } from "@/pages/RouteList";
-import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import { useAppDispatch, useAppSelector } from "@/redux/Hook";
 
 function AllRoute() {
 	const navigate = useNavigate();

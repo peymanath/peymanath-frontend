@@ -1,23 +1,22 @@
-import GetSkillsRequest from "@/services/Skills/GetSkills";
-import { mockapi } from "@/services/httpServises";
-import { SkillsListItem, SkillsResponseData } from "@/types/pages";
-import { SkillsListItemState } from "@/types/redux";
+import { strapi } from "@/services/HttpServises";
+import { SkillsListItem, SkillsResponseData } from "@/Types/Pages";
+import { SkillsListItemState } from "@/Types/Redux";
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
-import { stat } from "fs";
+
 
 export const getAsyncSkills = createAsyncThunk(
 	"skills/getAsyncSkills",
 	async (_, { rejectWithValue }) => {
 		try {
-			const response = await mockapi.get<SkillsListItem[], SkillsResponseData>(
-				"/skills",
+			const response = await strapi.get<SkillsListItem[], SkillsResponseData>(
+				"/skills?populate=*",
 				{
 					headers: {
 						"Content-Type": "application/json",
 					},
 				},
 			);
-			return response.data;
+			return response.data.data;
 		} catch (error) {
 			return rejectWithValue(error);
 		}

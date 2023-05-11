@@ -1,4 +1,4 @@
-import { Color } from "@/global/global";
+import { Color } from "@/Global/Global";
 import { ThreeDots } from "react-loader-spinner";
 
 export const LoadingWrapper = () => {

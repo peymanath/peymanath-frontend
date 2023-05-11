@@ -1,4 +1,4 @@
-import { DisplayImageUploaderInterface } from "@/types/components";
+import { DisplayImageUploaderInterface } from "@/Types/Components";
 import React, { useMemo } from "react";
 import { ImageAdd, RemoveThin } from "react-huge-icons/outline";
 
@@ -11,7 +11,7 @@ function DisplayImageUploader({
 	return (
 		<div className="flex items-center justify-start">
 			{!isDragging && image ? (
-				<div className="flex items-center justify-center w-32 min-h-[8rem]">
+				<div className="flex items-center justify-center w-full min-h-[8rem]">
 					<div className="relative flex items-center justify-between p-1 w-full min-h-[8rem] rounded-lg border-2 border-primary/30">
 						<div
 							className="absolute -top-3 -left-3 flex gap-1 items-center justify-between bg-red-500 text-white rounded-full p-0.5 select-none cursor-pointer"

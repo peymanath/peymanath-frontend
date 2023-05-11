@@ -1,6 +1,6 @@
-import { SkillSingleType } from "@/types/services";
-import { mockapi } from "../httpServises";
-import { SkillSingleResponseData, SkillsListItem, SkillsResponseData } from "@/types/pages";
+import { SkillSingleType } from "@/Types/Services";
+import { mockapi } from "../HttpServises";
+import { SkillSingleResponseData, SkillsListItem, SkillsResponseData } from "@/Types/Pages";
 
 export default async function GetSkillSingleRequest({ id }: SkillSingleType) {
 	return await mockapi

@@ -3,8 +3,8 @@ import SidebarMenu from "./SidebarMenu";
 import React, { useEffect, useCallback, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { sidebarMenu } from "./MenuList";
-import { SidebarMenuItem } from "@/types/pages";
-import { useAppSelector } from "@/redux/hook";
+import { SidebarMenuItem } from "@/Types/Pages";
+import { useAppSelector } from "@/redux/Hook";
 
 function Header() {
 	const [showMenu, setShowMenu] = useState<boolean>(false); 

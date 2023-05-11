@@ -1,5 +1,5 @@
 import { newTitle } from "@/redux/HeaderTitle/HeaderTitleSlice";
-import { useAppDispatch } from "@/redux/hook";
+import { useAppDispatch } from "@/redux/Hook";
 import { useEffect } from "react";
 
 export default function Page404() {

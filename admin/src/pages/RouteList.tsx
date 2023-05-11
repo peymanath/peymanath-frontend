@@ -1,18 +1,18 @@
-import Dashboard from "./dashboard/Dashboard";
+import Dashboard from "./Dashboard/Dashboard";
 import Page404 from "./404/404";
-import { RouteItem } from "@/types/pages";
-import Skills from "./skills/skills";
-import SkillsAdd from "./skills/SkillsAdd";
-import SkillsEdit from "./skills/SkillsEdit";
-import Donors from "./donors/Donors";
-import Recommendations from "./recommendations/Recommendations";
-import Setting from "./setting/Setting";
-import SettingAccount from "./setting/SettingAccount";
-import LoginAccount from "@/pages/auth/LoginAccount";
-import LogoutAccount from "./auth/LogoutAccount";
-import Projects from "./projects/Projects";
-import ProjectsAdd from "./projects/ProjectsAdd";
-import ProjectEdit from "./projects/ProjectsEdit";
+import { RouteItem } from "@/Types/Pages";
+import Skills from "./Skills/skills";
+import SkillsAdd from "./Skills/SkillsAdd";
+import SkillsEdit from "./Skills/SkillsEdit";
+import Donors from "./Donors/Donors";
+import Recommendations from "./Recommendations/Recommendations";
+import Setting from "./Setting/Setting";
+import SettingAccount from "./Setting/SettingAccount";
+import LoginAccount from "@/pages/Auth/LoginAccount";
+import LogoutAccount from "./Auth/LogoutAccount";
+import Projects from "./Projects/Projects";
+import ProjectsAdd from "./Projects/ProjectsAdd";
+import ProjectEdit from "./Projects/ProjectsEdit";
 
 export const routeList: RouteItem[] = [
 	{ key: 1, path: "/", element: <Dashboard /> },

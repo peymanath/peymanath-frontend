@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { useAppDispatch } from "@/redux/hook";
+import { useAppDispatch } from "@/redux/Hook";
 import {
 	allowedLoading,
 	disAllowedLoading,

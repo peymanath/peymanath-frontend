@@ -11,7 +11,7 @@ import {
 	UserRectangle,
 	ShutDown,
 } from "react-huge-icons/outline";
-import { SidebarMenuItem } from "@/types/pages";
+import { SidebarMenuItem } from "@/Types/Pages";
 const classIcon: string = "w-6 h-6";
 export const sidebarMenu: SidebarMenuItem[] = [
 	{

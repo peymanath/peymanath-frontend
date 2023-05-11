@@ -1,4 +1,4 @@
-import { SidebarMenuItem } from "@/types/pages";
+import { SidebarMenuItem } from "@/Types/Pages";
 import { sidebarMenu } from "./MenuList";
 import SidebarMenu from "./SidebarMenu";
 import React from "react";
