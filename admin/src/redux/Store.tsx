@@ -4,6 +4,7 @@ import HeaderTitleReducer from "./HeaderTitle/HeaderTitleSlice";
 import AccessTokenReducer from "./AccessToken/AccessTokenSlice";
 import UserLoggedInReducer from "./UserLoggedIn/UserLoggedInSlice";
 import SkillsReducer from "./Skills/SkillsSlice";
+import ToastReducer from "./Toast/ToastSlice";
 
 export const store = configureStore({
 	reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
 		accessToken: AccessTokenReducer,
 		userLoggedIn: UserLoggedInReducer,
 		skills: SkillsReducer,
+		toast: ToastReducer,
 	},
 });
 

@@ -19,7 +19,7 @@ export const initialValuesSkill: SkillsAddFormValues = {
 	titleFa: "",
 	titleEn: "",
 	descriptin: "",
-	thumbnail: "8",
+	thumbnail: "9",
 	skill_projects: [],
 	recommends: [],
 };

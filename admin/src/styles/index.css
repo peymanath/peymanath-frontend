@@ -26,6 +26,10 @@
 	src: url(./_fonts/IRANSansXFaNum-Light.woff2);
 }
 
+*{
+	font-family: IRANSansXFaNum;
+}
+
 input{
     @apply focus:outline-none focus-visible:outline-none focus:placeholder:text-transparent
 }

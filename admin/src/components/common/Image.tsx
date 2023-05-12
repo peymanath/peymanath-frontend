@@ -7,7 +7,7 @@ export default function ImageSite({
 	alt,
 	className,
 }: ImageType) {
-	const ImageURL = `http://localhost:2958${src}`;
+	const ImageURL = `${process.env.REACT_APP_API_BASEURL}${src}`;
 	return (
 		<img
 			width={width}

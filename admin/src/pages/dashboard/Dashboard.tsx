@@ -10,16 +10,7 @@ export default function Dashboard() {
 		dispatch(newTitle("داشبورد کاربری"));
 		const fetchApi = async () => {
 			try {
-				const data = await strapi.put("/skills/2", {
-					data: {
-						titleFa: "string",
-						titleEn: "string",
-						descriptin: "string",
-						thumbnail: 2,
-						skill_projects: [],
-						recommends: [],
-					},
-				});
+				const data = await strapi.get("skills");
 				console.log(data);
 			} catch (error) {
 				console.log(error);

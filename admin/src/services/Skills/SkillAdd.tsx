@@ -3,7 +3,7 @@ import { strapi } from "../HttpServises";
 
 export default async function SkillsAddRequest({ values }: SkillAddType) {
 	return await strapi
-		.post("/skills?populate=*", {
+		.post("/skills", {
 			data: {
 				...values,
 			},

@@ -3,9 +3,9 @@ import { SkillsListItem, SkillsResponseData } from "@/Types/Pages";
 import { SkillsListItemState } from "@/Types/Redux";
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
 
-
 export const getAsyncSkills = createAsyncThunk(
 	"skills/getAsyncSkills",
+
 	async (_, { rejectWithValue }) => {
 		try {
 			const response = await strapi.get<SkillsListItem[], SkillsResponseData>(
@@ -39,7 +39,7 @@ const SkillsSlice = createSlice({
 			.addCase(getAsyncSkills.fulfilled, (state, action) => {
 				return {
 					...state,
-					skillsItem: action.payload,
+					skillsItem: action.payload || [],
 					loading: false,
 					erorr: null,
 				};
@@ -59,7 +59,7 @@ const SkillsSlice = createSlice({
 					loading: false,
 					erorr: action.error.message,
 				};
-			})
+			});
 	},
 });
 

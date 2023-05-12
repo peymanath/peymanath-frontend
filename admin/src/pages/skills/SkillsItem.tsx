@@ -1,5 +1,10 @@
 import PopUp from "@/components/common/PopUp";
-import { ClipboardList, MailBox } from "react-huge-icons/outline";
+import {
+	ClipboardList,
+	Edit,
+	MailBox,
+	TrashBent,
+} from "react-huge-icons/outline";
 import React, { useState } from "react";
 import ImageSite from "@/components/common/Image";
 import { SkillDeleteType } from "@/Types/Services";
@@ -64,20 +69,23 @@ function SkillsItem({ id, dataSkille, getData }: any) {
 					</div>
 					<div className="flex gap-1 items-center">
 						<ClipboardList className="w-5 h-5 text-primary" />
-						<span className="font-light pt-1">{dataSkille.skillProjects}</span>
+						<span className="font-light pt-1">
+							{dataSkille.skill_projects.data.length}
+						</span>
 					</div>
 				</div>
 
 				<div className="flex flex-wrap gap-3 items-center justify-between">
-					<Button
-						text="حذف"
-						width="w-auto"
-						color="#d00000"
+					<TrashBent
+						className="w-5 h-5 text-red-600 cursor-pointer"
 						onClick={() => setShowAddSection(true)}
 					/>
 
 					<NavLink to={`/skill/edit/${id}`}>
-						<Button text="ویرایش" width="w-auto" color="#29bf12" />
+						<Edit
+							className="w-5 h-5 text-green-600"
+							onClick={() => setShowAddSection(true)}
+						/>
 					</NavLink>
 				</div>
 

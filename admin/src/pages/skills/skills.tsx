@@ -49,7 +49,7 @@ function Skills() {
 
 			<div>
 				<div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-3">
-					{!!skillsData &&
+					{!!skillsData?.length && skillsData.length >= 1 ? (
 						skillsData.map(({ id, attributes }: any) => (
 							<SkillsItem
 								key={id}
@@ -57,7 +57,10 @@ function Skills() {
 								id={id}
 								getData={getData}
 							/>
-						))}
+						))
+					) : (
+						<>Not Source</>
+					)}
 				</div>
 			</div>
 		</>
