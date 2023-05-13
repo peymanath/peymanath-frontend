@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: IRANSansXFaNum;
+	font-weight: normal;
+	font-style: normal;
+	font-display: fallback;
+	src: url(./_fonts/IRANSansXFaNum-Regular.woff2);
+}
+
+@font-face {
+	font-family: IRANSansXFaNum;
+	font-weight: 600;
+	font-style: normal;
+	font-display: fallback;
+	src: url(./_fonts/IRANSansXFaNum-DemiBold.woff2);
+}
+
+@font-face {
+	font-family: IRANSansXFaNum;
+	font-weight: 300;
+	font-style: normal;
+	font-display: fallback;
+	src: url(./_fonts/IRANSansXFaNum-Light.woff2);
+}
+
+*{
+	font-family: IRANSansXFaNum;
+}
+
+input{
+    @apply focus:outline-none focus-visible:outline-none focus:placeholder:text-transparent
+}
