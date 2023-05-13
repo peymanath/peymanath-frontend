@@ -14,11 +14,11 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="fa-IR" dir="ltr" className="dark">
+		<html lang="fa-IR" dir="rtl">
 			<body className="bg-black text-white">
 				<Header />
 
-				<div className="fixed w-full h-full inset-0 bg-body bg-center bg-no-repeat opacity-50 -z-[99999]"></div>
+				<div className="fixed w-full h-full inset-0 bg-body bg-center bg-no-repeat opacity-70 -z-[99999]"></div>
 
 				<main>{children}</main>
 

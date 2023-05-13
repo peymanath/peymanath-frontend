@@ -11,7 +11,7 @@ module.exports = {
 	theme: {
 		container: {
 			center: true,
-			padding: "1rem",
+			padding: "1.5rem",
 		},
 		fontFamily: {
 			serif: ["IRANSansXFaNum"],
@@ -22,7 +22,8 @@ module.exports = {
 		},
 		extend: {
 			colors: {
-				primary: "#10A19D",
+				primary: "#ff6d00",
+				secondary: "#3c096c",
 			},
 			boxShadow: {
 				image: "20px 20px 70px rgba(76, 76, 76, 0.5)",

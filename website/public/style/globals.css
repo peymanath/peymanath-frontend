@@ -27,7 +27,7 @@
 }
 
 *{
-	font-family: IRANSansXFaNum;
+	@apply font-["IRANSansXFaNum"] duration-300
 }
 
 input{
