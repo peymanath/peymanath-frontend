@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="fa-IR" dir="rtl">
-			<body className="bg-black text-white">
+			<body className="bg-black text-white font-thin">
 				<Header />
 
 				<div className="fixed w-full h-full inset-0 bg-body bg-center bg-no-repeat opacity-70 -z-[99999]"></div>

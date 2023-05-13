@@ -1,5 +1,6 @@
-function Skills() {
-    return ( <h1>این مهارت هامه</h1> );
-}
+import { Metadata } from "next";
+export const metadata: Metadata = { title: "مهارت های پیمان نادری" };
 
-export default Skills;
+export default function Skills() {
+	return <h1>این مهارت هامه</h1>;
+}

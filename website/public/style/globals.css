@@ -4,7 +4,7 @@
 
 @font-face {
 	font-family: IRANSansXFaNum;
-	font-weight: normal;
+	font-weight: 400;
 	font-style: normal;
 	font-display: fallback;
 	src: url(./_fonts/IRANSansXFaNum-Regular.woff2);
@@ -20,16 +20,55 @@
 
 @font-face {
 	font-family: IRANSansXFaNum;
-	font-weight: 300;
+	font-weight: 100;
 	font-style: normal;
 	font-display: fallback;
-	src: url(./_fonts/IRANSansXFaNum-Light.woff2);
+	src: url(./_fonts/IRANSansXFaNum-UltraLight.woff2);
+}
+:root {
+	--primary: #ff6d00;
+	--primary-op: #ff6f002d;
+	--secondary: #3c096c;
+}
+::-webkit-scrollbar {
+	width: 7px;
 }
 
-*{
-	@apply font-["IRANSansXFaNum"] duration-300
+::-webkit-scrollbar-track {
+	border-radius: 10px;
 }
 
-input{
-    @apply focus:outline-none focus-visible:outline-none focus:placeholder:text-transparent
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	opacity: 0.5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--primary-op);
+}
+
+* {
+	@apply font-["IRANSansXFaNum"] duration-300;
+}
+
+input {
+	@apply focus:outline-none focus-visible:outline-none focus:placeholder:text-transparent;
+}
+
+.animate-color-text {
+	background: linear-gradient(to right, var(--primary) 20%, #f7435e 40%, #d870a9 80%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-fill-color: transparent;
+	background-size: 200% auto;
+	animation: textShine 2s ease-in-out infinite alternate;
+}
+@keyframes textShine {
+	0% {
+		background-position: 0% 50%;
+	}
+	100% {
+		background-position: 100% 50%;
+	}
 }
