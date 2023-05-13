@@ -79,7 +79,7 @@ export default function Header() {
 					<Image
 						width="64"
 						height="24"
-						src="/image/white-logo.png"
+						src="/image/color-logo.png"
 						alt="Peyman ATH Logo"
 						className="w-12"
 					/>

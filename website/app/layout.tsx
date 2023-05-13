@@ -15,10 +15,10 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="fa-IR" dir="rtl">
-			<body className="bg-black text-white font-thin">
+			<body className="bg-black text-white">
 				<Header />
 
-				<div className="fixed w-full h-full inset-0 bg-body bg-center bg-no-repeat opacity-70 -z-[99999]"></div>
+				<div className="fixed w-full h-full inset-0 bg-body bg-center bg-no-repeat opacity-30 -z-[99999]"></div>
 
 				<main>{children}</main>
 
