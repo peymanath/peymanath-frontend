@@ -48,8 +48,9 @@
 }
 
 * {
-	@apply font-["IRANSansXFaNum"] duration-300;
+	@apply font-["IRANSansXFaNum"] duration-300 scroll-smooth;
 }
+
 
 input {
 	@apply focus:outline-none focus-visible:outline-none focus:placeholder:text-transparent;
@@ -67,7 +68,7 @@ input {
 	-webkit-text-fill-color: transparent;
 	text-fill-color: transparent;
 	background-size: 200% auto;
-	animation: textShine 2s ease-in-out infinite alternate;
+	animation: textShine 2s infinite alternate;
 }
 @keyframes textShine {
 	0% {

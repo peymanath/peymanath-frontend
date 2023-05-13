@@ -28,7 +28,7 @@ const dataSliderHome: DataSliderType[] = [
 export default function Home() {
 	return (
 		<>
-			<div className="relative flex flex-col items-centerd justify-center text-center gap-10 h-[100vh] px-7 lg:px-20 ">
+			<div className="relative flex flex-col items-center justify-center text-center gap-10 h-[100vh] px-7 lg:px-20 ">
 				<p className="flex flex-wrap gap-3 items-center justify-center font-semibold text-2xl lg:text-4xl">
 					<span>توسعه دهنده فرانت اند</span>
 					<span className="animate-color-text"> Next.Js | TypeScript</span>
@@ -45,18 +45,24 @@ export default function Home() {
 			</div>
 			<div
 				id="abbout-me"
-				className="flex flex-col items-center jus lg:flex-row py-48">
-				<div className="w-full lg:w-1/2 px-12 lg:px-20">
-					<NeonSliderEffectCart dataSlides={dataSliderHome} />
-				</div>
-				<div className="hidden w-1/2 lg:flex items-center justify-center">
-					<Image
-						width={300}
-						height={300}
-						src="/image/peyman3.png"
-						alt="Peyman Naderi"
-						className="rounded-lg lg:w-[400px] opacity-60"
-					/>
+				className="flex flex-col justify-center gap-20 lg:gap-40 h-[100vh]">
+				<p className="flex flex-wrap gap-3 items-center justify-center font-semibold text-2xl lg:text-4xl">
+					<span>خلاصه کوتاهی از</span>
+					<span className="animate-color-text"> پیمان نادری</span>
+				</p>
+				<div className="flex flex-col items-center justify-center text-center gap-10 lg:flex-row">
+					<div className="w-full lg:w-1/2 px-12 lg:px-20">
+						<NeonSliderEffectCart dataSlides={dataSliderHome} />
+					</div>
+					<div className="hidden w-1/2 lg:flex items-center justify-center">
+						<Image
+							width={300}
+							height={300}
+							src="/image/peyman3.png"
+							alt="Peyman Naderi"
+							className="rounded-lg lg:w-[400px] opacity-60"
+						/>
+					</div>
 				</div>
 			</div>
 		</>
