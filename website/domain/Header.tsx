@@ -32,7 +32,7 @@ export default function Header() {
 
 	return (
 		<div className="w-full fixed top-0">
-			<div className="container flex items-center justify-between py-5">
+			<div className="container flex items-center justify-between py-10">
 				<div className="md:hidden">
 					<MenuLineHorizontal
 						className="w-12 h-12"

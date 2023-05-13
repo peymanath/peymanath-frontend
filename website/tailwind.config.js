@@ -22,8 +22,8 @@ module.exports = {
 		},
 		extend: {
 			colors: {
-				primary: "var(--primary)",
-				secondary: "var(--secondary)",
+				primary: "#ff6d00",
+				secondary: "#3c096c",
 			},
 			boxShadow: {
 				image: "20px 20px 70px rgba(76, 76, 76, 0.5)",

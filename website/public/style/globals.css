@@ -56,7 +56,12 @@ input {
 }
 
 .animate-color-text {
-	background: linear-gradient(to right, var(--primary) 20%, #f7435e 40%, #d870a9 80%);
+	background: linear-gradient(
+		to right,
+		var(--primary) 20%,
+		#f7435e 40%,
+		#d870a9 80%
+	);
 	-webkit-background-clip: text;
 	background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -71,4 +76,16 @@ input {
 	100% {
 		background-position: 100% 50%;
 	}
+}
+
+.swiper-slide {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 18px;
+	color: #fff;
+	padding: 20px;
+}
+.swiper-button-disabled{
+	opacity: 0.1;
 }
