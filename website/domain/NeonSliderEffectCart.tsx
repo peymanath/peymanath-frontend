@@ -24,24 +24,22 @@ export default function NeonSliderEffectCart({
 				}}
 				className=" relativew-full font-thin h-[400px]">
 				{!!dataSlides &&
-					dataSlides.map(({ id, content }) => {
-						const randomNum = Math.floor(Math.random() * 3);
-						// console.log();
-						return (
-							<SwiperSlide
-								key={id}
-								className="relative bg-black/60 backdrop-blur-lg border border-gray-500/10 p-12 leading-10">
-								<div className="flex items-center justify-center w-full h-full">
-									<span className="absolute top-4 right-4 text-2xl font-semibold text-primary/50 opacity-20">
-										{id}
-									</span>
-									<div
-										className={`absolute w-full h-full inset-0 bg-body bg-no-repeat opacity-20 ${bgList[randomNum]}`}></div>
-									<p>{content}</p>
-								</div>
-							</SwiperSlide>
-						);
-					})}
+					dataSlides.map(({ id, content }) => (
+						<SwiperSlide
+							key={id}
+							className="relative bg-black/60 backdrop-blur-lg border border-gray-500/10 p-12 leading-10">
+							<div className="flex items-center justify-center w-full h-full">
+								<span className="absolute top-4 right-4 text-2xl font-semibold text-primary/50 opacity-20">
+									{id}
+								</span>
+								<div
+									className={`absolute w-full h-full inset-0 bg-body bg-no-repeat opacity-20 ${
+										bgList[Math.floor(Math.random() * 3)]
+									}`}></div>
+								<p>{content}</p>
+							</div>
+						</SwiperSlide>
+					))}
 				<button
 					onClick={() => swiperRef.current?.slidePrev()}
 					className="prev hidden lg:flex absolute top-1/2 -right-14 z-[999] opacity-50">

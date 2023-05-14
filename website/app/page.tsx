@@ -27,7 +27,7 @@ const dataSliderHome: DataSliderType[] = [
 
 export default function Home() {
 	return (
-		<>
+		<div className="container">
 			<div className="relative flex flex-col items-center justify-center text-center gap-10 h-[100vh] px-7 lg:px-20 ">
 				<p className="flex flex-wrap gap-3 items-center justify-center font-semibold text-2xl lg:text-4xl">
 					<span>توسعه دهنده فرانت اند</span>
@@ -65,6 +65,6 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }
