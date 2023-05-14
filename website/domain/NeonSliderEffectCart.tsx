@@ -18,7 +18,6 @@ export default function NeonSliderEffectCart({
 			<Swiper
 				effect={"cards"}
 				modules={[EffectCards, Navigation, Pagination]}
-				loop={true}
 				speed={1000}
 				onBeforeInit={swiper => {
 					swiperRef.current = swiper;
