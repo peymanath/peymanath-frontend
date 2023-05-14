@@ -29,6 +29,7 @@
       "ENUM/*": ["./enum/*"],
       "SERVICES/*": ["./services/*"],
       "TYPES/*": ["./types/*"],
+      "STYLE/*": ["./styles/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
