@@ -20,8 +20,8 @@ module.exports = {
 				buttonPrimary: "0 0 14px 0px #ff5d0073",
 			},
 			backgroundImage: {
-				"hero-section": 'url("/public/image/back-square.svg")',
-				checked: 'url("/public/image/check-input.svg")',
+				"hero-section": 'url("/public/images/back-square.svg")',
+				checked: 'url("/public/images/check-input.svg")',
 			},
 		},
 	},

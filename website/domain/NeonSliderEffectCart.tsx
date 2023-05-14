@@ -5,14 +5,13 @@ import { useRef } from "react";
 import "swiper/css";
 import "swiper/css/effect-cards";
 import { ArrowDropLeft, ArrowDropRight } from "react-huge-icons/outline";
-import { NeonSliderEffectCart } from "TYPES/domain/NeonSliderEffectCart";
+import { NeonSliderEffectCartType } from "TYPES/domain/NeonSliderEffectCart";
 SwiperCore.use([EffectCards, Navigation, Pagination]);
 
 export default function NeonSliderEffectCart({
 	dataSlides,
-}: NeonSliderEffectCart) {
+}: NeonSliderEffectCartType) {
 	const swiperRef = useRef<any>(null);
-	const bgList: string[] = ["bg-left", "bg-right", "bg-center"];
 	return (
 		!!dataSlides && (
 			<Swiper
@@ -22,7 +21,7 @@ export default function NeonSliderEffectCart({
 				onBeforeInit={swiper => {
 					swiperRef.current = swiper;
 				}}
-				className=" relativew-full font-thin h-[400px]">
+				className="relativew-full font-thin">
 				{!!dataSlides &&
 					dataSlides.map(({ id, content }) => (
 						<SwiperSlide
@@ -33,10 +32,8 @@ export default function NeonSliderEffectCart({
 									{id}
 								</span>
 								<div
-									className={`absolute w-full h-full inset-0 bg-body bg-no-repeat opacity-20 ${
-										bgList[Math.floor(Math.random() * 3)]
-									}`}></div>
-								<p>{content}</p>
+									className="absolute w-full h-full inset-0 bg-body bg-left bg-no-repeat opacity-60"></div>
+								<p className="text-sm leading-7 text-justify md:text-base md:leading-8 lg:text-lg lg:leading-10">{content}</p>
 							</div>
 						</SwiperSlide>
 					))}

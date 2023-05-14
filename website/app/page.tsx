@@ -1,8 +1,11 @@
+"use client";
 import NeonSliderEffectCart from "DOMAIN/NeonSliderEffectCart";
+import { http } from "SERVICES/HttpService";
 import { DataSliderType } from "TYPES/domain/NeonSliderEffectCart";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
 import { DirectionDownDouble } from "react-huge-icons/outline";
 
 export const metadata: Metadata = { title: "صفحه اصلی" };
@@ -45,22 +48,22 @@ export default function Home() {
 			</div>
 			<div
 				id="abbout-me"
-				className="flex flex-col justify-center gap-20 lg:gap-40 h-[100vh]">
+				className="flex flex-col justify-center gap-10 lg:gap-40 h-[100vh]">
 				<p className="flex flex-wrap gap-3 items-center justify-center font-semibold text-2xl lg:text-4xl">
 					<span>خلاصه کوتاهی از</span>
 					<span className="animate-color-text"> پیمان نادری</span>
 				</p>
-				<div className="flex flex-col items-center justify-center text-center gap-10 lg:flex-row">
-					<div className="w-full lg:w-1/2 px-12 lg:px-20">
+				<div className="flex flex-col-reverse flex-col items-center justify-center text-center gap-10 lg:flex-row">
+					<div className="w-full lg:w-1/2 px-6 lg:px-20">
 						<NeonSliderEffectCart dataSlides={dataSliderHome} />
 					</div>
-					<div className="hidden w-1/2 lg:flex items-center justify-center">
+					<div className="w-1/2 lg:flex items-center justify-center">
 						<Image
 							width={300}
 							height={300}
-							src="/image/peyman3.png"
+							src="/assets/images/peyman3.png"
 							alt="Peyman Naderi"
-							className="rounded-lg lg:w-[400px] opacity-60"
+							className="rounded-lg w-72 lg:w-[400px] opacity-60"
 						/>
 					</div>
 				</div>

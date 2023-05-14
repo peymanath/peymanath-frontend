@@ -1,11 +1,11 @@
-import "Public/style/globals.css";
+import "APP/globals.css";
 import type { Metadata } from "next";
 import Header from "DOMAIN/Header";
 import Footer from "DOMAIN/Footer";
 export const metadata: Metadata = {
 	viewport:
 		"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0",
-	icons: "image/favicon.png",
+	icons: "images/favicon.png",
 };
 
 export default function RootLayout({

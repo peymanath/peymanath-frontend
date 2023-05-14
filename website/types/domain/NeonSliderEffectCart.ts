@@ -1,4 +1,4 @@
-export type NeonSliderEffectCart = {
+export type NeonSliderEffectCartType = {
 	dataSlides: DataSliderType[];
 };
 export type DataSliderType = {

@@ -14,7 +14,7 @@ function ImageUploader({ formik, isEditPage = false }: ImageUploaderItem) {
 
 	const renderImage = useCallback(
 		(files: File) => {
-			if (!allowedFileType.includes(files.type.replace("image/", ""))) {
+			if (!allowedFileType.includes(files.type.replace("images/", ""))) {
 				return;
 			} else {
 				const reader = new FileReader();
@@ -107,7 +107,7 @@ function ImageUploader({ formik, isEditPage = false }: ImageUploaderItem) {
 						type="file"
 						name="thumbnail"
 						className="hidden"
-						accept={`/${allowedFileType.join(",image/")}`}
+						accept={`/${allowedFileType.join(",images/")}`}
 						onChange={inputUploader}
 						ref={uploderInput}
 					/>

@@ -4,7 +4,6 @@ module.exports = {
 	content: [
 		"./components/**/*.{js,ts,jsx,tsx,mdx}",
 		"./domain/**/*.{js,ts,jsx,tsx,mdx}",
-		"./database/**/*.{js,ts,jsx,tsx,mdx}",
 		"./app/**/*.{js,ts,jsx,tsx,mdx}",
 	],
 
@@ -30,7 +29,7 @@ module.exports = {
 				icon: "4px 8px 17px rgba(0, 0, 0, 0.2)",
 			},
 			backgroundImage: {
-				body: "url('/image/body-color.svg')",
+				body: "url('/assets/images/body-color.svg')",
 			},
 		},
 	},
