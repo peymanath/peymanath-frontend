@@ -1,5 +1,5 @@
 export type MenuListType = {
-  id: number;
-  title: string;
-  url: string;
+    id: number;
+    title: string;
+    url: string;
 };

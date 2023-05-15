@@ -1,7 +1,7 @@
 export type NeonSliderEffectCartType = {
-  dataSlides: DataSliderType[];
+    dataSlides: DataSliderType[];
 };
 export type DataSliderType = {
-  id: number;
-  content: string;
+    id: number;
+    content: string;
 };
