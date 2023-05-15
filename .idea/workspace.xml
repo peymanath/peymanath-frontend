@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="07e4a638-d543-4937-8367-ab064b730896" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/types/services.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/website/.eslintrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/.prettierignore" beforeDir="false" afterPath="$PROJECT_DIR$/website/.prettierignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/website/next.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/website/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/website/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/postcss.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/website/postcss.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/prettier.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/website/prettier.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/domain/NeonSliderEffectCart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/domain/NeonSliderEffectCart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/domain/SkillsSlider/SkillsItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/domain/SkillsSlider/SkillsItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/domain/SkillsSlider/SkillsSlider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/domain/SkillsSlider/SkillsSlider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/layout/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/layout/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/layout/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/layout/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/layout/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/pages/_document.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/pages/api/hello.ts" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/pages/api/hello.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/pages/project/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/pages/project/[id]/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/pages/project/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/pages/project/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/pages/project/skills/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/pages/project/skills/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/pages/project/skills/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/pages/project/skills/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/pages/skills/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/pages/skills/[id]/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/pages/skills/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/pages/skills/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/services/HttpService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/services/HttpService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/styles/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/styles/libraries/nprogress.css" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/styles/libraries/nprogress.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/types/domain/Header.ts" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/types/domain/Header.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/types/domain/NeonSliderEffectCart.ts" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/types/domain/NeonSliderEffectCart.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/website/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/website/tsconfig.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2PpmpyD12MeaYlNmOhjmZJDDBx9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="07e4a638-d543-4937-8367-ab064b730896" name="Changes" comment="" />
+      <created>1684162589950</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684162589950</updated>
+      <workItem from="1684162592972" duration="82000" />
+      <workItem from="1684163943074" duration="5000" />
+      <workItem from="1684167362465" duration="593000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -13,29 +13,5 @@ export default function SkillsSlider() {
             .catch(error => console.log(error));
     }, []);
 
-    return skills?.length === 0 ? (
-        <>
-            <div className='w-full flex flex-wrap items-center justify-between animate-pulse'>
-                <div className='relative w-20 h-20 rounded-lg bg-black/60 backdrop-blur-lg border border-gray-500/10'>
-                    <div className='absolute w-full h-full inset-0 bg-body bg-center bg-no-repeat'></div>
-                </div>
-                <div className='relative w-20 h-20 rounded-lg bg-black/60 backdrop-blur-lg border border-gray-500/10'>
-                    <div className='absolute w-full h-full inset-0 bg-body bg-center bg-no-repeat'></div>
-                </div>
-                <div className='relative w-20 h-20 rounded-lg bg-black/60 backdrop-blur-lg border border-gray-500/10'>
-                    <div className='absolute w-full h-full inset-0 bg-body bg-center bg-no-repeat'></div>
-                </div>
-                <div className='relative w-20 h-20 rounded-lg bg-black/60 backdrop-blur-lg border border-gray-500/10'>
-                    <div className='absolute w-full h-full inset-0 bg-body bg-center bg-no-repeat'></div>
-                </div>
-                <div className='relative w-20 h-20 rounded-lg bg-black/60 backdrop-blur-lg border border-gray-500/10'>
-                    <div className='absolute w-full h-full inset-0 bg-body bg-center bg-no-repeat'></div>
-                </div>
-            </div>
-        </>
-    ) : (
-        <>
-            <NeonSkillsSlider dataSlides={skills} />
-        </>
-    );
+    return <NeonSkillsSlider dataSlides={skills} />;
 }

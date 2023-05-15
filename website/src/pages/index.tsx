@@ -46,7 +46,7 @@ export default function Home() {
             </div>
             <div
                 id='about-me'
-                className='relative flex flex-col justify-center gap-10 lg:gap-32 h-[100vh]'>
+                className='relative flex flex-col justify-center gap-20 lg:gap-32 h-[100vh]'>
                 <p className='flex flex-wrap gap-3 items-center justify-center font-semibold text-2xl lg:text-4xl'>
                     <span>خلاصه کوتاهی از</span>
                     <span className='animate-color-text'> پیمان نادری</span>
@@ -55,7 +55,7 @@ export default function Home() {
                     <div className='w-full lg:w-1/2 px-6 lg:px-20'>
                         <NeonSliderEffectCart dataSlides={dataSliderHome} />
                     </div>
-                    <div className='w-1/2 lg:flex items-center justify-center'>
+                    <div className='hidden w-1/2 lg:flex items-center justify-center'>
                         <Image
                             width={300}
                             height={300}
