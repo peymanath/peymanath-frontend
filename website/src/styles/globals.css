@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./libraries/nprogress.css";
+
+@font-face {
+  font-family: IRANSansXFaNum;
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+  src: url('../../public/assets/fonts/IRANSansXFaNum-Regular.woff2');
+}
+
+@font-face { 
+  font-family: IRANSansXFaNum;
+  font-weight: 600;
+  font-style: normal;
+  font-display: fallback;
+  src: url('../../public/assets/fonts/IRANSansXFaNum-DemiBold.woff2');
+}
+
+@font-face {
+  font-family: IRANSansXFaNum;
+  font-weight: 100;
+  font-style: normal;
+  font-display: fallback;
+  src: url('../../public/assets/fonts/IRANSansXFaNum-Thin.woff2');
+}
+
+:root {
+  --primary: #ff6d00;
+  --primary-10: #ff6d0015;
+  --primary-50: #ff6d007e;
+  --secondary: #3c096c;
+}
+
+::-webkit-scrollbar {
+  @apply w-1.5;
+}
+
+::-webkit-scrollbar-track {
+  @apply rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/10 rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/20;
+}
+
+* {
+  @apply font-["IRANSansXFaNum"] scroll-smooth;
+}
+
+input {
+  @apply focus:outline-none focus-visible:outline-none focus:placeholder:text-transparent;
+}
+
+.animate-color-text,
+.animate-color-text-hover:hover {
+  background: linear-gradient(to right, var(--primary) 20%, #f7435e 40%, #d870a9 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: textShine 2s infinite alternate;
+  transition: all 300ms ease-in-out;
+}
+
+@keyframes textShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  color: #fff;
+  padding: 20px;
+}
+
+.swiper-button-disabled {
+  opacity: 0.1;
+}

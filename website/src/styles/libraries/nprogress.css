@@ -1,0 +1,6 @@
+
+@import 'nprogress/nprogress.css';
+
+#nprogress .bar {
+  background-color: var(--primary);
+}
