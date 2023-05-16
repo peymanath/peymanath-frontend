@@ -7,10 +7,20 @@ import { MenuLineHorizontal, RemoveThin } from 'react-huge-icons/outline';
 
 export default function Header() {
     const [showMenu, setShowMenu] = useState<boolean>(false);
+    const [scrolled, setScrolled] = useState<boolean>(false);
     const pathName = usePathname();
     useEffect(() => {
         setShowMenu(false);
     }, [pathName]);
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+            if (scrollPosition >= 50) setScrolled(true);
+            else setScrolled(false);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const menuList: MenuListType[] = [
         {
@@ -23,16 +33,17 @@ export default function Header() {
             title: 'مهارت ها',
             url: '/skills',
         },
-        {
-            id: 3,
-            title: 'پروژه ها',
-            url: '/project',
-        },
     ];
 
     return (
-        <div className='w-full fixed top-0 z-[999999]'>
-            <div className='container flex items-center justify-between py-10'>
+        <div
+            className={`w-full fixed top-0 z-[999999]${
+                scrolled ? ' bg-black/50 backdrop-blur' : ''
+            } duration-100`}>
+            <div
+                className={`container flex items-center justify-between${
+                    scrolled ? ' py-2 md:py-5' : ' py-5 md:py-10'
+                } duration-300`}>
                 <div className='md:hidden'>
                     <MenuLineHorizontal
                         className='w-12 h-12'

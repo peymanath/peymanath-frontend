@@ -14,7 +14,6 @@ export default function NeonSkillsSlider({ dataSlides }: NeonSkillsSliderType) {
             slidesPerView={1}
             spaceBetween={10}
             breakpoints={{
-
                 500: {
                     slidesPerView: 2,
                     spaceBetween: 20,
@@ -43,47 +42,47 @@ export default function NeonSkillsSlider({ dataSlides }: NeonSkillsSliderType) {
             {!!dataSlides && dataSlides?.length === 0 ? (
                 <>
                     <SwiperSlide>
-                        <div className='h-[344px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
+                        <div className='h-[253px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
                             <LoadingsImageText />
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className='h-[344px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
+                        <div className='h-[253px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
                             <LoadingsImageText />
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className='h-[344px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
+                        <div className='h-[253px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
                             <LoadingsImageText />
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className='h-[344px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
+                        <div className='h-[253px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
                             <LoadingsImageText />
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className='h-[344px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
+                        <div className='h-[253px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
                             <LoadingsImageText />
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className='h-[344px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
+                        <div className='h-[253px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
                             <LoadingsImageText />
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className='h-[344px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
+                        <div className='h-[253px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
                             <LoadingsImageText />
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className='h-[344px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
+                        <div className='h-[253px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
                             <LoadingsImageText />
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className='h-[344px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
+                        <div className='h-[253px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
                             <LoadingsImageText />
                         </div>
                     </SwiperSlide>

@@ -1,14 +1,15 @@
 {
-    "name": "website2",
-    "version": "0.1.0",
+    "name": "peymanath.ir",
+    "version": "0.1.2",
     "private": true,
     "scripts": {
         "dev": "next dev",
-        "build": "next build",
+        "build": "next build && next export",
         "start": "next start",
         "lint": "next lint",
         "format": "npx prettier --write .",
-        "format:check": "npx prettier --check ."
+        "format:check": "npx prettier --check .",
+        "deploy": "npm run build && npm run format && liara deploy --path out"
     },
     "dependencies": {
         "@nextui-org/react": "^1.0.0-beta.12",
@@ -22,7 +23,6 @@
         "eslint-config-next": "13.4.2",
         "next": "13.4.2",
         "next-optimized-images": "^2.6.2",
-        "next13-nprogress": "^0.0.6",
         "nprogress": "^0.2.0",
         "postcss": "8.4.23",
         "react": "18.2.0",

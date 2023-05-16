@@ -6,7 +6,6 @@ export default function SkillsSliderSlide({ dataSkille }: any) {
     const imageData = dataSkille?.thumbnail.data?.attributes;
     return (
         <div className='flex flex-col gap-10 justify-between w-full h-full font-thin'>
-
             <div className='absolute w-full h-full inset-0 bg-body bg-center bg-no-repeat opacity-60 -z-[999]'></div>
 
             <div className='w-full flex gap-3 items-center justify-center'>
@@ -15,7 +14,7 @@ export default function SkillsSliderSlide({ dataSkille }: any) {
                         width={imageData.width}
                         height={imageData.height}
                         src={`https://api.peymanath.ir${imageData.url}`}
-                        alt={imageData.alternativeText}
+                        alt={imageData?.alternativeText || `لوگو مهارت ${dataSkille.titleEn}`}
                         className='w-32 h-auto p-4'
                     />
                 )}

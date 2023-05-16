@@ -1,8 +1,6 @@
-const withOptimizedImages = require('next-optimized-images');
-
-module.exports = withOptimizedImages({
+module.exports = {
     images: {
         domains: ['peymanath.ir'],
         unoptimized: true,
     },
-});
+};
