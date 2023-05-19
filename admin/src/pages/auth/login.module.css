@@ -1,7 +1,0 @@
-.image {
-	-webkit-mask-image: radial-gradient(
-		circle,
-		rgba(255, 255, 255, 1) 0%,
-		rgba(255, 255, 255, 0.1) 50%
-	);
-}
