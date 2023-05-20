@@ -1,4 +1,4 @@
-import NeonSkillsSlider from 'DOMAIN/NeonSkillsSlider';
+import SkillsSlider from 'DOMAIN/SkillsSlider';
 import {ProjectsResponseDataItem} from 'TYPES/pages/Pages';
 import { useEffect, useState } from 'react';
 import GetProjectsRequest from "SERVICES/projects/GetProjects";

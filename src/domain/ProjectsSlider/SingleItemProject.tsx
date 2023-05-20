@@ -31,8 +31,8 @@ export default function ProjectsSliderSlide({dataProject}: ProjectsListItemSlide
 
                 <div className='w-full flex flex-wrap gap-3 items-center justify-center'>
                     {
-                        dataProject.desc &&
-                        <p className="text-center">{dataProject.desc.substring(0, 150) + (dataProject.desc.length > 150 && " ...")}</p>
+                        !!dataProject.desc &&
+                        <p className="text-center">{dataProject.desc.substring(0, 150) + (dataProject.desc.length > 150 ? " ..." : "")}</p>
 
                     }
                 </div>
@@ -44,11 +44,8 @@ export default function ProjectsSliderSlide({dataProject}: ProjectsListItemSlide
                     {dataProject.developing ? "در حال توسعه" : "اتمام توسعه"}
                 </span>
                         {
-                            !!category &&
-                            <span
-                                className="py-2 px-5 font-bold rounded-md text-xs bg-blue-50 text-blue-800">
-                    {category}
-                    </span>
+                            !!category && <span
+                                className="py-2 px-5 font-bold rounded-md text-xs bg-blue-50 text-blue-800">{category}</span>
                         }
                     </div>
 
@@ -73,12 +70,8 @@ export default function ProjectsSliderSlide({dataProject}: ProjectsListItemSlide
                                 </Link>
                             </Tooltip>
                         }
-
                     </div>
-
                 </div>
-
-
             </div>
         </div>
     );
