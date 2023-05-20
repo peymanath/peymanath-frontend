@@ -9,10 +9,7 @@ export default function ProjectsSliderFetching() {
     useEffect(() => {
         GetProjectsRequest()
             .then(res => {
-                setTimeout(() => {
-
-                    setProjects(res?.data);
-                }, 4000)
+                setProjects(res?.data);
             })
             .catch(error => console.log(error));
     }, []);
