@@ -1,9 +1,9 @@
-import { SkillsResponseDataItem } from 'TYPES/pages/Pages';
+import { ProjectsResponseDataItem } from 'TYPES/pages/Pages';
 
-export type SkillsSliderType = {
-    dataSlides: SkillsResponseDataItem[] | undefined;
+export type ProjectsSliderType = {
+    dataSlides: ProjectsResponseDataItem[] | undefined;
 };
-export type DataSkillsSliderType = {
+export type DataProjectsSliderType = {
     id: number;
     content: string;
 };

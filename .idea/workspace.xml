@@ -6,15 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="07e4a638-d543-4937-8367-ab064b730896" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/ProjectsSlider/ProjectsSliderSlide.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/ProjectsSlider/ProjectsSliderSlide.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/SkillsSlider/SkillsSlider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/SkillsSlider/SkillsSlider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/SkillsSlider/SkillsSliderSlide.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/SkillsSlider/SkillsSliderSlide.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Loadings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Loadings.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/ProjectsSlider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/ProjectsSlider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/ProjectsSlider/ProjectsSliderFetching.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/ProjectsSlider/ProjectsSliderFetching.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/ProjectsSlider/SingleItemProject.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/ProjectsSlider/SingleItemProject.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/SkillsSlider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/SkillsSlider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/SkillsSlider/SingleSkill.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/SkillsSlider/SingleSkill.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/SkillsSlider/SkillsSliderFetching.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/SkillsSlider/SkillsSliderFetching.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/projects/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/projects/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/skills/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/skills/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/libraries/nprogress.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/libraries/nprogress.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/domain/ProjectsSliderType.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/domain/ProjectsSliderType.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/domain/SkillsSliderType.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/domain/SkillsSliderType.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,25 +40,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Work/PeymanATH/Next Site/peymanath/website/src/domain&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\Work\\PeymanATH\\Next Site\\peymanath\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Work\\PeymanATH\\Next Site\\peymanath\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Work/PeymanATH/Next Site/peymanath/src/types/domain",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "D:\\Work\\PeymanATH\\Next Site\\peymanath\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "ts.external.directory.path": "D:\\Work\\PeymanATH\\Next Site\\peymanath\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -64,6 +69,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Work\PeymanATH\Next Site\peymanath\src\types\domain" />
+      <recent name="D:\Work\PeymanATH\Next Site\peymanath\src\domain" />
       <recent name="D:\Work\PeymanATH\Next Site\peymanath\website\src\domain" />
     </key>
   </component>
@@ -83,7 +90,8 @@
       <workItem from="1684223599357" duration="21641000" />
       <workItem from="1684304615669" duration="484000" />
       <workItem from="1684486379661" duration="22018000" />
-      <workItem from="1684580934692" duration="994000" />
+      <workItem from="1684580934692" duration="2577000" />
+      <workItem from="1684587166694" duration="4916000" />
     </task>
     <servers />
   </component>

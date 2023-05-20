@@ -1,17 +1,21 @@
 import SkillsSlider from 'DOMAIN/SkillsSlider';
 import {ProjectsResponseDataItem} from 'TYPES/pages/Pages';
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import GetProjectsRequest from "SERVICES/projects/GetProjects";
+import ProjectsSlider from "DOMAIN/ProjectsSlider";
 
-export default function ProjectsSlider() {
-    const [skills, setSkills] = useState<ProjectsResponseDataItem[] | undefined>([]);
+export default function ProjectsSliderFetching() {
+    const [projects, setProjects] = useState<ProjectsResponseDataItem[] | undefined>([]);
     useEffect(() => {
         GetProjectsRequest()
             .then(res => {
-                setSkills(res?.data);
+                setTimeout(() => {
+
+                    setProjects(res?.data);
+                }, 4000)
             })
             .catch(error => console.log(error));
     }, []);
 
-    return <></>;
+    return <ProjectsSlider dataSlides={projects}/>;
 }

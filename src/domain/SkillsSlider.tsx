@@ -2,13 +2,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay, Navigation, Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { NeonSkillsSliderType } from 'TYPES/domain/NeonSkillsSlider';
+import { SkillsSliderType } from 'TYPES/domain/SkillsSliderType';
 import { SkillsResponseDataItem } from 'TYPES/pages/Pages';
-import SkillsSliderSlide from './SkillsSlider/SkillsSliderSlide';
+import SingleSkill from './SkillsSlider/SingleSkill';
 import { LoadingsImageText } from 'COMPONENTS/Loadings';
 SwiperCore.use([Autoplay, Navigation, Pagination]);
 
-export default function NeonSkillsSlider({ dataSlides }: NeonSkillsSliderType) {
+export default function SkillsSlider({ dataSlides }: SkillsSliderType) {
     return (
         <Swiper
             slidesPerView={1}
@@ -32,7 +32,7 @@ export default function NeonSkillsSlider({ dataSlides }: NeonSkillsSliderType) {
                 },
             }}
             autoplay={{
-                delay: 1000,
+                delay: 2500,
             }}
             noSwiping={dataSlides?.length === 0}
             noSwipingClass='swiper'
@@ -42,47 +42,47 @@ export default function NeonSkillsSlider({ dataSlides }: NeonSkillsSliderType) {
             {!!dataSlides && dataSlides?.length === 0 ? (
                 <>
                     <SwiperSlide>
-                        <div className='h-[253px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
+                        <div className='h-[233px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
                             <LoadingsImageText />
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className='h-[253px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
+                        <div className='h-[233px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
                             <LoadingsImageText />
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className='h-[253px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
+                        <div className='h-[233px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
                             <LoadingsImageText />
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className='h-[253px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
+                        <div className='h-[233px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
                             <LoadingsImageText />
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className='h-[253px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
+                        <div className='h-[233px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
                             <LoadingsImageText />
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className='h-[253px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
+                        <div className='h-[233px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
                             <LoadingsImageText />
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className='h-[253px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
+                        <div className='h-[233px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
                             <LoadingsImageText />
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className='h-[253px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
+                        <div className='h-[233px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
                             <LoadingsImageText />
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className='h-[253px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
+                        <div className='h-[233px] bg-black/60 backdrop-blur-lg border border-gray-500/50 p-5 leading-10 rounded-lg'>
                             <LoadingsImageText />
                         </div>
                     </SwiperSlide>
@@ -93,7 +93,7 @@ export default function NeonSkillsSlider({ dataSlides }: NeonSkillsSliderType) {
                     <SwiperSlide
                         key={id}
                         className='!h-auto bg-black/10 backdrop-blur border border-gray-500/50 py-5 px-7 leading-10 rounded-lg select-none'>
-                        <SkillsSliderSlide dataSkille={attributes} />
+                        <SingleSkill dataSkille={attributes} />
                     </SwiperSlide>
                 ))
             )}

@@ -1,9 +1,9 @@
-import NeonSkillsSlider from 'DOMAIN/NeonSkillsSlider';
+import SkillsSlider from 'DOMAIN/SkillsSlider';
 import GetSkillsRequest from 'SERVICES/skills/GetSkills';
 import { SkillsResponseDataItem } from 'TYPES/pages/Pages';
 import { useEffect, useState } from 'react';
 
-export default function SkillsSlider() {
+export default function SkillsSliderFetching() {
     const [skills, setSkills] = useState<SkillsResponseDataItem[] | undefined>([]);
     useEffect(() => {
         GetSkillsRequest()
@@ -13,5 +13,5 @@ export default function SkillsSlider() {
             .catch(error => console.log(error));
     }, []);
 
-    return <NeonSkillsSlider dataSlides={skills} />;
+    return <SkillsSlider dataSlides={skills} />;
 }

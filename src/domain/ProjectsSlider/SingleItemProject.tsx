@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import {Bookmark, ClipboardList, MailBox, View} from 'react-huge-icons/outline';
+import {Bookmark, View} from 'react-huge-icons/outline';
 import {Tooltip} from '@nextui-org/react';
 import {ProjectsListItemSlide} from "TYPES/pages/Pages";
 import Link from "next/link";
 
-export default function ProjectsSliderSlide({dataProject}: ProjectsListItemSlide) {
+export default function SingleItemProject({dataProject}: ProjectsListItemSlide) {
     const imageData = dataProject?.thumbnail.data?.attributes;
     const category: String = (dataProject.project_categories.data.length > 0 && dataProject.project_categories.data[0].attributes.title) || ""
     return (
@@ -40,12 +40,12 @@ export default function ProjectsSliderSlide({dataProject}: ProjectsListItemSlide
                 <div className="flex flex-wrap items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
                 <span
-                    className={`py-2 px-5 font-bold rounded-md text-xs ${dataProject.developing ? "bg-yellow-50 text-yellow-800" : "bg-green-50 text-green-800"}`}>
+                    className={`py-1 px-3 font-bold rounded-md text-xs ${dataProject.developing ? "bg-yellow-50 text-yellow-800" : "bg-green-50 text-green-800"}`}>
                     {dataProject.developing ? "در حال توسعه" : "اتمام توسعه"}
                 </span>
                         {
                             !!category && <span
-                                className="py-2 px-5 font-bold rounded-md text-xs bg-blue-50 text-blue-800">{category}</span>
+                                className="py-1 px-3 font-bold rounded-md text-xs bg-blue-50 text-blue-800">{category}</span>
                         }
                     </div>
 

@@ -1,9 +1,9 @@
 import { SkillsResponseDataItem } from 'TYPES/pages/Pages';
 
-export type NeonSkillsSliderType = {
+export type SkillsSliderType = {
     dataSlides: SkillsResponseDataItem[] | undefined;
 };
-export type DataNeonSkillsSliderType = {
+export type DataSkillsSliderType = {
     id: number;
     content: string;
 };

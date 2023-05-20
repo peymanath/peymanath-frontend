@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { ClipboardList, MailBox } from 'react-huge-icons/outline';
 import { Tooltip } from '@nextui-org/react';
 
-export default function SkillsSliderSlide({ dataSkille }: any) {
+export default function SingleSkill({ dataSkille }: any) {
     const imageData = dataSkille?.thumbnail.data?.attributes;
     return (
         <div className='flex flex-col gap-10 justify-between w-full h-full font-thin'>

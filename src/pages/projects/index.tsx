@@ -1,17 +1,16 @@
 import {Layers} from 'react-huge-icons/outline';
-import ProjectsSliderSlide from 'DOMAIN/ProjectsSlider/ProjectsSliderSlide';
-import {ProjectsResponseDataItem} from 'TYPES/pages/Pages';
+import ProjectsSliderFetching from 'DOMAIN/ProjectsSlider/SingleItemProject';
+import {ProjectsResponseDataItem, SkillsResponseDataItem} from 'TYPES/pages/Pages';
 import {useEffect, useState} from 'react';
 import GetProjectsRequest from "SERVICES/projects/GetProjects";
 import Head from "next/head";
 import GetSkillsRequest from "SERVICES/skills/GetSkills";
 
-export default function Projects() {
-    const [projectsList, setProjectssList] = useState<ProjectsResponseDataItem[] | null>(null);
+interface SkillsSliderInterface {
+    projectsList: ProjectsResponseDataItem[] | undefined
+}
 
-    useEffect(() => {
-        GetProjectsRequest().then(res => setProjectssList(res?.data || []));
-    }, []);
+export default function Projects({projectsList}: SkillsSliderInterface) {
 
     return (
         <>
@@ -50,29 +49,24 @@ export default function Projects() {
                     <h1 className='font-semibold text-xl'>پروژه ها</h1>
                 </div>
 
-                {!!projectsList ? (
-                    projectsList.length > 0 ? (
-                        <div className='flex flex-wrap'>
-                            {projectsList.map(({id, attributes}: ProjectsResponseDataItem) => (
-                                <div key={id} className="!h-auto flex w-full sm:w-1/2 md:w-1/3 p-3">
-                                    <div
-                                        className='!h-auto w-full bg-black/10 backdrop-blur border border-gray-500/50 p-5 leading-10 rounded-lg select-none'>
-                                        <ProjectsSliderSlide dataProject={attributes}/>
-                                    </div>
+                {!!projectsList && projectsList.length > 0 ? (
+                    <div className='flex flex-wrap'>
+                        {projectsList.map(({id, attributes}: ProjectsResponseDataItem) => (
+                            <div key={id} className="!h-auto flex w-full sm:w-1/2 md:w-1/3 p-3">
+                                <div
+                                    className='!h-auto w-full bg-black/10 backdrop-blur border border-gray-500/50 p-5 leading-10 rounded-lg select-none'>
+                                    <ProjectsSliderFetching dataProject={attributes}/>
                                 </div>
-                            ))}
-                        </div>
-                    ) : (
-                        <div
-                            className='!h-auto bg-black/10 backdrop-blur border border-gray-500/50 py-5 px-7 leading-10 rounded-lg select-none text-center'>
-                            <p>مهارتی یافت نشد :(</p>
-                        </div>
-                    )
+                            </div>
+                        ))}
+                    </div>
                 ) : (
-                    <p className='flex flex-wrap gap-3 items-center justify-center font-semibold text-2xl lg:text-4xl'>
-                        <span className='animate-color-text'>... Loading</span>
-                    </p>
-                )}
+                    <div
+                        className='!h-auto bg-black/10 backdrop-blur border border-gray-500/50 py-5 px-7 leading-10 rounded-lg select-none text-center'>
+                        <p>مهارتی یافت نشد :(</p>
+                    </div>
+                )
+                }
             </div>
         </>
     );
