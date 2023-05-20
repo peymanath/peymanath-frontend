@@ -4,22 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07e4a638-d543-4937-8367-ab064b730896" name="Changes" comment="">
+    <list default="true" id="07e4a638-d543-4937-8367-ab064b730896" name="Changes" comment="Updateing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Loadings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Loadings.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/domain/ProjectsSlider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/ProjectsSlider.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/domain/ProjectsSlider/ProjectsSliderFetching.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/ProjectsSlider/ProjectsSliderFetching.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/domain/ProjectsSlider/SingleItemProject.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/ProjectsSlider/SingleItemProject.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/SkillsSlider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/SkillsSlider.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/domain/SkillsSlider/SingleSkill.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/SkillsSlider/SingleSkill.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/SkillsSlider/SkillsSliderFetching.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/SkillsSlider/SkillsSliderFetching.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/projects/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/projects/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/skills/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/skills/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/projects/GetProjects.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/projects/GetProjects.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/libraries/nprogress.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/libraries/nprogress.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/domain/ProjectsSliderType.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/domain/ProjectsSliderType.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/domain/SkillsSliderType.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/domain/SkillsSliderType.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/pages/Pages.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/pages/Pages.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,11 +90,22 @@
       <workItem from="1684304615669" duration="484000" />
       <workItem from="1684486379661" duration="22018000" />
       <workItem from="1684580934692" duration="2577000" />
-      <workItem from="1684587166694" duration="4916000" />
+      <workItem from="1684587166694" duration="6496000" />
     </task>
+    <task id="LOCAL‎−۰۰۰۰۱" summary="Updateing">
+      <created>1684594995772</created>
+      <option name="number" value="LOCAL‎−۰۰۰۰۱" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۰۱" />
+      <updated>1684594995772</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Updateing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updateing" />
   </component>
 </project>

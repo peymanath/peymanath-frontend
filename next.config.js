@@ -1,7 +1,6 @@
 module.exports = {
     images: {
-        domains: ['peymanath.ir' , 'peymannaderi.ir'],
+        domains: ['peymanath.ir', 'peymannaderi.ir'],
         unoptimized: true,
     },
 };
-

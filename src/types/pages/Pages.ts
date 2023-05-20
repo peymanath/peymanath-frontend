@@ -18,10 +18,10 @@ export interface ImageResponse {
 
 // Project
 export interface ProjectsCategoryListItem {
-    createdAt: Date
-    publishedAt: Date
-    updatedAt: Date
-    title: string
+    createdAt: Date;
+    publishedAt: Date;
+    updatedAt: Date;
+    title: string;
 }
 
 export interface ProjectsCategoryResponseDataItem {
@@ -34,22 +34,22 @@ export interface ProjectsListItem {
     publishedAt: Date;
     updatedAt: Date;
     title: string;
-    slug: string
+    slug: string;
     desc: string;
-    sourceUrl: string
-    previewUrl: string
-    developing: boolean
-    metaTitle: string
-    metaDescription: string
+    sourceUrl: string;
+    previewUrl: string;
+    developing: boolean;
+    metaTitle: string;
+    metaDescription: string;
     metaImage: {
-        data: ImageResponse
-    }
+        data: ImageResponse;
+    };
     project_categories: {
-        data: ProjectsCategoryResponseDataItem[]
-    }
+        data: ProjectsCategoryResponseDataItem[];
+    };
     skills: {
-        data: SkillsResponseDataItem[]
-    }
+        data: SkillsResponseDataItem[];
+    };
     thumbnail: {
         data: ImageResponse;
     };
@@ -76,7 +76,7 @@ export interface ProjectsResponseData {
 }
 
 export interface ProjectsListItemSlide {
-    dataProject: ProjectsListItem
+    dataProject: ProjectsListItem;
 }
 
 // Skill

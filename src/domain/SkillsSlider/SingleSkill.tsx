@@ -42,7 +42,7 @@ export default function SingleSkill({ dataSkille }: any) {
                         <div className='flex gap-1 items-center w-full h-full'>
                             <ClipboardList className='w-5 h-5 text-primary' />
                             <span className='font-light pt-1'>
-                                {dataSkille.skill_projects.data.length }
+                                {dataSkille.skill_projects.data.length}
                             </span>
                         </div>
                     </Tooltip>
