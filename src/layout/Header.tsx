@@ -101,6 +101,7 @@ export default function Header() {
                         height='24'
                         src='/assets/images/color-logo.png'
                         alt='Peyman ATH Logo'
+                        title='لوگو پیمان نادری، حروف اول اسم "پیمان" با کد رنگی #ff6d00'
                         className='w-12'
                     />
                 </div>

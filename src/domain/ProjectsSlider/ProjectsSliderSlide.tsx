@@ -16,7 +16,7 @@ export default function ProjectsSliderSlide({dataProject}: ProjectsListItemSlide
                     <Image
                         width={imageData.width}
                         height={imageData.height}
-                        src={`https://api.peymanath.ir${imageData.url}`}
+                        src={`${process.env.NEXT_PUBLIC_BASEURL}${imageData.url}`}
                         alt={imageData?.alternativeText || `عکس پروژه ${dataProject.title}`}
                         className='rounded-lg w-full h-full'
                     />

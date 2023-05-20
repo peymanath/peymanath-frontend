@@ -1,9 +1,6 @@
 import SkillsSlider from 'DOMAIN/SkillsSlider/SkillsSlider';
-import { Metadata } from 'next';
 import Link from 'next/link';
 import { DirectionDownDouble } from 'react-huge-icons/outline';
-
-export const metadata: Metadata = { title: 'صفحه اصلی' };
 const dataSliderHome: string =
     'سال 1401 بود که برای سایت خودم سئو یاد گرفتم و از همانجا بود علاقمند به حوزه وب شدم و از Css و Html شروع کردم به یاد گیری و هم راستا با این هسته وردپرس رو شروع کردم به اموزش دیدن. برای درک بهتر PHP رو هم شروع کردم به اموزش دیدن. در این بین من بهینه سازی قالب های وردپرسی انجام میدادم و میدم.  اینجا بود برای یکی از سایت های من قالب اختصاصی برای یک سایت شرکتی/فروشگاهی طراحی کردم با کتابخانه TailwinsCss و بک اند ان هم وردپرس بود. هم راستا با تمامی این موضوع ها من JavaScript رو شروع کرده بودم و بعد این قالب تصمیم گرفتم یک کار جالب بکنم.خواستم مسیر FrontEnd رو ادامه بدم و ReactJs رو آموزش دیدم و کم کم به سمت NextJs هدایت شدم و الان یک نیروی Junior Front-End Developer هستم. خوشحال میشم با شرکت ها و تیم های مختلف همکاری کنم.';
 export default function Home() {

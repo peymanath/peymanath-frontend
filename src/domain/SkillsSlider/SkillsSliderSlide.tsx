@@ -13,15 +13,16 @@ export default function SkillsSliderSlide({ dataSkille }: any) {
                     <Image
                         width={imageData.width}
                         height={imageData.height}
-                        src={`https://api.peymanath.ir${imageData.url}`}
+                        src={`${process.env.NEXT_PUBLIC_BASEURL}${imageData.url}`}
                         alt={imageData?.alternativeText || `لوگو مهارت ${dataSkille.titleEn}`}
+                        title={imageData?.alternativeText || `لوگو مهارت ${dataSkille.titleEn}`}
                         className='w-20 h-auto rounded-lg'
                     />
                 )}
             </div>
 
             <div className='w-full flex flex-wrap gap-3 items-center justify-between'>
-                <div>{dataSkille.titleEn}</div>
+                <h2>{dataSkille.titleEn}</h2>
                 <div className='flex flex-wrap gap-5 justify-between'>
                     <Tooltip
                         content={`تعداد توصیه های مهارت ${dataSkille.titleEn}`}

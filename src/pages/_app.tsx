@@ -19,6 +19,10 @@ export default function App({ Component, pageProps }: AppProps) {
                     name='description'
                     content='توسعه دهنده فرانت اند با انگیزه از سایت من دیدن کنید :) | FrontEnd Developer'
                 />
+                <link
+                    rel='canonical'
+                    href='https://peymanath.ir/'
+                />
                 <meta charSet='utf-8' />
                 <meta
                     name='viewport'
@@ -72,10 +76,6 @@ export default function App({ Component, pageProps }: AppProps) {
                 <meta
                     property='og:url'
                     content='https://peymanath.ir'
-                />
-                <link
-                    rel='canonical'
-                    href='https://peymanath.ir/'
                 />
                 <meta
                     property='twitter:card'
